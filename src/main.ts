@@ -1,8 +1,6 @@
-import './assets/main.css'
-import './assets/full.min.css'
-
 import { createApp } from 'vue'
 import App from './App.vue'
-import components from '@/components'
+import UI from './release'
+import './assets/global.css'
 
-createApp(App).use(components).mount('#app')
+createApp(App).use(UI).mount('#app')

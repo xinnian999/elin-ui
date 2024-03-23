@@ -1,7 +1,7 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import UI from '../../../dist/funny-ui'
-// import '../../../dist/style.css'
+import '../../../dist/style.css'
 
 export default {
   extends: DefaultTheme,
