@@ -17,5 +17,12 @@
       <f-button type="warning" outline>点我吧</f-button>
       <f-button type="error" outline>点我吧</f-button>
     </f-space>
+
+    <f-space>
+      <f-button size="large">点我吧</f-button>
+      <f-button size="default">点我吧</f-button>
+      <f-button size="small">点我吧</f-button>
+      <f-button size="tiny">点我吧</f-button>
+    </f-space>
   </f-space>
 </template>
