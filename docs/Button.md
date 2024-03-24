@@ -2,7 +2,7 @@
 
 常用的操作按钮。
 
-## 基础用法
+## 基础按钮
 
 <f-space>
   <f-button>Default</f-button>
@@ -54,6 +54,17 @@
 
 :::
 
+## 圆形按钮
+
+ <f-space>
+      <f-button circle>点</f-button>
+      <f-button type="primary" circle>点</f-button>
+      <f-button type="success" circle>点</f-button>
+      <f-button type="info" circle>点</f-button>
+      <f-button type="warning" circle>点</f-button>
+      <f-button type="error" circle>点</f-button>
+ </f-space>
+
 ## 不同大小
 
   <f-space>
@@ -75,3 +86,7 @@
 ```
 
 :::
+
+## 禁用状态
+
+<f-button disabled>Default</f-button>

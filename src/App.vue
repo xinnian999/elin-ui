@@ -24,5 +24,29 @@
       <f-button size="small">点我吧</f-button>
       <f-button size="tiny">点我吧</f-button>
     </f-space>
+
+    <f-space>
+      <f-button circle>点我吧</f-button>
+      <f-button type="primary" circle>点我吧</f-button>
+      <f-button type="success" circle>点我吧</f-button>
+      <f-button type="info" circle>点我吧</f-button>
+      <f-button type="warning" circle>点我吧</f-button>
+      <f-button type="error" circle>点我吧</f-button>
+    </f-space>
+
+    <f-space>
+      <f-button disabled>点我吧</f-button>
+      <f-button type="primary" outline disabled @click="click">点我吧</f-button>
+      <f-button type="success" disabled>点我吧</f-button>
+      <f-button type="info" disabled>点我吧</f-button>
+      <f-button type="warning" disabled>点我吧</f-button>
+      <f-button type="error" disabled>点我吧</f-button>
+    </f-space>
   </f-space>
 </template>
+
+<script setup lang="ts">
+const click = () => {
+  console.log(9999)
+}
+</script>

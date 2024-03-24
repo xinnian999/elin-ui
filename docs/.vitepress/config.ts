@@ -14,7 +14,10 @@ export default defineConfig({
     sidebar: [
       {
         text: '基础组件',
-        items: [{ text: 'Button', link: '/Button' }]
+        items: [
+          { text: 'Button 按钮', link: '/Button' },
+          { text: 'Space 间距', link: '/Space' }
+        ]
       }
     ],
 
