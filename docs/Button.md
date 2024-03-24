@@ -57,13 +57,46 @@
 ## 圆形按钮
 
  <f-space>
-      <f-button circle>点</f-button>
-      <f-button type="primary" circle>点</f-button>
-      <f-button type="success" circle>点</f-button>
-      <f-button type="info" circle>点</f-button>
-      <f-button type="warning" circle>点</f-button>
-      <f-button type="error" circle>点</f-button>
+      <f-button circle><f-icon name="delete" /></f-button>
+      <f-button type="primary" circle><f-icon name="delete" /></f-button>
+      <f-button type="success" circle><f-icon name="delete" /></f-button>
+      <f-button type="info" circle><f-icon name="delete" /></f-button>
+      <f-button type="warning" circle><f-icon name="delete" /></f-button>
+      <f-button type="error" circle><f-icon name="delete" /></f-button>
  </f-space>
+
+::: details 查看代码
+
+```html
+<f-space>
+  <f-button circle><f-icon name="delete" /></f-button>
+  <f-button type="primary" circle><f-icon name="delete" /></f-button>
+  <f-button type="success" circle><f-icon name="delete" /></f-button>
+  <f-button type="info" circle><f-icon name="delete" /></f-button>
+  <f-button type="warning" circle><f-icon name="delete" /></f-button>
+  <f-button type="error" circle><f-icon name="delete" /></f-button>
+</f-space>
+```
+
+:::
+
+## 图标按钮
+
+<f-space>
+<f-button type="error"><f-icon name="delete" />删除</f-button>
+<f-button type="error">删除<f-icon name="delete" /></f-button>
+</f-space>
+
+::: details 查看代码
+
+```html
+<f-space>
+  <f-button type="error"><f-icon name="delete" />删除</f-button>
+  <f-button type="error">删除<f-icon name="delete" /></f-button>
+</f-space>
+```
+
+:::
 
 ## 不同大小
 
@@ -90,3 +123,11 @@
 ## 禁用状态
 
 <f-button disabled>Default</f-button>
+
+::: details 查看代码
+
+```html
+<f-button disabled>Default</f-button>
+```
+
+:::

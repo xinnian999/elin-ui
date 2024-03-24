@@ -1,8 +1,9 @@
 <template>
   <f-space direction="vertical">
+    <f-icon name="delete" />
     <f-space>
       <f-button>点我吧</f-button>
-      <f-button type="primary">点我吧</f-button>
+      <f-button type="primary"><f-icon name="delete" /> 点我吧</f-button>
       <f-button type="success">点我吧</f-button>
       <f-button type="info">点我吧</f-button>
       <f-button type="warning">点我吧</f-button>
