@@ -1,5 +1,5 @@
 import type { App } from 'vue'
-import Button from './Button.vue'
+import Button from './Button/index.vue'
 import Space from './Space.vue'
 
 export default (app: App) => {
