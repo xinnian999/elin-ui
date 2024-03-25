@@ -1,6 +1,6 @@
 export const typeCalss: any = {
   default: '',
-  primary: 'primary',
+  primary: 'funny-btn-primary',
   success: 'funny-btn-success',
   info: 'funny-btn-info',
   warning: 'funny-btn-warning',

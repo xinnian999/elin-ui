@@ -98,6 +98,24 @@
 
 :::
 
+## 幽灵按钮
+
+<f-space>
+  <f-button ghost>ghost</f-button>
+  <f-button ghost><f-icon name="plus" />新增</f-button>
+</f-space>
+
+::: details 查看代码
+
+```html
+<f-space>
+  <f-button ghost>ghost</f-button>
+  <f-button ghost><f-icon name="plus" />新增</f-button>
+</f-space>
+```
+
+:::
+
 ## 不同大小
 
   <f-space>
