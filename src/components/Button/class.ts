@@ -1,15 +1,15 @@
 export const typeCalss: any = {
   default: '',
-  primary: 'btn-primary',
-  success: 'btn-success',
-  info: 'btn-info',
-  warning: 'btn-warning',
-  error: 'btn-error'
+  primary: 'primary',
+  success: 'funny-btn-success',
+  info: 'funny-btn-info',
+  warning: 'funny-btn-warning',
+  error: 'funny-btn-error'
 }
 
 export const sizeclass: any = {
   default: '',
-  large: 'btn-lg',
-  small: 'btn-sm',
-  tiny: 'btn-xs'
+  large: 'funny-btn-lg',
+  small: 'funny-btn-sm',
+  tiny: 'funny-btn-xs'
 }

@@ -18,17 +18,17 @@ const props = withDefaults(
 )
 
 const classNames = computed(() => ({
-  btn: true,
-  'btn-outline': props.outline,
+  'funny-btn': true,
+  'funny-btn-outline': props.outline,
   [typeCalss[props.type]]: true,
   [sizeclass[props.size]]: true,
-  'btn-circle': props.circle,
-  'btn-disabled': props.disabled
+  'funny-btn-circle': props.circle,
+  'funny-btn-disabled': props.disabled
 }))
 </script>
 
 <style>
-.btn-outline {
+.funny-btn-outline {
   border: 1px solid;
 }
 </style>
