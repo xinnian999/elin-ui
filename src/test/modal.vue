@@ -1,6 +1,6 @@
 <template>
-  <f-modal v-model="visible" />
-  <f-button @click="visible = true">打开modal</f-button>
+  <ev-modal v-model="visible" />
+  <ev-button @click="visible = true">打开modal</ev-button>
 </template>
 
 <script setup lang="ts">

@@ -1,8 +1,14 @@
 {
-  "name": "funny-ui",
-  "version": "0.0.0",
-  "private": true,
+  "name": "elin-design",
+  "version": "1.0.0",
+  "private": false,
   "type": "module",
+  "main": "./dist/elin-design.js",
+  "module": "./dist/elin-design.js",
+  "files": [
+    "dist",
+    "global.d.ts"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",

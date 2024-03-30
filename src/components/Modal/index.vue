@@ -1,18 +1,18 @@
 <template>
   <!-- Open the modal using ID.showModal() method -->
-  <dialog class="funny-modal" ref="modalRef">
-    <div class="funny-modal-box">
+  <dialog class="elin-modal" ref="modalRef">
+    <div class="elin-modal-box">
       <h3 class="font-bold text-lg">Hello!</h3>
       <p class="py-4">Press ESC key or click the button below to close</p>
       <form method="dialog">
-        <f-button ghost circle size="small" class="absolute right-2 top-2" @click="handleClose">
+        <ev-button ghost circle size="small" class="absolute right-2 top-2" @click="handleClose">
           ✕
-        </f-button>
+        </ev-button>
       </form>
-      <div class="funny-modal-action">
+      <div class="elin-modal-action">
         <form method="dialog">
           <!-- if there is a button in form, it will close the modal -->
-          <!-- <button class="funny-btn">Close</button> -->
+          <!-- <button class="elin-btn">Close</button> -->
         </form>
       </div>
     </div>

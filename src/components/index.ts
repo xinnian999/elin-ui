@@ -5,8 +5,8 @@ import Icon from './Icon/index.vue'
 import Modal from './Modal/index.vue'
 
 export default (app: App) => {
-  app.component('FButton', Button)
-  app.component('FSpace', Space)
-  app.component('FIcon', Icon)
-  app.component('FModal', Modal)
+  app.component('EvButton', Button)
+  app.component('EvSpace', Space)
+  app.component('EvIcon', Icon)
+  app.component('EvModal', Modal)
 }

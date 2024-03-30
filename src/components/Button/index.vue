@@ -23,13 +23,13 @@ const emit = defineEmits<{
 }>()
 
 const classNames = computed(() => ({
-  'funny-btn': true,
-  'funny-btn-outline': props.outline,
+  'elin-btn': true,
+  'elin-btn-outline': props.outline,
   [typeCalss[props.type]]: true,
   [sizeclass[props.size]]: true,
-  'funny-btn-circle': props.circle,
-  'funny-btn-disabled': props.disabled,
-  'funny-btn-ghost': props.ghost
+  'elin-btn-circle': props.circle,
+  'elin-btn-disabled': props.disabled,
+  'elin-btn-ghost': props.ghost
 }))
 
 const handleClick = (evt: MouseEvent) => {
@@ -38,7 +38,7 @@ const handleClick = (evt: MouseEvent) => {
 </script>
 
 <style>
-.funny-btn-outline {
+.elin-btn-outline {
   border: 1px solid;
 }
 </style>

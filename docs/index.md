@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "funny-ui"
-  text: "一个有趣的vue3组件库"
+  name: 'Elin Design'
+  text: '一套个性的vue3组件库'
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

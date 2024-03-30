@@ -3,8 +3,8 @@ import Icon from '@/components/Icon/index.vue'
 
 declare module 'vue' {
   export interface GlobalComponents {
-    FButton: typeof Button
-    FIcon: typeof Icon
+    EvButton: typeof Button
+    EvIcon: typeof Icon
   }
 }
 

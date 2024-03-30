@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'funny-ui',
+  title: 'Elin Design',
   description: '一个有趣的vue3组件库',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
