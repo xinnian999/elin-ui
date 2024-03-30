@@ -1,10 +1,11 @@
 {
   "name": "elin-design",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "private": false,
   "type": "module",
   "main": "./dist/elin-design.js",
   "module": "./dist/elin-design.js",
+  "types": "./dist/elin-design.d.ts",
   "files": [
     "dist",
     "global.d.ts"
@@ -25,6 +26,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "vite-plugin-dts": "^3.8.1",
     "vue": "^3.4.15"
   },
   "devDependencies": {

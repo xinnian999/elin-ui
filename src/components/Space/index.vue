@@ -7,9 +7,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-const props = defineProps<{
-  direction: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    direction: string
+  }>(),
+  { direction: 'horizontal' }
+)
 
 const directionCss = computed(() => {
   return props.direction === 'vertical' ? 'column' : 'row'
