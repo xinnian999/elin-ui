@@ -82,8 +82,10 @@
 
 ## 图标按钮
 
+直接将图标插入到文字的前面或者后面即可
+
 <ev-space>
-<ev-button type="error"><ev-icon name="delete" />删除</ev-button>
+<ev-button type="primary"><ev-icon name="plus" />新建</ev-button>
 <ev-button type="error">删除<ev-icon name="delete" /></ev-button>
 </ev-space>
 
@@ -99,6 +101,8 @@
 :::
 
 ## 幽灵按钮
+
+通过ghost属性设置
 
 <ev-space>
   <ev-button ghost>ghost</ev-button>
