@@ -8,19 +8,26 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '组件', link: '/Button' }
+      { text: '指南', link: '/guide/install' },
+      { text: '组件', link: '/component/Button' }
     ],
 
-    sidebar: [
-      {
-        text: '基础组件',
-        items: [
-          { text: 'Button 按钮', link: '/Button' },
-          { text: 'Space 间距', link: '/Space' },
-          { text: 'Modal 弹窗', link: '/Modal' }
-        ]
-      }
-    ],
+    sidebar: {
+      '/guide/': [
+        { text: '安装', link: '/guide/install' },
+        { text: '使用', link: '/guide/use' }
+      ],
+      '/component/': [
+        {
+          text: '基础组件',
+          items: [
+            { text: 'Button 按钮', link: '/component/Button' },
+            { text: 'Space 间距', link: '/component/Space' },
+            { text: 'Modal 弹窗', link: '/component/Modal' }
+          ]
+        }
+      ]
+    },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }]
   }
