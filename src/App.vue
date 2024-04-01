@@ -3,5 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import Test from './test/button.vue'
+import Test from './test/modal.vue'
 </script>

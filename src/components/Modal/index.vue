@@ -1,35 +1,37 @@
 <template>
   <!-- Open the modal using ID.showModal() method -->
-  <dialog class="elin-modal" ref="modalRef">
+  <dialog class="elin-modal" ref="modalRef" @keydown.escape="handleClose">
     <div class="elin-modal-box">
-      <h3 class="font-bold text-lg">Hello!</h3>
-      <p class="py-4">Press ESC key or click the button below to close</p>
+      <h3 class="font-bold text-lg elin-modal-box-title">{{ title }}</h3>
+      <slot />
       <form method="dialog">
         <ev-button ghost circle size="small" class="absolute right-2 top-2" @click="handleClose">
           ✕
         </ev-button>
       </form>
+
       <div class="elin-modal-action">
-        <form method="dialog">
-          <!-- if there is a button in form, it will close the modal -->
-          <!-- <button class="elin-btn">Close</button> -->
-        </form>
+        <slot name="footer" />
       </div>
     </div>
+    <form method="dialog" class="elin-modal-backdrop" @click="handleClose">
+      <button>close</button>
+    </form>
   </dialog>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { ref, defineModel, watch } from 'vue'
 
-type modalRefType = {
+withDefaults(defineProps<{ title?: string }>(), { title: '' })
+
+const modalRef = ref<{
   showModal: () => void
   close: () => void
-}
+}>()
 
-const modalRef = ref<modalRefType>()
-
-const visible = defineModel()
+const visible = defineModel<boolean>()
 
 watch(visible, (newVal) => {
   if (newVal) {
@@ -42,6 +44,12 @@ watch(visible, (newVal) => {
 const handleClose = () => {
   visible.value = false
 }
+
+onMounted(() => {})
 </script>
 
-<style></style>
+<style>
+.elin-modal-box-title {
+  margin-bottom: 1em;
+}
+</style>
