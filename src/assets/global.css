@@ -13,3 +13,11 @@ body,html{
     align-items: center;
     justify-content: center;
 }
+
+.elin-icon{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    fill: currentColor;
+}

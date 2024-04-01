@@ -1,9 +1,8 @@
 <template>
   <ev-space direction="vertical">
-    <ev-icon name="delete" />
     <ev-space>
       <ev-button @click="(e) => console.log(e)">点我吧</ev-button>
-      <ev-button type="primary"><ev-icon name="delete" /> 点我吧</ev-button>
+      <ev-button type="primary"><IconDelete /> 点我吧</ev-button>
       <ev-button type="success">点我吧</ev-button>
       <ev-button type="info">点我吧</ev-button>
       <ev-button type="warning">点我吧</ev-button>
@@ -47,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+import { IconDelete } from '@/release'
 const click = () => {
   console.log(9999)
 }
