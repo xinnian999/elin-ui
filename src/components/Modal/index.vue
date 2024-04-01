@@ -14,7 +14,7 @@
         <slot name="footer" />
       </div>
     </div>
-    <form method="dialog" class="elin-modal-backdrop" @click="handleClose">
+    <form method="dialog" v-if="showMask" class="elin-modal-backdrop" @click="handleClose">
       <button>close</button>
     </form>
   </dialog>
