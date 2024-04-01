@@ -1,5 +1,5 @@
 <template>
-  <ev-modal v-model="visible" title="hello"
+  <ev-modal v-model="visible" title="hello" :show-close="false"
     >我是一个modal
     <template #footer>
       <ev-button @click="visible = false">取消</ev-button>

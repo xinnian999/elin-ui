@@ -4,7 +4,7 @@
     <div class="elin-modal-box">
       <h3 class="font-bold text-lg elin-modal-box-title">{{ title }}</h3>
       <slot />
-      <form method="dialog">
+      <form method="dialog" v-if="showClose">
         <ev-button ghost circle size="small" class="absolute right-2 top-2" @click="handleClose">
           ✕
         </ev-button>
@@ -24,7 +24,11 @@
 import { onMounted } from 'vue'
 import { ref, defineModel, watch } from 'vue'
 
-withDefaults(defineProps<{ title?: string }>(), { title: '' })
+withDefaults(defineProps<{ title: string; showClose: boolean; showMask: boolean }>(), {
+  title: '',
+  showClose: true,
+  showMask: true
+})
 
 const modalRef = ref<{
   showModal: () => void
