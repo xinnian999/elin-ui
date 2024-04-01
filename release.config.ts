@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
+import generateGlobalTs from './generateGlobalTs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,7 +16,8 @@ export default defineConfig({
       rollupTypes: true,
       include: ['src/**/*', 'src/**/*.vue'],
       pathsToAliases: true
-    })
+    }),
+    generateGlobalTs()
   ],
   resolve: {
     alias: {
