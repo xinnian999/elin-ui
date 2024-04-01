@@ -1,12 +1,12 @@
 import type { App } from 'vue'
-import { Button, Space, Modal } from '@/components'
+import * as components from '@/components'
 import './app.css'
+
+export * from '@/components'
 export * from '@/assets/icons'
 
 export default (app: App<Element>) => {
-  app.component('EvButton', Button)
-  app.component('EvSpace', Space)
-  app.component('EvModal', Modal)
+  Object.entries(components).forEach(([key, value]) => {
+    app.component(key, value)
+  })
 }
-
-export { Button as EvButton, Space as EvSpace, Modal as EvModal }

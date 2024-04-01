@@ -1,3 +1,3 @@
-export { default as Button } from './Button/index.vue'
-export { default as Space } from './Space/index.vue'
-export { default as Modal } from './Modal/index.vue'
+export { default as EvButton } from './Button/index.vue'
+export { default as EvSpace } from './Space/index.vue'
+export { default as EvModal } from './Modal/index.vue'
