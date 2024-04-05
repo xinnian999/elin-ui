@@ -1,0 +1,13 @@
+$namespace: 'elin-';
+@mixin ns($cls) {
+  $NS: $namespace + $cls;
+
+  .#{$NS} {
+    @content;
+  }
+}
+
+@mixin disabled() {
+  opacity: $disabledOpacity;
+  cursor: not-allowed;
+}

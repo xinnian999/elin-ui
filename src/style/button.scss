@@ -1,0 +1,82 @@
+$btnClass: '#{$namespace}btn-';
+
+@mixin btnType($color) {
+  background-color: $color;
+  color: #fff;
+
+  &.#{$namespace}btn-plain {
+    color: $color;
+    border-color: $color;
+    background-color: rgba($color: $color, $alpha: 0.1);
+    &:hover:not(.#{$btnClass}disabled) {
+      background-color: $color;
+      border-color: transparent;
+      color: #fff;
+    }
+  }
+
+  &.#{$namespace}btn-text {
+    color: $color;
+    border: none;
+    background-color: transparent;
+    &:hover:not(.#{$btnClass}disabled) {
+      border-color: transparent;
+    }
+  }
+}
+
+@include ns(btn) {
+  border-radius: $border-radius;
+  padding: 15px;
+  border: none;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+  background-color: $colorGray2;
+  transition-duration: 0.2s;
+  &:hover:not(&-disabled, &-text) {
+    opacity: 0.8;
+  }
+  &:active:not(&-disabled) {
+    transform: scale(0.95);
+  }
+
+  &-primary {
+    @include btnType($primaryColor);
+  }
+
+  &-success {
+    @include btnType($successColor);
+  }
+
+  &-info {
+    @include btnType($infoColor);
+  }
+
+  &-warning {
+    @include btnType($warningColor);
+  }
+
+  &-error {
+    @include btnType($dangerColor);
+  }
+
+  &-plain {
+    background-color: $colorGray2;
+    color: black;
+    border: 1px solid black;
+  }
+
+  &-text {
+    background-color: transparent;
+    color: black;
+    &:hover {
+      background-color: $colorGray;
+    }
+  }
+
+  &-disabled {
+    @include disabled;
+  }
+}
