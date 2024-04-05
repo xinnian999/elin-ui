@@ -27,15 +27,18 @@ $btnClass: '#{$namespace}btn-';
 
 @include ns(btn) {
   border-radius: $border-radius;
-  padding: 15px;
+  height: 40px;
+  padding: 12px;
   border: none;
   display: flex;
   gap: 5px;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   background-color: $colorGray2;
   transition-duration: 0.2s;
-  &:hover:not(&-disabled, &-text) {
+  font-size: 14px;
+  &:hover:not(&-disabled, &-text, &-plain) {
     opacity: 0.8;
   }
   &:active:not(&-disabled) {
@@ -78,5 +81,23 @@ $btnClass: '#{$namespace}btn-';
 
   &-disabled {
     @include disabled;
+  }
+
+  &-lg {
+    padding: 20px;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  &-sm {
+    padding: 10px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  &-circle {
+    border-radius: 50%;
+    width: 40px;
+    text-align: center;
   }
 }

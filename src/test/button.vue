@@ -2,7 +2,7 @@
   <ev-space direction="vertical">
     <ev-space>
       <ev-button @click="(e) => console.log(e)">Default</ev-button>
-      <ev-button type="primary"><IconDelete /> primary</ev-button>
+      <ev-button type="primary"><IconDelete /> Primary</ev-button>
       <ev-button type="success">success</ev-button>
       <ev-button type="info">info</ev-button>
       <ev-button type="warning">warning</ev-button>
@@ -28,19 +28,18 @@
     </ev-space>
 
     <ev-space>
-      <ev-button size="large">点我吧</ev-button>
-      <ev-button size="default">点我吧</ev-button>
-      <ev-button size="small">点我吧</ev-button>
-      <ev-button size="tiny">点我吧</ev-button>
+      <ev-button size="large">Large</ev-button>
+      <ev-button size="default">Default</ev-button>
+      <ev-button size="small">Samll</ev-button>
     </ev-space>
 
     <ev-space>
-      <ev-button circle>Default</ev-button>
-      <ev-button type="primary" circle>点我吧</ev-button>
-      <ev-button type="success" circle>点我吧</ev-button>
-      <ev-button type="info" circle>点我吧</ev-button>
-      <ev-button type="warning" circle>点我吧</ev-button>
-      <ev-button type="error" circle>点我吧</ev-button>
+      <ev-button circle>点</ev-button>
+      <ev-button type="primary" circle>点</ev-button>
+      <ev-button type="success" circle>点</ev-button>
+      <ev-button type="info" circle>点</ev-button>
+      <ev-button type="warning" circle>点</ev-button>
+      <ev-button type="error" circle>点</ev-button>
     </ev-space>
 
     <ev-space>

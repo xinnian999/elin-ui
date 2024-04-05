@@ -28,27 +28,55 @@
 
 :::
 
-## 边框按钮
+## 朴素按钮
 
 <ev-space>
-  <ev-button outline>Default</ev-button>
-  <ev-button type="primary" outline>Primary</ev-button>
-  <ev-button type="success" outline>Success</ev-button>
-  <ev-button type="info" outline>Info</ev-button>
-  <ev-button type="warning" outline>Warning</ev-button>
-  <ev-button type="error" outline>Error</ev-button>
+  <ev-button plain>Default</ev-button>
+  <ev-button type="primary" plain>Primary</ev-button>
+  <ev-button type="success" plain>Success</ev-button>
+  <ev-button type="info" plain>Info</ev-button>
+  <ev-button type="warning" plain>Warning</ev-button>
+  <ev-button type="error" plain>Error</ev-button>
 </ev-space>
 
 ::: details 查看代码
 
 ```html
 <ev-space>
-  <ev-button outline>Default</ev-button>
-  <ev-button type="primary" outline>Primary</ev-button>
-  <ev-button type="success" outline>Success</ev-button>
-  <ev-button type="info" outline>Info</ev-button>
-  <ev-button type="warning" outline>Warning</ev-button>
-  <ev-button type="error" outline>Error</ev-button>
+  <ev-button plain>Default</ev-button>
+  <ev-button type="primary" plain>Primary</ev-button>
+  <ev-button type="success" plain>Success</ev-button>
+  <ev-button type="info" plain>Info</ev-button>
+  <ev-button type="warning" plain>Warning</ev-button>
+  <ev-button type="error" plain>Error</ev-button>
+</ev-space>
+```
+
+:::
+
+## 文字按钮
+
+通过text属性设置
+
+<ev-space>
+  <ev-button text>Default</ev-button>
+  <ev-button type="primary" text>Primary</ev-button>
+  <ev-button type="success" text>Success</ev-button>
+  <ev-button type="info" text>Info</ev-button>
+  <ev-button type="warning" text>Warning</ev-button>
+  <ev-button type="error" text>Error</ev-button>
+</ev-space>
+
+::: details 查看代码
+
+```html
+<ev-space>
+  <ev-button text>Default</ev-button>
+  <ev-button type="primary" text>Primary</ev-button>
+  <ev-button type="success" text>Success</ev-button>
+  <ev-button type="info" text>Info</ev-button>
+  <ev-button type="warning" text>Warning</ev-button>
+  <ev-button type="error" text>Error</ev-button>
 </ev-space>
 ```
 
@@ -85,9 +113,15 @@
 直接将图标插入到文字的前面或者后面即可
 
 <ev-space>
-<ev-button type="primary"><ev-icon name="plus" />新建</ev-button>
-<ev-button type="error">删除<ev-icon name="delete" /></ev-button>
+<ev-button type="primary"><IconDelete />新建</ev-button>
+<ev-button type="error">删除<IconDelete /></ev-button>
 </ev-space>
+
+<script setup lang="ts">
+import { IconDelete } from '../../dist/elin-design'
+
+
+</script>
 
 ::: details 查看代码
 
@@ -95,26 +129,6 @@
 <ev-space>
   <ev-button type="error"><ev-icon name="delete" />删除</ev-button>
   <ev-button type="error">删除<ev-icon name="delete" /></ev-button>
-</ev-space>
-```
-
-:::
-
-## 幽灵按钮
-
-通过ghost属性设置
-
-<ev-space>
-  <ev-button ghost>ghost</ev-button>
-  <ev-button ghost><ev-icon name="plus" />新增</ev-button>
-</ev-space>
-
-::: details 查看代码
-
-```html
-<ev-space>
-  <ev-button ghost>ghost</ev-button>
-  <ev-button ghost><ev-icon name="plus" />新增</ev-button>
 </ev-space>
 ```
 

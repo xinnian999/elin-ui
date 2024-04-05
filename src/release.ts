@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import * as components from '@/components'
-import './app.css'
+import './style/index.scss'
 
 export * from '@/components'
 export * from '@/assets/icons'
