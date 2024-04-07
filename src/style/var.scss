@@ -1,6 +1,6 @@
 $colorBlue: #0080ff;
 $colorRed: #ee0a24;
-$colorOrange: #ff976a;
+$colorOrange: #efa314;
 $colorGreen: #67c23a;
 $colorWhite: #fff;
 $colorBlack: #000;
@@ -9,14 +9,35 @@ $colorGray2: #dcdee0;
 $colorGray3: #969799;
 $colorGray4: #323233;
 
+$color-primary: #00bcd4;
+$color-primary-light-3: #26c6da;
+$color-primary-light-4: #4dd0e1;
+$color-primary-light-5: #80deea;
+$color-primary-light-6: #b2ebf2;
+$color-primary-light-7: #e0f7fa;
 
+$color-success: #4caf50;
+$color-success-light-3: #66bb6a;
+$color-success-light-4: #81c784;
+$color-success-light-5: #a5d6a7;
+$color-success-light-6: #c8e6c9;
+$color-success-light-7: #e8f5e9;
 
-$primaryColor: $colorBlue;
-$successColor: $colorGreen;
+$color-info: #607d8b;
+$color-info-light-3: #78909c;
+$color-info-light-4: #90a4ae;
+$color-info-light-5: #b0bec5;
+$color-info-light-6: #cfd8dc;
+$color-info-light-7: #eceff1;
+
+$primaryColor: $color-primary;
+$successColor: $color-success;
 $dangerColor: $colorRed;
 $infoColor: $colorGray3;
 $warningColor: $colorOrange;
 
+$primary-border-color: $color-primary-light-5;
+$success-border-color: $color-success-light-5;
 
-$border-radius:7px;
+$border-radius: 7px;
 $disabledOpacity: 0.5;

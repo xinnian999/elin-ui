@@ -34,6 +34,15 @@
     </ev-space>
 
     <ev-space>
+      <ev-button round>Default</ev-button>
+      <ev-button type="primary" round>Primary</ev-button>
+      <ev-button type="success" round>success</ev-button>
+      <ev-button type="info" round>info</ev-button>
+      <ev-button type="warning" round>warning</ev-button>
+      <ev-button type="error" round>error</ev-button>
+    </ev-space>
+
+    <ev-space>
       <ev-button circle>点</ev-button>
       <ev-button type="primary" circle>点</ev-button>
       <ev-button type="success" circle>点</ev-button>
@@ -44,7 +53,7 @@
 
     <ev-space>
       <ev-button disabled>Default</ev-button>
-      <ev-button type="primary" plain disabled @click="click">点我吧</ev-button>
+      <ev-button type="primary" disabled @click="click">点我吧</ev-button>
       <ev-button type="success" disabled>点我吧</ev-button>
       <ev-button type="info" disabled>点我吧</ev-button>
       <ev-button type="warning" disabled>点我吧</ev-button>

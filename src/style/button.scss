@@ -1,12 +1,12 @@
 $btnClass: '#{$namespace}btn-';
 
-@mixin btnType($color) {
+@mixin btnType($color, $border-color: transparent) {
   background-color: $color;
   color: #fff;
 
   &.#{$namespace}btn-plain {
     color: $color;
-    border-color: $color;
+    border-color: $border-color;
     background-color: rgba($color: $color, $alpha: 0.1);
     &:hover:not(.#{$btnClass}disabled) {
       background-color: $color;
@@ -28,7 +28,7 @@ $btnClass: '#{$namespace}btn-';
 @include ns(btn) {
   border-radius: $border-radius;
   height: 40px;
-  padding: 12px;
+  padding: 15px;
   border: none;
   display: flex;
   gap: 5px;
@@ -46,11 +46,11 @@ $btnClass: '#{$namespace}btn-';
   }
 
   &-primary {
-    @include btnType($primaryColor);
+    @include btnType($primaryColor, $primary-border-color);
   }
 
   &-success {
-    @include btnType($successColor);
+    @include btnType($successColor, $success-border-color);
   }
 
   &-info {
@@ -98,6 +98,11 @@ $btnClass: '#{$namespace}btn-';
   &-circle {
     border-radius: 50%;
     width: 40px;
+    text-align: center;
+  }
+
+  &-round {
+    border-radius: 20px;
     text-align: center;
   }
 }

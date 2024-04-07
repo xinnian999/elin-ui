@@ -11,6 +11,7 @@ const props = withDefaults(
     type?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'error'
     plain?: boolean
     circle?: boolean
+    round?: boolean
     disabled?: boolean
     text?: boolean
     size?: 'large' | 'default' | 'small' | 'tiny'
@@ -28,6 +29,7 @@ const classNames = computed(() => ({
   [typeCalss[props.type]]: true,
   [sizeclass[props.size]]: true,
   'elin-btn-circle': props.circle,
+  'elin-btn-round': props.round,
   'elin-btn-disabled': props.disabled,
   'elin-btn-text': props.text
 }))
