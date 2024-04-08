@@ -5,6 +5,13 @@ $btnClass: '#{$namespace}-btn-';
 
   background-color: $color;
   color: #fff;
+  border-color: transparent;
+
+  &:hover {
+    opacity: 0.8;
+    color: #fff !important;
+    border-color: transparent !important;
+  }
 
   &.#{$namespace}-btn-plain {
     color: $color;
@@ -38,10 +45,14 @@ $btnClass: '#{$namespace}-btn-';
   justify-content: center;
   cursor: pointer;
   background-color: #fff;
-  transition-duration: 0.2s;
+  // transition-duration: 0.2s;
+  border: 1px solid $border-color;
+  color: $text-color;
   font-size: 14px;
   &:hover:not(&-disabled, &-text, &-plain) {
-    opacity: 0.8;
+    // opacity: 0.8;
+    border-color: getVar('primary', 'color');
+    color: getVar('primary', 'color');
   }
   &:active:not(&-disabled) {
     transform: scale(0.95);
