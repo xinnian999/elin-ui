@@ -11,3 +11,28 @@ $namespace: 'elin-';
   opacity: $disabledOpacity;
   cursor: not-allowed;
 }
+
+@mixin generate-lighter-colors($color-primary, $name: 'primary', $steps: 5, $increment: 10%) {
+  $color-map: (); // 创建一个空 map
+
+  @for $i from 2 through $steps {
+    // 开始循环，并设置变量名后缀
+    $color-name: 'color-#{$name}-light-#{$i}'; // 设置变量名
+    $lighter-color: lighten($color-primary, $i * $increment); // 计算颜色
+
+    $var-name: '--#{$color-name}'; // CSS 自定义属性名称
+    $color-map: map-merge(
+      $color-map,
+      (
+        $var-name: $lighter-color
+      )
+    ); // 将变量设置到 map 中
+  }
+
+  :root {
+    @each $key, $value in $color-map {
+      // 遍历 map，并设置变量到全局作用域中
+      #{$key}: $value;
+    }
+  }
+}

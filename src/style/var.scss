@@ -1,43 +1,23 @@
-$colorBlue: #0080ff;
-$colorRed: #ee0a24;
-$colorOrange: #efa314;
-$colorGreen: #67c23a;
-$colorWhite: #fff;
-$colorBlack: #000;
-$colorGray: #f2f3f5;
-$colorGray2: #dcdee0;
-$colorGray3: #969799;
-$colorGray4: #323233;
-
 $color-primary: #00bcd4;
-$color-primary-light-3: #26c6da;
-$color-primary-light-4: #4dd0e1;
-$color-primary-light-5: #80deea;
-$color-primary-light-6: #b2ebf2;
-$color-primary-light-7: #e0f7fa;
-
-$color-success: #4caf50;
-$color-success-light-3: #66bb6a;
-$color-success-light-4: #81c784;
-$color-success-light-5: #a5d6a7;
-$color-success-light-6: #c8e6c9;
-$color-success-light-7: #e8f5e9;
-
+$color-success: #67c23a;
 $color-info: #607d8b;
-$color-info-light-3: #78909c;
-$color-info-light-4: #90a4ae;
-$color-info-light-5: #b0bec5;
-$color-info-light-6: #cfd8dc;
-$color-info-light-7: #eceff1;
+$color-warning: #efa314;
+$color-danger: #ee0a24;
+
+@include generate-lighter-colors($color-primary);
+@include generate-lighter-colors($color-success, 'success');
+@include generate-lighter-colors($color-info, 'info');
+@include generate-lighter-colors($color-warning, 'warning');
+@include generate-lighter-colors($color-danger, 'danger');
 
 $primaryColor: $color-primary;
 $successColor: $color-success;
-$dangerColor: $colorRed;
-$infoColor: $colorGray3;
-$warningColor: $colorOrange;
+$dangerColor: $color-danger;
+$infoColor: $color-info;
+$warningColor: $color-warning;
 
-$primary-border-color: $color-primary-light-5;
-$success-border-color: $color-success-light-5;
+$primary-border-color: var(--color-primary-light-3);
+$success-border-color: var(--color-success-light-3);
 
 $border-radius: 7px;
 $disabledOpacity: 0.5;

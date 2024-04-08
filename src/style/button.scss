@@ -35,7 +35,7 @@ $btnClass: '#{$namespace}btn-';
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: $colorGray2;
+  background-color: #fff;
   transition-duration: 0.2s;
   font-size: 14px;
   &:hover:not(&-disabled, &-text, &-plain) {
@@ -66,7 +66,7 @@ $btnClass: '#{$namespace}btn-';
   }
 
   &-plain {
-    background-color: $colorGray2;
+    background-color: #fff;
     color: black;
     border: 1px solid black;
   }
@@ -75,7 +75,7 @@ $btnClass: '#{$namespace}btn-';
     background-color: transparent;
     color: black;
     &:hover {
-      background-color: $colorGray;
+      background-color: gray;
     }
   }
 
