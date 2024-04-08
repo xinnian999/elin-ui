@@ -1,23 +1,23 @@
-$color-primary: #00bcd4;
-$color-success: #67c23a;
-$color-info: #607d8b;
-$color-warning: #efa314;
-$color-danger: #ee0a24;
+$primary-color: #00bcd4;
+$success-color: #67c23a;
+$info-color: #607d8b;
+$warning-color: #efa314;
+$danger-color: #ee0a24;
 
-@include generate-lighter-colors($color-primary);
-@include generate-lighter-colors($color-success, 'success');
-@include generate-lighter-colors($color-info, 'info');
-@include generate-lighter-colors($color-warning, 'warning');
-@include generate-lighter-colors($color-danger, 'danger');
+@include generate-lighter-colors($primary-color);
+@include generate-lighter-colors($success-color, 'success');
+@include generate-lighter-colors($info-color, 'info');
+@include generate-lighter-colors($warning-color, 'warning');
+@include generate-lighter-colors($danger-color, 'danger');
 
-$primaryColor: $color-primary;
-$successColor: $color-success;
-$dangerColor: $color-danger;
-$infoColor: $color-info;
-$warningColor: $color-warning;
+$primaryColor: $primary-color;
+$successColor: $success-color;
+$dangerColor: $danger-color;
+$infoColor: $info-color;
+$warningColor: $warning-color;
 
-$primary-border-color: var(--color-primary-light-3);
-$success-border-color: var(--color-success-light-3);
+$primary-border-color: var(--primary-color-light-3);
+$success-border-color: var(--elin-success-color-light-3);
 
 $border-radius: 7px;
 $disabledOpacity: 0.5;
