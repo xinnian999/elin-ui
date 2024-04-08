@@ -17,3 +17,17 @@
 
   @return $color-map; // 返回颜色 map
 }
+
+@function joinVarName($list) {
+  $name: '--' + $namespace;
+  @each $item in $list {
+    @if $item != '' {
+      $name: $name + '-' + $item;
+    }
+  }
+  @return $name;
+}
+
+@function getVar($args...) {
+  @return var(#{joinVarName($args)});
+}

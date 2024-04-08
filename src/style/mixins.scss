@@ -1,6 +1,6 @@
-$namespace: 'elin-';
+$namespace: 'elin';
 @mixin ns($cls) {
-  $NS: $namespace + $cls;
+  $NS: $namespace + '-' + $cls;
 
   .#{$NS} {
     @content;
@@ -16,12 +16,12 @@ $namespace: 'elin-';
   :root {
     @each $key, $value in $colors {
       // @debug $key, $value;
-      --#{$namespace}#{$key}: #{$value};
+      --#{$namespace}-#{$key}: #{$value};
       $lightmap: get-lighter-colors($value);
       // @debug $lightmap;
       @each $lightKey, $lighValue in $lightmap {
         @debug $lightKey, $lighValue;
-        --#{$namespace}#{$key}-#{$lightKey}: #{$lighValue};
+        --#{$namespace}-#{$key}-#{$lightKey}: #{$lighValue};
       }
     }
   }

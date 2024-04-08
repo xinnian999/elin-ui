@@ -1,13 +1,15 @@
-$btnClass: '#{$namespace}btn-';
+$btnClass: '#{$namespace}-btn-';
 
-@mixin btnType($color, $border-color: transparent) {
+@mixin btnType($name, $border-color: transparent) {
+  $color: getVar($name, 'color');
+
   background-color: $color;
   color: #fff;
 
-  &.#{$namespace}btn-plain {
+  &.#{$namespace}-btn-plain {
     color: $color;
-    border-color: $border-color;
-    background-color: rgba($color: $color, $alpha: 0.1);
+    border-color: getVar($name, 'color', 'light', '3');
+    background-color: getVar($name, 'color', 'light', '5');
     &:hover:not(.#{$btnClass}disabled) {
       background-color: $color;
       border-color: transparent;
@@ -15,7 +17,7 @@ $btnClass: '#{$namespace}btn-';
     }
   }
 
-  &.#{$namespace}btn-text {
+  &.#{$namespace}-btn-text {
     color: $color;
     border: none;
     background-color: transparent;
@@ -46,23 +48,23 @@ $btnClass: '#{$namespace}btn-';
   }
 
   &-primary {
-    @include btnType($primaryColor, $primary-border-color);
+    @include btnType('primary');
   }
 
   &-success {
-    @include btnType($successColor, $success-border-color);
+    @include btnType('success');
   }
 
   &-info {
-    @include btnType($infoColor);
+    @include btnType('info');
   }
 
   &-warning {
-    @include btnType($warningColor);
+    @include btnType('warning');
   }
 
   &-error {
-    @include btnType($dangerColor);
+    @include btnType('danger');
   }
 
   &-plain {
