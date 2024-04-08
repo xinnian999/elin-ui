@@ -12,28 +12,17 @@ $namespace: 'elin-';
   cursor: not-allowed;
 }
 
-@mixin generate-lighter-colors($color-primary, $name: 'primary', $steps: 5, $increment: 10%) {
-  $color-map: (); // 创建一个空 map
-
-  @for $i from 2 through $steps {
-    // 开始循环，并设置变量名后缀
-    $color-name: '#{$namespace}#{$name}-color-light-#{$i}'; // 设置变量名
-    $lighter-color: lighten($color-primary, $i * $increment); // 计算颜色
-
-    $var-name: '--#{$color-name}'; // CSS 自定义属性名称
-    $color-map: map-merge(
-      $color-map,
-      (
-        $var-name: $lighter-color
-      )
-    ); // 将变量设置到 map 中
-  }
-  @debug $color-primary;
+@mixin generate-lighter-colors($colors) {
   :root {
-    --#{$namespace}#{$name}-color: #{$color-primary};
-    @each $key, $value in $color-map {
-      // 遍历 map，并设置变量到全局作用域中
-      #{$key}: $value;
+    @each $key, $value in $colors {
+      // @debug $key, $value;
+      --#{$namespace}#{$key}: #{$value};
+      $lightmap: get-lighter-colors($value);
+      // @debug $lightmap;
+      @each $lightKey, $lighValue in $lightmap {
+        @debug $lightKey, $lighValue;
+        --#{$namespace}#{$key}-#{$lightKey}: #{$lighValue};
+      }
     }
   }
 }

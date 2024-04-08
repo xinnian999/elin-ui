@@ -1,0 +1,19 @@
+@function get-lighter-colors($color-primary, $steps: 5, $increment: 10%) {
+  $color-map: (); // 创建一个空 map
+
+  @for $i from 2 through $steps {
+    $lighter-color: lighten($color-primary, $i * $increment); // 计算颜色
+
+    $color-name: 'light-#{$i}'; // 设置变量名
+    $var-name: '--#{$color-name}'; // CSS 自定义属性名称
+
+    $color-map: map-merge(
+      $color-map,
+      (
+        $color-name: $lighter-color
+      )
+    ); // 将变量设置到 map 中
+  }
+
+  @return $color-map; // 返回颜色 map
+}

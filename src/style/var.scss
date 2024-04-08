@@ -4,12 +4,6 @@ $info-color: #607d8b;
 $warning-color: #efa314;
 $danger-color: #ee0a24;
 
-@include generate-lighter-colors($primary-color);
-@include generate-lighter-colors($success-color, 'success');
-@include generate-lighter-colors($info-color, 'info');
-@include generate-lighter-colors($warning-color, 'warning');
-@include generate-lighter-colors($danger-color, 'danger');
-
 $primaryColor: $primary-color;
 $successColor: $success-color;
 $dangerColor: $danger-color;
@@ -21,3 +15,13 @@ $success-border-color: var(--elin-success-color-light-3);
 
 $border-radius: 7px;
 $disabledOpacity: 0.5;
+
+$themeColor: (
+  'primary-color': #00bcd4,
+  'success-color': #67c23a,
+  'info-color': #607d8b,
+  'warning-color': #efa314,
+  'danger-color': #ee0a24
+);
+
+@include generate-lighter-colors($themeColor);
