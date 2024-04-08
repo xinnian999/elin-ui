@@ -1,5 +1,5 @@
 $themeColor: (
-  'primary-color': #00bcd4,
+  'primary-color': #3f51b5,
   'success-color': #67c23a,
   'info-color': #607d8b,
   'warning-color': #efa314,
@@ -7,9 +7,6 @@ $themeColor: (
 );
 
 @include generate-lighter-colors($themeColor);
-
-$primary-border-color: var(--primary-color-light-3);
-$success-border-color: var(--elin-success-color-light-3);
 
 $border-radius: 7px;
 $disabledOpacity: 0.5;
