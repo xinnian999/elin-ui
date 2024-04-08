@@ -8,8 +8,8 @@ $btnClass: '#{$namespace}-btn-';
 
   &.#{$namespace}-btn-plain {
     color: $color;
-    border-color: getVar($name, 'color', 'light', '3');
-    background-color: getVar($name, 'color', 'light', '5');
+    border-color: getVar($name, 'color', 'light', '5');
+    background-color: getVar($name, 'color', 'light', '9');
     &:hover:not(.#{$btnClass}disabled) {
       background-color: $color;
       border-color: transparent;

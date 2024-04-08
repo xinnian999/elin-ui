@@ -1,4 +1,4 @@
-@function get-lighter-colors($color-primary, $steps: 5, $increment: 10%) {
+@function get-lighter-colors($color-primary, $steps: 9, $increment: 5%) {
   $color-map: (); // 创建一个空 map
 
   @for $i from 2 through $steps {
