@@ -1,8 +1,15 @@
-$btnVarMap: (
-  'text-color': ''
+$buttonVarMap: (
+  'text-color': (
+    'text-color',
+    'primary'
+  ),
+  'border-color': (
+    'border-color',
+    'primary'
+  )
 );
 
-@mixin btnVar() {
+@mixin buttonVar() {
   // --el-button-font-weight: var(--el-font-weight-primary);
   // --el-button-border-color: var(--el-border-color);
   // --el-button-bg-color: var(--el-fill-color-blank);
@@ -20,9 +27,10 @@ $btnVarMap: (
   // --el-button-outline-color: var(--el-color-primary-light-5);
   // --el-button-hover-link-text-color: var(--el-color-info);
   // --el-button-active-color: var(--el-text-color-primary);
-  @include setVarFormVar(('btn', 'text', 'color'), ('text-color-primary'));
+  // @include setVarFormVar(('button', 'text', 'color'), ('text-color-primary'));
+  // @include generate-var-map($buttonVarMap);
 }
 
-@include ns(btn) {
-  @include btnVar;
+@include ns(button) {
+  @include generate-var-map($buttonVarMap, 'button');
 }

@@ -24,14 +24,14 @@ const emit = defineEmits<{
 }>()
 
 const classNames = computed(() => ({
-  'elin-btn': true,
-  'elin-btn-plain': props.plain,
+  'elin-button': true,
+  'elin-button-plain': props.plain,
   [typeCalss[props.type]]: true,
   [sizeclass[props.size]]: true,
-  'elin-btn-circle': props.circle,
-  'elin-btn-round': props.round,
-  'elin-btn-disabled': props.disabled,
-  'elin-btn-text': props.text
+  'elin-button-circle': props.circle,
+  'elin-button-round': props.round,
+  'elin-button-disabled': props.disabled,
+  'elin-button-text': props.text
 }))
 
 const handleClick = (evt: MouseEvent) => {

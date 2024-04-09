@@ -14,9 +14,19 @@ $textColor: (
   'disabled': #c0c4cc
 );
 
-@include generate-lighter-colors($themeColor);
+$borderColor: (
+  'primary': #dcdfe6,
+  'light': #e4e7ed,
+  'lighter': #ebeef5,
+  'dark': #d4d7de,
+  'darker': #cdd0d6
+);
 
-@include generate-var-map($textColor, 'text-color');
+:root {
+  @include generate-lighter-colors($themeColor);
+  @include generate-var-map($textColor, 'text-color');
+  @include generate-var-map($borderColor, 'border-color');
+}
 
 $border-radius: 7px;
 $border-color: #dcdfe6;

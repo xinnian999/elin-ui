@@ -1,6 +1,6 @@
-$btnClass: '#{$namespace}-btn-';
+$buttonClass: '#{$namespace}-button-';
 
-@mixin btnType($name, $border-color: transparent) {
+@mixin buttonType($name, $border-color: transparent) {
   $color: getVar($name, 'color');
 
   background-color: $color;
@@ -13,28 +13,28 @@ $btnClass: '#{$namespace}-btn-';
     border-color: transparent !important;
   }
 
-  &.#{$namespace}-btn-plain {
+  &.#{$namespace}-button-plain {
     color: $color;
     border-color: getVar($name, 'color', 'light', '5');
     background-color: getVar($name, 'color', 'light', '9');
-    &:hover:not(.#{$btnClass}disabled) {
+    &:hover:not(.#{$buttonClass}disabled) {
       background-color: $color;
       border-color: transparent;
       color: #fff;
     }
   }
 
-  &.#{$namespace}-btn-text {
+  &.#{$namespace}-button-text {
     color: $color;
     border: none;
     background-color: transparent;
-    &:hover:not(.#{$btnClass}disabled) {
+    &:hover:not(.#{$buttonClass}disabled) {
       border-color: transparent;
     }
   }
 }
 
-@include ns(btn) {
+@include ns(button) {
   border-radius: $border-radius;
   height: 40px;
   padding: 15px;
@@ -45,9 +45,9 @@ $btnClass: '#{$namespace}-btn-';
   justify-content: center;
   cursor: pointer;
   background-color: #fff;
-  // transition-duration: 0.2s;
-  border: 1px solid $border-color;
-  color: $text-color;
+  transition-duration: 0.2s;
+  border: 1px solid getVar('button', 'border-color');
+  color: getVar('button', 'text-color');
   font-size: 14px;
   &:hover:not(&-disabled, &-text, &-plain) {
     // opacity: 0.8;
@@ -59,23 +59,23 @@ $btnClass: '#{$namespace}-btn-';
   }
 
   &-primary {
-    @include btnType('primary');
+    @include buttonType('primary');
   }
 
   &-success {
-    @include btnType('success');
+    @include buttonType('success');
   }
 
   &-info {
-    @include btnType('info');
+    @include buttonType('info');
   }
 
   &-warning {
-    @include btnType('warning');
+    @include buttonType('warning');
   }
 
   &-error {
-    @include btnType('danger');
+    @include buttonType('danger');
   }
 
   &-plain {
