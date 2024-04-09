@@ -44,13 +44,14 @@ $buttonClass: '#{$namespace}-button-';
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: #fff;
+  background-color: getVar('button', 'bg-color');
   transition-duration: 0.2s;
   border: 1px solid getVar('button', 'border-color');
   color: getVar('button', 'text-color');
   font-size: 14px;
   &:hover:not(&-disabled, &-text, &-plain) {
     // opacity: 0.8;
+    background-color: getVar('button', 'hover-bg-color');
     border-color: getVar('primary', 'color');
     color: getVar('primary', 'color');
   }

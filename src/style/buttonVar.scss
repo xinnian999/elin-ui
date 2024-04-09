@@ -6,7 +6,9 @@ $buttonVarMap: (
   'border-color': (
     'border-color',
     'primary'
-  )
+  ),
+  'bg-color': #fff,
+  'hover-bg-color': #fff
 );
 
 @mixin buttonVar() {
@@ -27,8 +29,6 @@ $buttonVarMap: (
   // --el-button-outline-color: var(--el-color-primary-light-5);
   // --el-button-hover-link-text-color: var(--el-color-info);
   // --el-button-active-color: var(--el-text-color-primary);
-  // @include setVarFormVar(('button', 'text', 'color'), ('text-color-primary'));
-  // @include generate-var-map($buttonVarMap);
 }
 
 @include ns(button) {
