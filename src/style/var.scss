@@ -1,12 +1,22 @@
 $themeColor: (
-  'primary-color': #26c6da,
-  'success-color': #67c23a,
-  'info-color': #607d8b,
-  'warning-color': #efa314,
-  'danger-color': #ee0a24
+  'primary': #26c6da,
+  'success': #67c23a,
+  'info': #607d8b,
+  'warning': #efa314,
+  'danger': #ee0a24
+);
+
+$textColor: (
+  'primary': #303133,
+  'regular': #606266,
+  'secondary': #909399,
+  'placeholder': #a8abb2,
+  'disabled': #c0c4cc
 );
 
 @include generate-lighter-colors($themeColor);
+
+@include generate-var-map($textColor, 'text-color');
 
 $border-radius: 7px;
 $border-color: #dcdfe6;

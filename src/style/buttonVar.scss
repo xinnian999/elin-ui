@@ -1,0 +1,28 @@
+$btnVarMap: (
+  'text-color': ''
+);
+
+@mixin btnVar() {
+  // --el-button-font-weight: var(--el-font-weight-primary);
+  // --el-button-border-color: var(--el-border-color);
+  // --el-button-bg-color: var(--el-fill-color-blank);
+  // --el-button-text-color: var(--el-text-color-regular);
+  // --el-button-disabled-text-color: var(--el-disabled-text-color);
+  // --el-button-disabled-bg-color: var(--el-fill-color-blank);
+  // --el-button-disabled-border-color: var(--el-border-color-light);
+  // --el-button-divide-border-color: rgba(255, 255, 255, .5);
+  // --el-button-hover-text-color: var(--el-color-primary);
+  // --el-button-hover-bg-color: var(--el-color-primary-light-9);
+  // --el-button-hover-border-color: var(--el-color-primary-light-7);
+  // --el-button-active-text-color: var(--el-button-hover-text-color);
+  // --el-button-active-border-color: var(--el-color-primary);
+  // --el-button-active-bg-color: var(--el-button-hover-bg-color);
+  // --el-button-outline-color: var(--el-color-primary-light-5);
+  // --el-button-hover-link-text-color: var(--el-color-info);
+  // --el-button-active-color: var(--el-text-color-primary);
+  @include setVarFormVar(('btn', 'text', 'color'), ('text-color-primary'));
+}
+
+@include ns(btn) {
+  @include btnVar;
+}

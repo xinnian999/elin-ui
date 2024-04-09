@@ -12,16 +12,36 @@ $namespace: 'elin';
   cursor: not-allowed;
 }
 
+//设置全局var，直接用值
+@mixin setVar($var, $value) {
+  $varName: joinVarName($var);
+
+  #{$varName}: $value;
+}
+
+//设置全局var，根据var名取值
+@mixin setVarFormVar($var, $gVar) {
+  $varName: joinVarName($var);
+  $gVarName: joinVarName($gVar);
+  #{$varName}: var(#{$gVarName});
+}
+
+//根据map生成全局var
+@mixin generate-var-map($varMap, $key-prefix: '', $key-suffix: '') {
+  :root {
+    @each $key, $value in $varMap {
+      @include setVar(($key-prefix, $key, $key-suffix), $value);
+    }
+  }
+}
+
 @mixin generate-lighter-colors($colors) {
   :root {
     @each $key, $value in $colors {
-      // @debug $key, $value;
-      --#{$namespace}-#{$key}: #{$value};
+      @include setVar(($key, 'color'), $value);
       $lightmap: get-lighter-colors($value);
-      // @debug $lightmap;
       @each $lightKey, $lighValue in $lightmap {
-        @debug $lightKey, $lighValue;
-        --#{$namespace}-#{$key}-#{$lightKey}: #{$lighValue};
+        @include setVar(($key, 'color', $lightKey), $lighValue);
       }
     }
   }
