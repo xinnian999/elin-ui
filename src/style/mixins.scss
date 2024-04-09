@@ -12,11 +12,15 @@ $namespace: 'elin';
   cursor: not-allowed;
 }
 
-//设置全局var，直接用值
+//设置全局var
 @mixin setVar($var, $value) {
   $varName: joinVarName($var);
 
-  #{$varName}: $value;
+  @if type-of($value) == 'list' {
+    #{$varName}: var(#{joinVarName($value)});
+  } @else {
+    #{$varName}: $value;
+  }
 }
 
 //设置全局var，根据var名map取值
@@ -32,13 +36,7 @@ $namespace: 'elin';
 @mixin generate-var-map($varMap, $key-prefix: '', $key-suffix: '') {
   @each $key, $value in $varMap {
     //根据值是不是map调用不同的方法
-    @if type-of($value) == 'list' {
-      // @debug $key, $value;
-
-      @include setVarFormVar(($key-prefix, $key, $key-suffix), $value);
-    } @else {
-      @include setVar(($key-prefix, $key, $key-suffix), $value);
-    }
+    @include setVar(($key-prefix, $key, $key-suffix), $value);
   }
 }
 
