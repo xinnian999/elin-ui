@@ -59,9 +59,9 @@ $buttonClass: '#{$namespace}-button-';
     transform: scale(0.95);
   }
 
-  &-primary {
-    @include buttonType('primary');
-  }
+  // &-primary {
+  //   @include buttonType('primary');
+  // }
 
   &-success {
     @include buttonType('success');

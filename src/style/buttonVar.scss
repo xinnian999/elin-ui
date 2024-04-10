@@ -1,15 +1,24 @@
-$buttonVarMap: (
-  'text-color': (
-    'text-color',
-    'primary'
-  ),
-  'border-color': (
-    'border-color',
-    'primary'
-  ),
-  'bg-color': #fff,
-  'hover-bg-color': #fff
-);
+@function getButtonVar(
+  $paramsMap: (
+    'textColor': 'primary',
+    'borderColor': 'primary',
+    'bgColor': #fff,
+    'hoverBgcolor': #fff
+  )
+) {
+  @return (
+    'button-text-color': (
+      'text-color',
+      map-get($paramsMap, 'textColor')
+    ),
+    'button-border-color': (
+      'border-color',
+      map-get($paramsMap, 'borderColor')
+    ),
+    'button-bg-color': map-get($paramsMap, 'bgColor'),
+    'button-hover-bg-color': map-get($paramsMap, 'hoverBgcolor')
+  );
+}
 
 @mixin buttonVar() {
   // --el-button-font-weight: var(--el-font-weight-primary);
@@ -32,5 +41,18 @@ $buttonVarMap: (
 }
 
 @include ns(button) {
-  @include generate-var-map($buttonVarMap, 'button');
+  @include generate-var-map(getButtonVar());
+
+  &-primary {
+    @include generate-var-map(
+      getButtonVar(
+        (
+          'textColor': 'primary',
+          'borderColor': 'primary',
+          'bgColor': #fff,
+          'hoverBgcolor': #fff
+        )
+      )
+    );
+  }
 }
