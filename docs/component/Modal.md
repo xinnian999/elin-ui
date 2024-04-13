@@ -5,8 +5,8 @@
 ## 基础用法
 
 ::: raw
-<ev-modal v-model="visible" />
-<ev-button @click="visible = true">打开modal</ev-button>
+<en-modal v-model="visible" />
+<en-button @click="visible = true">打开modal</en-button>
 :::
 
 <script setup lang="ts">
@@ -19,8 +19,8 @@ const visible = ref(false)
 
 ```html
 <template>
-  <ev-modal v-model="visible" />
-  <ev-button @click="visible = true">打开modal</ev-button>
+  <en-modal v-model="visible" />
+  <en-button @click="visible = true">打开modal</en-button>
 </template>
 
 <script setup lang="ts">
