@@ -22,10 +22,21 @@ $borderColor: (
   'darker': #cdd0d6
 );
 
+$fillColor: (
+  '': #f0f2f5,
+  'light': #f5f7fa,
+  'lighter': #fafafa,
+  'extra-light': #fafcff,
+  'dark': #ebedf0,
+  'darker': #e6e8eb,
+  'blank': #ffffff
+);
+
 :root {
   @include generate-lighter-colors($themeColor);
   @include generate-var-map($textColor, 'text-color');
   @include generate-var-map($borderColor, 'border-color');
+  @include generate-var-map($fillColor, 'fill-color');
 }
 
 $border-radius: 7px;

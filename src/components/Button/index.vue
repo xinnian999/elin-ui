@@ -4,11 +4,11 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { typeCalss, sizeclass } from './class'
+import { sizeclass } from './class'
 
 const props = withDefaults(
   defineProps<{
-    type?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'error'
+    type?: 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
     plain?: boolean
     circle?: boolean
     round?: boolean
@@ -25,13 +25,13 @@ const emit = defineEmits<{
 
 const classNames = computed(() => ({
   'elin-button': true,
-  'elin-button-plain': props.plain,
-  [typeCalss[props.type]]: true,
-  [sizeclass[props.size]]: true,
+  'is-plain': props.plain,
+  [`elin-button-${props.type}`]: true,
+  [`elin-button-${props.size}`]: true,
   'elin-button-circle': props.circle,
   'elin-button-round': props.round,
   'elin-button-disabled': props.disabled,
-  'elin-button-text': props.text
+  'is-text': props.text
 }))
 
 const handleClick = (evt: MouseEvent) => {

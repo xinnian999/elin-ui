@@ -1,39 +1,5 @@
 $buttonClass: '#{$namespace}-button-';
 
-@mixin buttonType($name, $border-color: transparent) {
-  $color: getVar($name, 'color');
-
-  background-color: $color;
-  color: #fff;
-  border-color: transparent;
-
-  &:hover {
-    opacity: 0.8;
-    color: #fff !important;
-    border-color: transparent !important;
-  }
-
-  &.#{$namespace}-button-plain {
-    color: $color;
-    border-color: getVar($name, 'color', 'light', '5');
-    background-color: getVar($name, 'color', 'light', '9');
-    &:hover:not(.#{$buttonClass}disabled) {
-      background-color: $color;
-      border-color: transparent;
-      color: #fff;
-    }
-  }
-
-  &.#{$namespace}-button-text {
-    color: $color;
-    border: none;
-    background-color: transparent;
-    &:hover:not(.#{$buttonClass}disabled) {
-      border-color: transparent;
-    }
-  }
-}
-
 @include ns(button) {
   border-radius: $border-radius;
   height: 40px;
@@ -44,52 +10,29 @@ $buttonClass: '#{$namespace}-button-';
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: getVar('button', 'bg-color');
+  background-color: getVar('button', 'bg', 'color');
   transition-duration: 0.2s;
-  border: 1px solid getVar('button', 'border-color');
+  border: 1px solid getVar('button', 'border', 'color');
   color: getVar('button', 'text-color');
   font-size: 14px;
-  &:hover:not(&-disabled, &-text, &-plain) {
-    // opacity: 0.8;
-    background-color: getVar('button', 'hover-bg-color');
-    border-color: getVar('primary', 'color');
-    color: getVar('primary', 'color');
+
+  &:hover:not(&-disabled, .is-text) {
+    opacity: getVar('button', 'hover', 'opacity');
+    background-color: getVar('button', 'hover', 'bg', 'color');
+    color: getVar('button', 'hover', 'text', 'color');
+    border-color: getVar('button', 'hover', 'border', 'color');
   }
+
   &:active:not(&-disabled) {
     transform: scale(0.95);
   }
 
-  // &-primary {
-  //   @include buttonType('primary');
-  // }
-
-  &-success {
-    @include buttonType('success');
-  }
-
-  &-info {
-    @include buttonType('info');
-  }
-
-  &-warning {
-    @include buttonType('warning');
-  }
-
-  &-error {
-    @include buttonType('danger');
-  }
-
-  &-plain {
-    background-color: #fff;
-    color: black;
-    border: 1px solid black;
-  }
-
-  &-text {
+  &.is-text {
     background-color: transparent;
-    color: black;
+    border: none;
+
     &:hover {
-      background-color: gray;
+      background-color: getVar('fill', 'color', 'light');
     }
   }
 

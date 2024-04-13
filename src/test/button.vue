@@ -6,7 +6,7 @@
       <ev-button type="success">success</ev-button>
       <ev-button type="info">info</ev-button>
       <ev-button type="warning">warning</ev-button>
-      <ev-button type="error">error</ev-button>
+      <ev-button type="danger">danger</ev-button>
     </ev-space>
 
     <ev-space>
@@ -15,7 +15,7 @@
       <ev-button type="success" plain>点我吧</ev-button>
       <ev-button type="info" plain>点我吧</ev-button>
       <ev-button type="warning" plain>点我吧</ev-button>
-      <ev-button type="error" plain>点我吧</ev-button>
+      <ev-button type="danger" plain>点我吧</ev-button>
     </ev-space>
 
     <ev-space>
@@ -24,7 +24,7 @@
       <ev-button type="success" text>点我吧</ev-button>
       <ev-button type="info" text>点我吧</ev-button>
       <ev-button type="warning" text>点我吧</ev-button>
-      <ev-button type="error" text>点我吧</ev-button>
+      <ev-button type="danger" text>点我吧</ev-button>
     </ev-space>
 
     <ev-space>
@@ -39,7 +39,7 @@
       <ev-button type="success" round>success</ev-button>
       <ev-button type="info" round>info</ev-button>
       <ev-button type="warning" round>warning</ev-button>
-      <ev-button type="error" round>error</ev-button>
+      <ev-button type="danger" round>danger</ev-button>
     </ev-space>
 
     <ev-space>
@@ -48,7 +48,7 @@
       <ev-button type="success" circle>点</ev-button>
       <ev-button type="info" circle>点</ev-button>
       <ev-button type="warning" circle>点</ev-button>
-      <ev-button type="error" circle>点</ev-button>
+      <ev-button type="danger" circle>点</ev-button>
     </ev-space>
 
     <ev-space>
@@ -57,7 +57,7 @@
       <ev-button type="success" disabled>点我吧</ev-button>
       <ev-button type="info" disabled>点我吧</ev-button>
       <ev-button type="warning" disabled>点我吧</ev-button>
-      <ev-button type="error" disabled>点我吧</ev-button>
+      <ev-button type="danger" disabled>点我吧</ev-button>
     </ev-space>
   </ev-space>
 </template>

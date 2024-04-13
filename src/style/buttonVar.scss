@@ -1,58 +1,118 @@
-@function getButtonVar(
-  $paramsMap: (
-    'textColor': 'primary',
-    'borderColor': 'primary',
-    'bgColor': #fff,
-    'hoverBgcolor': #fff
-  )
-) {
-  @return (
-    'button-text-color': (
-      'text-color',
-      map-get($paramsMap, 'textColor')
+@mixin button-type($type) {
+  @include generate-var-map(
+    (
+      'text-color': #fff,
+      'border-color': getVar($type, 'color'),
+      'bg-color': getVar($type, 'color'),
+      'hover-bg-color': getVar($type, 'color'),
+      'hover-border-color': getVar($type, 'color'),
+      'hover-text-color': #fff,
+      'hover-opacity': 0.8
     ),
-    'button-border-color': (
-      'border-color',
-      map-get($paramsMap, 'borderColor')
-    ),
-    'button-bg-color': map-get($paramsMap, 'bgColor'),
-    'button-hover-bg-color': map-get($paramsMap, 'hoverBgcolor')
+    'button'
   );
 }
 
-@mixin buttonVar() {
-  // --el-button-font-weight: var(--el-font-weight-primary);
-  // --el-button-border-color: var(--el-border-color);
-  // --el-button-bg-color: var(--el-fill-color-blank);
-  // --el-button-text-color: var(--el-text-color-regular);
-  // --el-button-disabled-text-color: var(--el-disabled-text-color);
-  // --el-button-disabled-bg-color: var(--el-fill-color-blank);
-  // --el-button-disabled-border-color: var(--el-border-color-light);
-  // --el-button-divide-border-color: rgba(255, 255, 255, .5);
-  // --el-button-hover-text-color: var(--el-color-primary);
-  // --el-button-hover-bg-color: var(--el-color-primary-light-9);
-  // --el-button-hover-border-color: var(--el-color-primary-light-7);
-  // --el-button-active-text-color: var(--el-button-hover-text-color);
-  // --el-button-active-border-color: var(--el-color-primary);
-  // --el-button-active-bg-color: var(--el-button-hover-bg-color);
-  // --el-button-outline-color: var(--el-color-primary-light-5);
-  // --el-button-hover-link-text-color: var(--el-color-info);
-  // --el-button-active-color: var(--el-text-color-primary);
+@mixin button-type-plain($type) {
+  @include generate-var-map(
+    (
+      'bg-color': getVar($type, 'color', 'light', '9'),
+      'text-color': getVar($type, 'color'),
+      'border-color': getVar($type, 'color', 'light', '5'),
+      'hover-bg-color': getVar($type, 'color'),
+      'hover-text-color': #fff
+    ),
+    'button'
+  );
 }
 
 @include ns(button) {
-  @include generate-var-map(getButtonVar());
+  //初始化变量
+  @include generate-var-map(
+    (
+      'text-color': getVar('text', 'color', 'primary'),
+      'border-color': getVar('border', 'color', 'primary'),
+      'bg-color': #fff,
+      'hover-bg-color': getVar('primary', 'color', 'light', '9'),
+      'hover-border-color': getVar('primary', 'color'),
+      'hover-text-color': getVar('primary', 'color'),
+      'hover-opacity': 1
+    ),
+    'button'
+  );
+
+  //朴素按钮初始变量
+  &.is-plain {
+    @include generate-var-map(
+      (
+        'bg-color': #fff,
+        'hover-bg-color': #fff
+      ),
+      'button'
+    );
+  }
+
+  //文字按钮变量
+  &.is-text {
+    @include setVar(('button', 'text', 'color'), ('text', 'color', 'regular'));
+  }
 
   &-primary {
-    @include generate-var-map(
-      getButtonVar(
-        (
-          'textColor': 'primary',
-          'borderColor': 'primary',
-          'bgColor': #fff,
-          'hoverBgcolor': #fff
-        )
-      )
-    );
+    @include button-type('primary');
+
+    &.is-plain {
+      @include button-type-plain('primary');
+    }
+
+    &.is-text {
+      @include setVar(('button', 'text', 'color'), ('primary', 'color'));
+    }
+  }
+
+  &-success {
+    @include button-type('success');
+
+    &.is-plain {
+      @include button-type-plain('success');
+    }
+
+    &.is-text {
+      @include setVar(('button', 'text', 'color'), ('success', 'color'));
+    }
+  }
+
+  &-info {
+    @include button-type('info');
+    &.is-plain {
+      @include button-type-plain('info');
+    }
+
+    &.is-text {
+      @include setVar(('button', 'text', 'color'), ('info', 'color'));
+    }
+  }
+
+  &-warning {
+    @include button-type('warning');
+
+    &.is-plain {
+      @include button-type-plain('warning');
+    }
+
+    &.is-text {
+      @include setVar(('button', 'text', 'color'), ('warning', 'color'));
+    }
+  }
+
+  &-danger {
+    @include button-type('danger');
+
+    &.is-plain {
+      @include button-type-plain('danger');
+    }
+
+    &.is-text {
+      @include setVar(('button', 'text', 'color'), ('danger', 'color'));
+    }
   }
 }
