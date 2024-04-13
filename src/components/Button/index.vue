@@ -3,8 +3,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { sizeclass } from './class'
+import { computed, inject } from 'vue'
+import { $config } from '@/symbol'
+
+const { namespace } = inject($config)!
 
 const props = withDefaults(
   defineProps<{
@@ -24,10 +26,10 @@ const emit = defineEmits<{
 }>()
 
 const classNames = computed(() => ({
-  'elin-button': true,
+  [`${namespace}-button`]: true,
+  [`${namespace}-button-${props.type}`]: true,
+  [`${namespace}-button-${props.size}`]: true,
   'is-plain': props.plain,
-  [`elin-button-${props.type}`]: true,
-  [`elin-button-${props.size}`]: true,
   'is-circle': props.circle,
   'is-round': props.round,
   'is-disabled': props.disabled,
