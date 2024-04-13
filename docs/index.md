@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Elin Design'
   text: '好看丰富的vue3组件库'
-  tagline: 基于tailwind.css设计，为vue3项目提供开箱即用的页面组件
+  tagline: 为vue3项目提供开箱即用的页面组件
   actions:
     - theme: brand
       text: 快速开始
