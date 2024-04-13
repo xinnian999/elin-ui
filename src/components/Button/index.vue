@@ -28,9 +28,9 @@ const classNames = computed(() => ({
   'is-plain': props.plain,
   [`elin-button-${props.type}`]: true,
   [`elin-button-${props.size}`]: true,
-  'elin-button-circle': props.circle,
-  'elin-button-round': props.round,
-  'elin-button-disabled': props.disabled,
+  'is-circle': props.circle,
+  'is-round': props.round,
+  'is-disabled': props.disabled,
   'is-text': props.text
 }))
 

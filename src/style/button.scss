@@ -16,14 +16,14 @@ $buttonClass: '#{$namespace}-button-';
   color: getVar('button', 'text-color');
   font-size: 14px;
 
-  &:hover:not(&-disabled, .is-text) {
+  &:hover:not(.is-disabled, .is-text) {
     opacity: getVar('button', 'hover', 'opacity');
     background-color: getVar('button', 'hover', 'bg', 'color');
     color: getVar('button', 'hover', 'text', 'color');
     border-color: getVar('button', 'hover', 'border', 'color');
   }
 
-  &:active:not(&-disabled) {
+  &:active:not(.is-disabled) {
     transform: scale(0.95);
   }
 
@@ -36,30 +36,31 @@ $buttonClass: '#{$namespace}-button-';
     }
   }
 
-  &-disabled {
-    @include disabled;
-  }
-
-  &-lg {
-    padding: 20px;
-    height: 50px;
-    font-size: 16px;
-  }
-
-  &-sm {
-    padding: 10px;
-    height: 30px;
-    font-size: 12px;
-  }
-
-  &-circle {
+  &.is-circle {
     border-radius: 50%;
     width: 40px;
     text-align: center;
   }
 
-  &-round {
+  &.is-round {
     border-radius: 20px;
     text-align: center;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+    opacity: $disabledOpacity;
+  }
+
+  &-large {
+    padding: 20px;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  &-small {
+    padding: 10px;
+    height: 30px;
+    font-size: 12px;
   }
 }
