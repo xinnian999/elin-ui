@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible" :class="`${namespace}-overlay`" @click="handleClose">
-    <div :class="`${namespace}-dialog`">
+    <div :class="[`${namespace}-dialog`]" @click.stop>
       <header>{{ title }}</header>
       <div :class="`${namespace}-dialog-body`"><slot /></div>
 
