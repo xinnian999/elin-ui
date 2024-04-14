@@ -1,0 +1,21 @@
+@include ns(overlay) {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: getVar('overlay', 'color', 'lighter');
+  z-index: 2024;
+}
+
+@include ns(dialog) {
+  width: 500px;
+  margin: 15vh auto 0;
+  background-color: getVar('fill', 'color', 'blank');
+  padding: 25px;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  footer {
+    text-align: right;
+  }
+}

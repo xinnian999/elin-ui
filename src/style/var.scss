@@ -32,11 +32,18 @@ $fillColor: (
   'blank': #ffffff
 );
 
+$overlayColor: (
+  '': rgba(0, 0, 0, 0.8),
+  'light': rgba(0, 0, 0, 0.7),
+  'lighter': rgba(0, 0, 0, 0.5)
+);
+
 :root {
   @include generate-lighter-colors($themeColor);
   @include generate-var-map($textColor, 'text-color');
   @include generate-var-map($borderColor, 'border-color');
   @include generate-var-map($fillColor, 'fill-color');
+  @include generate-var-map($overlayColor, 'overlay-color');
 }
 
 $border-radius: 7px;

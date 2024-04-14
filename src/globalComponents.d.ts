@@ -1,8 +1,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
-    EnButton: (typeof import('@/components'))['EnButton']
-    EnSpace: (typeof import('@/components'))['EnSpace']
-    EnModal: (typeof import('@/components'))['EnModal']
+    EButton: (typeof import('@/components'))['EButton']
+    ESpace: (typeof import('@/components'))['ESpace']
   }
 }
 

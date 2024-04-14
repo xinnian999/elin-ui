@@ -1,65 +1,65 @@
 <template>
-  <en-space direction="vertical">
-    <en-space>
-      <en-button @click="(e) => console.log(e)">Default</en-button>
-      <en-button type="primary"><IconDelete /> Primary</en-button>
-      <en-button type="success">success</en-button>
-      <en-button type="info">info</en-button>
-      <en-button type="warning">warning</en-button>
-      <en-button type="danger">danger</en-button>
-    </en-space>
+  <e-space direction="vertical">
+    <div>
+      <e-button @click="(e) => console.log(e)">Default</e-button>
+      <e-button type="primary"> Primary</e-button>
+      <e-button type="success">success</e-button>
+      <e-button type="info">info</e-button>
+      <e-button type="warning">warning</e-button>
+      <e-button type="danger">danger</e-button>
+    </div>
 
-    <en-space>
-      <en-button plain>Default</en-button>
-      <en-button type="primary" plain>点我吧</en-button>
-      <en-button type="success" plain>点我吧</en-button>
-      <en-button type="info" plain>点我吧</en-button>
-      <en-button type="warning" plain>点我吧</en-button>
-      <en-button type="danger" plain>点我吧</en-button>
-    </en-space>
+    <div>
+      <e-button plain>Default</e-button>
+      <e-button type="primary" plain>点我吧</e-button>
+      <e-button type="success" plain>点我吧</e-button>
+      <e-button type="info" plain>点我吧</e-button>
+      <e-button type="warning" plain>点我吧</e-button>
+      <e-button type="danger" plain>点我吧</e-button>
+    </div>
 
-    <en-space>
-      <en-button text>Default</en-button>
-      <en-button type="primary" text>点我吧</en-button>
-      <en-button type="success" text>点我吧</en-button>
-      <en-button type="info" text>点我吧</en-button>
-      <en-button type="warning" text>点我吧</en-button>
-      <en-button type="danger" text>点我吧</en-button>
-    </en-space>
+    <div>
+      <e-button text>Default</e-button>
+      <e-button type="primary" text>点我吧</e-button>
+      <e-button type="success" text>点我吧</e-button>
+      <e-button type="info" text>点我吧</e-button>
+      <e-button type="warning" text>点我吧</e-button>
+      <e-button type="danger" text>点我吧</e-button>
+    </div>
 
-    <en-space>
-      <en-button size="large">Large</en-button>
-      <en-button size="default">Default</en-button>
-      <en-button size="small">Samll</en-button>
-    </en-space>
+    <div>
+      <e-button size="large">Large</e-button>
+      <e-button size="default">Default</e-button>
+      <e-button size="small">Samll</e-button>
+    </div>
 
-    <en-space>
-      <en-button round>Default</en-button>
-      <en-button type="primary" round>Primary</en-button>
-      <en-button type="success" round>success</en-button>
-      <en-button type="info" round>info</en-button>
-      <en-button type="warning" round>warning</en-button>
-      <en-button type="danger" round>danger</en-button>
-    </en-space>
+    <div>
+      <e-button round>Default</e-button>
+      <e-button type="primary" round>Primary</e-button>
+      <e-button type="success" round>success</e-button>
+      <e-button type="info" round>info</e-button>
+      <e-button type="warning" round>warning</e-button>
+      <e-button type="danger" round>danger</e-button>
+    </div>
 
-    <en-space>
-      <en-button circle>点</en-button>
-      <en-button type="primary" circle>点</en-button>
-      <en-button type="success" circle>点</en-button>
-      <en-button type="info" circle>点</en-button>
-      <en-button type="warning" circle>点</en-button>
-      <en-button type="danger" circle>点</en-button>
-    </en-space>
+    <div>
+      <e-button circle>点</e-button>
+      <e-button type="primary" circle>点</e-button>
+      <e-button type="success" circle>点</e-button>
+      <e-button type="info" circle>点</e-button>
+      <e-button type="warning" circle>点</e-button>
+      <e-button type="danger" circle>点</e-button>
+    </div>
 
-    <en-space>
-      <en-button disabled>Default</en-button>
-      <en-button type="primary" disabled @click="click">点我吧</en-button>
-      <en-button type="success" disabled>点我吧</en-button>
-      <en-button type="info" disabled>点我吧</en-button>
-      <en-button type="warning" disabled>点我吧</en-button>
-      <en-button type="danger" disabled>点我吧</en-button>
-    </en-space>
-  </en-space>
+    <div>
+      <e-button disabled>Default</e-button>
+      <e-button type="primary" disabled @click="click">点我吧</e-button>
+      <e-button type="success" disabled>点我吧</e-button>
+      <e-button type="info" disabled>点我吧</e-button>
+      <e-button type="warning" disabled>点我吧</e-button>
+      <e-button type="danger" disabled>点我吧</e-button>
+    </div>
+  </e-space>
 </template>
 
 <script setup lang="ts">

@@ -5,9 +5,9 @@
       <h3 class="font-bold text-lg elin-modal-box-title">{{ title }}</h3>
       <slot />
       <form method="dialog" v-if="showClose">
-        <en-button ghost circle size="small" class="absolute right-2 top-2" @click="handleClose">
+        <e-button ghost circle size="small" class="absolute right-2 top-2" @click="handleClose">
           ✕
-        </en-button>
+        </e-button>
       </form>
 
       <div class="elin-modal-action">
