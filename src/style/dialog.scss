@@ -7,8 +7,8 @@
 }
 
 @include ns(dialog) {
-  width: 500px;
-  margin: 15vh auto 0;
+  width: getVar('dialog', 'width');
+  margin: getVar('dialog', 'top') auto 0;
   background-color: getVar('fill', 'color', 'blank');
   padding: 25px;
   border-radius: $border-radius;
@@ -17,12 +17,30 @@
   gap: 15px;
   animation: zoomIn;
   animation-duration: 0.3s;
+  position: relative;
 
-  header {
+  &-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      background-color: getVar('fill', 'color', 'light');
+    }
+  }
+
+  &-header {
     font-size: 18px;
   }
 
-  footer {
+  &-footer {
     text-align: right;
   }
 }
