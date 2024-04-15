@@ -1,23 +1,27 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body,html{
-    height: 100%;
+body,
+html {
+  height: 100%;
 }
 
-#app{
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#app {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.elin-icon{
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    overflow: hidden;
-    fill: currentColor;
+.elin-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: inherit;
+  font-style: normal;
+  vertical-align: -2px;
+  outline: none;
+  stroke: currentColor;
 }
