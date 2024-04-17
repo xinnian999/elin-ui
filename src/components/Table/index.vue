@@ -35,6 +35,11 @@
   </table>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps<{
+  data: { [key: string]: any }[]
+  columns: { [key: string]: any }[]
+}>()
+</script>
 
 <style></style>
