@@ -1,44 +1,28 @@
 <template>
-  <table class="table" border="1px">
-    <!-- head -->
+  <table :class="`${namespace}-table`">
     <thead>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Favorite Color</th>
+        <th v-for="{ label } in columns" :key="label">{{ label }}</th>
       </tr>
     </thead>
     <tbody>
-      <!-- row 1 -->
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
-      <!-- row 2 -->
-      <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      <!-- row 3 -->
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
+      <tr v-for="item in data">
+        <td class="td" v-for="{ prop } in columns" :key="prop">{{ item[prop] }}</td>
       </tr>
     </tbody>
   </table>
 </template>
 
 <script setup lang="ts">
+import { inject } from 'vue'
+import type { columnType } from './type'
+import { $config } from '@/symbol'
+
+const { namespace } = inject($config)!
+
 defineProps<{
   data: { [key: string]: any }[]
-  columns: { [key: string]: any }[]
+  columns: columnType[]
 }>()
 </script>
 

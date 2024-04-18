@@ -1,9 +1,5 @@
 <template>
-  <e-table :data="tableData" :columns="columns">
-    <!-- <e-table-column prop="date" label="Date" width="180" />
-    <e-table-column prop="name" label="Name" width="180" />
-    <e-table-column prop="address" label="Address" /> -->
-  </e-table>
+  <e-table :data="tableData" :columns="columns"> </e-table>
 </template>
 
 <script lang="ts" setup>
@@ -30,5 +26,18 @@ const tableData = [
   }
 ]
 
-const columns = []
+const columns = [
+  {
+    label: '姓名',
+    prop: 'name'
+  },
+  {
+    label: '日期',
+    prop: 'date'
+  },
+  {
+    label: 'address',
+    prop: 'address'
+  }
+]
 </script>

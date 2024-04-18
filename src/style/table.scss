@@ -1,0 +1,17 @@
+@include ns(table) {
+  border-collapse: collapse;
+
+  th {
+    padding: 10px;
+  }
+
+  tr,
+  td {
+    padding: 10px;
+  }
+  tr {
+    border-bottom: 1px solid #eee;
+  }
+  td {
+  }
+}
