@@ -12,5 +12,5 @@ export default (app: App<Element>) => {
     app.component(key, value)
   })
 
-  app.provide($config, { namespace: 'elin' })
+  app.provide($config, { namespace: 'elin', getNs: (className) => `elin-${className}` })
 }

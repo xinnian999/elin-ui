@@ -1,17 +1,16 @@
 @include ns(table) {
   border-collapse: collapse;
 
-  th {
+  &-th {
     padding: 10px;
   }
 
-  tr,
-  td {
+  &-tr {
     padding: 10px;
-  }
-  tr {
     border-bottom: 1px solid #eee;
   }
-  td {
+
+  &-td {
+    padding: 10px;
   }
 }

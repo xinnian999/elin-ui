@@ -1,13 +1,17 @@
 <template>
-  <table :class="`${namespace}-table`">
-    <thead>
-      <tr>
-        <th v-for="{ label } in columns" :key="label">{{ label }}</th>
+  <table :class="getNs('table')">
+    <thead :class="getNs('table-thead')">
+      <tr :class="getNs('table-tr')">
+        <th :class="getNs('table-th')" v-for="{ label } in columns" :key="label">
+          {{ label }}
+        </th>
       </tr>
     </thead>
-    <tbody>
-      <tr v-for="item in data">
-        <td class="td" v-for="{ prop } in columns" :key="prop">{{ item[prop] }}</td>
+    <tbody :class="getNs('table-tbody')">
+      <tr :class="getNs('table-tr')" v-for="item in data">
+        <td :class="getNs('table-td')" v-for="{ prop } in columns" :key="prop">
+          {{ item[prop] }}
+        </td>
       </tr>
     </tbody>
   </table>
@@ -18,7 +22,7 @@ import { inject } from 'vue'
 import type { columnType } from './type'
 import { $config } from '@/symbol'
 
-const { namespace } = inject($config)!
+const { getNs } = inject($config)!
 
 defineProps<{
   data: { [key: string]: any }[]
