@@ -1,13 +1,15 @@
 <template>
-  <e-table :data="tableData" :columns="columns"> </e-table>
+  <e-table :data="tableData" :columns="columns" style="width: 600px; overflow: auto"> </e-table>
 </template>
 
 <script lang="ts" setup>
+import type { tableColumnsType } from '@/release'
 const tableData = [
   {
     date: '2016-05-03',
     name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles'
+    address: 'No. 189, Grove St, Los Angeles',
+    age: 20
   },
   {
     date: '2016-05-02',
@@ -26,18 +28,26 @@ const tableData = [
   }
 ]
 
-const columns = [
+const columns: tableColumnsType = [
   {
     label: '姓名',
-    prop: 'name'
+    prop: 'name',
+    width: 200,
+    fixed: 'left'
   },
   {
     label: '日期',
-    prop: 'date'
+    prop: 'date',
+    width: 200
   },
   {
     label: 'address',
-    prop: 'address'
+    prop: 'address',
+    width: 200
+  },
+  {
+    label: '操作',
+    width: 200
   }
 ]
 </script>

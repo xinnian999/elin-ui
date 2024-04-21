@@ -1,16 +1,47 @@
 @include ns(table) {
   border-collapse: collapse;
+  // overflow-x: auto;
+  table-layout: fixed;
+  colgroup {
+  }
+  &-body {
+  }
 
   &-th {
     padding: 10px;
+    text-align: left;
+    color: getVar('text', 'color', 'secondary');
+    position: relative;
   }
 
   &-tr {
     padding: 10px;
     border-bottom: 1px solid #eee;
+    overflow: auto;
+    position: relative;
   }
 
   &-td {
     padding: 10px;
+    position: relative;
+    // background-color: #fff;
+  }
+
+  .is-fixed {
+    position: sticky;
+    z-index: 20;
+    background-color: #fff;
+    &:not(:has(+ .is-fixed)) {
+      &::after {
+        box-shadow: inset 10px 0 10px -10px #00000026;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        bottom: -1px;
+        touch-action: none;
+      }
+    }
   }
 }
