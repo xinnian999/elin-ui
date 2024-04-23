@@ -1,5 +1,5 @@
 <template>
-  <e-table :data="tableData" :columns="columns" style="width: 600px; overflow: auto"> </e-table>
+  <e-table :data="tableData" :columns="columns" style="width: 800px; overflow: auto"> </e-table>
 </template>
 
 <script lang="ts" setup>
@@ -47,7 +47,8 @@ const columns: tableColumnsType = [
   },
   {
     label: '操作',
-    width: 200
+    width: 200,
+    fixed: 'right'
   }
 ]
 </script>

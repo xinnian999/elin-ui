@@ -5,9 +5,13 @@
         <tr :class="getNs('table-tr')" ref="trRef">
           <th
             v-for="({ label, width, fixed }, index) in columns"
-            :class="[getNs('table-th'), fixed && 'is-fixed']"
+            :class="{
+              [getNs('table-th')]: true,
+              'is-fixed': fixed,
+              [`is-fixed-${fixed}`]: true
+            }"
             :key="label"
-            :style="{ position: fixed ? 'sticky' : 'relative', [fixed!]: computeSticky(index) }"
+            :style="{ [fixed!]: computeSticky(index, fixed) }"
           >
             <div :class="getNs('table-cell')" :style="{ width: `${width}px` }">
               {{ label }}
@@ -20,10 +24,13 @@
           <td
             v-for="({ prop, width, fixed }, index) in columns"
             :key="prop"
-            :class="[getNs('table-td'), fixed && 'is-fixed']"
+            :class="{
+              [getNs('table-td')]: true,
+              'is-fixed': fixed,
+              [`is-fixed-${fixed}`]: true
+            }"
             :style="{
-              position: fixed ? 'sticky' : 'relative',
-              [fixed!]: computeSticky(index)
+              [fixed!]: computeSticky(index, fixed)
             }"
           >
             <div :class="getNs('table-cell')" :style="{ width: `${width}px` }">
@@ -37,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, nextTick, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import type { tableColumnsType } from '@/type'
 import { $config } from '@/symbol'
 
@@ -50,12 +57,15 @@ defineProps<{
 
 const trRef = ref()
 
-const computeSticky = computed(() => (tdIndex: number) => {
-  // await nextTick()
+const computeSticky = computed(() => (tdIndex: number, direction: 'left' | 'right' = 'left') => {
   if (trRef.value) {
     const el = trRef.value.children[tdIndex]
+    const offset = {
+      left: el.offsetLeft,
+      right: el.offsetParent.clientWidth - el.offsetLeft - el.offsetWidth
+    }
 
-    return `${el.offsetLeft}px`
+    return `${offset[direction]}px`
   }
 })
 </script>

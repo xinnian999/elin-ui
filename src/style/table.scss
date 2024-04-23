@@ -31,16 +31,26 @@
     position: sticky;
     z-index: 20;
     background-color: #fff;
-    &:not(:has(+ .is-fixed)) {
-      &::after {
+    &:not(:has(+ .is-fixed)) ::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      width: 10px;
+      bottom: -1px;
+      touch-action: none;
+    }
+
+    &.is-fixed-left {
+      &:not(:has(+ .is-fixed)) ::after {
         box-shadow: inset 10px 0 10px -10px #00000026;
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 10px;
-        bottom: -1px;
-        touch-action: none;
+        right: -10px;
+      }
+    }
+
+    &.is-fixed-right {
+      &:not(:has(+ .is-fixed)) ::after {
+        box-shadow: inset -10px 0 10px -10px #00000026;
+        left: -10px;
       }
     }
   }
