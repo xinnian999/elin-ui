@@ -1,40 +1,52 @@
 <template>
-  <div>
-    <table :class="getNs('table')">
-      <thead :class="getNs('table-thead')">
-        <tr :class="getNs('table-tr')" ref="trRef">
+  <div :class="[ns('table-wrapper'), isScroll && 'is-scroll']" ref="wrapperRef">
+    <table :class="ns('table')">
+      <thead :class="ns('table-thead')">
+        <tr :class="ns('table-tr')" ref="trRef">
           <th
             v-for="({ label, width, fixed }, index) in columns"
             :class="{
-              [getNs('table-th')]: true,
+              [ns('table-th')]: true,
               'is-fixed': fixed,
               [`is-fixed-${fixed}`]: true
             }"
             :key="label"
             :style="{ [fixed!]: computeSticky(index, fixed) }"
           >
-            <div :class="getNs('table-cell')" :style="{ width: `${width}px` }">
+            <div :class="ns('table-cell')" :style="{ width: `${width}px` }">
               {{ label }}
             </div>
           </th>
         </tr>
       </thead>
-      <tbody :class="getNs('table-tbody')">
-        <tr :class="getNs('table-tr')" v-for="item in data" :key="item.prop">
+
+      <tbody :class="ns('table-tbody')">
+        <tr :class="ns('table-tr')" v-for="(item, trIndex) in data" :key="item.prop">
           <td
-            v-for="({ prop, width, fixed }, index) in columns"
+            v-for="({ prop = '', width, fixed, formatter }, tdIndex) in columns"
             :key="prop"
             :class="{
-              [getNs('table-td')]: true,
+              [ns('table-td')]: true,
               'is-fixed': fixed,
               [`is-fixed-${fixed}`]: true
             }"
             :style="{
-              [fixed!]: computeSticky(index, fixed)
+              [fixed!]: computeSticky(tdIndex, fixed)
             }"
           >
-            <div :class="getNs('table-cell')" :style="{ width: `${width}px` }">
-              {{ prop && item[prop] }}
+            <div :class="ns('table-cell')" :style="{ width: `${width}px` }">
+              <component
+                v-if="
+                  formatter && isVNode(formatter({ val: item[prop], row: item, index: trIndex }))
+                "
+                :is="formatter({ val: item[prop], row: item, index: trIndex })"
+              />
+              <template v-else-if="formatter">
+                {{ formatter({ val: item[prop], row: item, index: trIndex }) }}
+              </template>
+              <template v-else>
+                {{ item[prop] }}
+              </template>
             </div>
           </td>
         </tr>
@@ -44,11 +56,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
+import { computed, inject, ref, isVNode } from 'vue'
 import type { tableColumnsType } from '@/type'
 import { $config } from '@/symbol'
 
-const { getNs } = inject($config)!
+const { ns } = inject($config)!
 
 defineProps<{
   data: { [key: string]: any }[]
@@ -56,6 +68,8 @@ defineProps<{
 }>()
 
 const trRef = ref()
+
+const wrapperRef = ref()
 
 const computeSticky = computed(() => (tdIndex: number, direction: 'left' | 'right' = 'left') => {
   if (trRef.value) {
@@ -67,6 +81,12 @@ const computeSticky = computed(() => (tdIndex: number, direction: 'left' | 'righ
 
     return `${offset[direction]}px`
   }
+})
+
+const isScroll = computed(() => {
+  const el = wrapperRef.value || {}
+
+  return el.scrollWidth > el.clientWidth
 })
 </script>
 

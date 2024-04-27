@@ -3,4 +3,5 @@ export type tableColumnsType = {
   prop?: string
   width?: number
   fixed?: 'left' | 'right'
+  formatter?: (data: { val: any; row: object; index: number }) => any
 }[]

@@ -1,8 +1,8 @@
 <template>
-  <e-table :data="tableData" :columns="columns" style="width: 800px; overflow: auto"> </e-table>
+  <e-table :data="tableData" :columns="columns" style="width: 800px"> </e-table>
 </template>
 
-<script lang="ts" setup>
+<script lang="tsx" setup>
 import type { tableColumnsType } from '@/release'
 const tableData = [
   {
@@ -32,8 +32,11 @@ const columns: tableColumnsType = [
   {
     label: '姓名',
     prop: 'name',
-    width: 200,
-    fixed: 'left'
+    width: 120,
+    fixed: 'left',
+    formatter: ({ val, row, index }) => {
+      return val + index
+    }
   },
   {
     label: '日期',

@@ -1,57 +1,66 @@
+@include ns(table-wrapper){
+  overflow: auto;
+
+  &.is-scroll{
+    .is-fixed{
+      position: sticky;
+      z-index: 20;
+      background-color: #fff;
+      &:not(:has(+ .is-fixed)) ::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 10px;
+        bottom: -1px;
+        touch-action: none;
+      }
+    }
+
+    .is-fixed-left {
+      &:not(:has(+ .is-fixed-left)) ::after {
+        box-shadow: inset 10px 0 10px -10px #00000026;
+        right: -10px;
+      }
+    }
+
+    .is-fixed-right {
+      &:not(:has(+ .is-fixed-right)) ::after {
+        box-shadow: inset -10px 0 10px -10px #00000026;
+        left: -10px;
+      }
+    }
+  }
+}
+
 @include ns(table) {
   border-collapse: collapse;
-  // overflow-x: auto;
   table-layout: fixed;
-  colgroup {
-  }
+
   &-body {
   }
 
   &-th {
-    padding: 10px;
+    padding: 12px 16px;
     text-align: left;
     color: getVar('text', 'color', 'secondary');
     position: relative;
+    font-size: 12px;
   }
 
   &-tr {
-    padding: 10px;
+    //padding: 10px;
     border-bottom: 1px solid #eee;
     overflow: auto;
     position: relative;
   }
 
   &-td {
-    padding: 10px;
+    padding: 12px 16px;
     position: relative;
-    // background-color: #fff;
+    font-size: 14px;
   }
 
-  .is-fixed {
-    position: sticky;
-    z-index: 20;
-    background-color: #fff;
-    &:not(:has(+ .is-fixed)) ::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      width: 10px;
-      bottom: -1px;
-      touch-action: none;
-    }
-
-    &.is-fixed-left {
-      &:not(:has(+ .is-fixed)) ::after {
-        box-shadow: inset 10px 0 10px -10px #00000026;
-        right: -10px;
-      }
-    }
-
-    &.is-fixed-right {
-      &:not(:has(+ .is-fixed)) ::after {
-        box-shadow: inset -10px 0 10px -10px #00000026;
-        left: -10px;
-      }
-    }
+  &-cell{
   }
+
 }

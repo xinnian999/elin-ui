@@ -30,7 +30,7 @@
     <div>
       <e-button size="large">Large</e-button>
       <e-button size="default">Default</e-button>
-      <e-button size="small">Samll</e-button>
+      <e-button size="small">Small</e-button>
     </div>
 
     <div>
@@ -63,7 +63,6 @@
 </template>
 
 <script setup lang="ts">
-import { IconDelete } from '@/release'
 const click = () => {
   console.log(9999)
 }
