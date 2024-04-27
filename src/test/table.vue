@@ -51,7 +51,19 @@ const columns: tableColumnsType = [
   {
     label: '操作',
     width: 200,
-    fixed: 'right'
+    fixed: 'right',
+    formatter: ({ val, row, index }) => {
+      return (
+        <>
+          <e-button text type="primary">
+            修改
+          </e-button>
+          {/* <e-button text type="primary">
+            删除
+          </e-button> */}
+        </>
+      )
+    }
   }
 ]
 </script>

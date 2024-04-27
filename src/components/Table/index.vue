@@ -22,33 +22,16 @@
 
       <tbody :class="ns('table-tbody')">
         <tr :class="ns('table-tr')" v-for="(item, trIndex) in data" :key="item.prop">
-          <td
-            v-for="({ prop = '', width, fixed, formatter }, tdIndex) in columns"
-            :key="prop"
-            :class="{
-              [ns('table-td')]: true,
-              'is-fixed': fixed,
-              [`is-fixed-${fixed}`]: true
-            }"
+          <Td
+            v-for="(column, tdIndex) in columns"
+            :key="column.prop"
+            :row-data="item"
+            :column="column"
+            :index="trIndex"
             :style="{
-              [fixed!]: computeSticky(tdIndex, fixed)
+              [column.fixed!]: computeSticky(tdIndex, column.fixed)
             }"
-          >
-            <div :class="ns('table-cell')" :style="{ width: `${width}px` }">
-              <component
-                v-if="
-                  formatter && isVNode(formatter({ val: item[prop], row: item, index: trIndex }))
-                "
-                :is="formatter({ val: item[prop], row: item, index: trIndex })"
-              />
-              <template v-else-if="formatter">
-                {{ formatter({ val: item[prop], row: item, index: trIndex }) }}
-              </template>
-              <template v-else>
-                {{ item[prop] }}
-              </template>
-            </div>
-          </td>
+          />
         </tr>
       </tbody>
     </table>
@@ -56,9 +39,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, isVNode } from 'vue'
+import { computed, inject, ref } from 'vue'
 import type { tableColumnsType } from '@/type'
 import { $config } from '@/symbol'
+import Td from './Td'
 
 const { ns } = inject($config)!
 
