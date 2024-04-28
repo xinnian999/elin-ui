@@ -1,5 +1,5 @@
 <template>
-  <div :class="[ns('table-wrapper'), isScroll && 'is-scroll']" ref="wrapperRef">
+  <div :class="{ [ns('table-wrapper')]: true, 'is-scroll': isScroll }" ref="wrapperRef">
     <table :class="ns('table')">
       <thead :class="ns('table-thead')">
         <tr :class="ns('table-tr')" ref="trRef">
@@ -8,7 +8,8 @@
             :class="{
               [ns('table-th')]: true,
               'is-fixed': fixed,
-              [`is-fixed-${fixed}`]: true
+              'is-fixed-left': fixedShadow.left === index,
+              'is-fixed-right': fixedShadow.right === index
             }"
             :key="label"
             :style="{ [fixed!]: computeSticky(index, fixed) }"
@@ -31,6 +32,10 @@
             :style="{
               [column.fixed!]: computeSticky(tdIndex, column.fixed)
             }"
+            :class="{
+              'is-fixed-left': fixedShadow.left === tdIndex,
+              'is-fixed-right': fixedShadow.right === tdIndex
+            }"
           />
         </tr>
       </tbody>
@@ -39,14 +44,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref } from 'vue'
+import { computed, inject, ref, watchEffect } from 'vue'
 import type { tableColumnsType } from '@/type'
 import { $config } from '@/symbol'
 import Td from './Td'
 
 const { ns } = inject($config)!
 
-defineProps<{
+const props = defineProps<{
   data: { [key: string]: any }[]
   columns: tableColumnsType
 }>()
@@ -64,6 +69,24 @@ const computeSticky = computed(() => (tdIndex: number, direction: 'left' | 'righ
     }
 
     return `${offset[direction]}px`
+  }
+})
+
+const fixedShadow = computed(() => {
+  const { columns } = props
+
+  let left = 0
+  let right = columns.findIndex((item) => item.fixed === 'right')
+
+  columns.forEach((item, index) => {
+    if (item.fixed === 'left') {
+      left = index
+    }
+  })
+
+  return {
+    left,
+    right
   }
 })
 

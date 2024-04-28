@@ -1,12 +1,12 @@
-@include ns(table-wrapper){
+@include ns(table-wrapper) {
   overflow: auto;
 
-  &.is-scroll{
-    .is-fixed{
+  &.is-scroll {
+    .is-fixed {
       position: sticky;
       z-index: 20;
       background-color: #fff;
-      &:not(:has(+ .is-fixed)) ::after {
+      &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -17,14 +17,14 @@
     }
 
     .is-fixed-left {
-      &:not(:has(+ .is-fixed-left)) ::after {
+      &::after {
         box-shadow: inset 10px 0 10px -10px #00000026;
         right: -10px;
       }
     }
 
     .is-fixed-right {
-      &:not(:has(+ .is-fixed-right)) ::after {
+      &::after {
         box-shadow: inset -10px 0 10px -10px #00000026;
         left: -10px;
       }
@@ -60,7 +60,6 @@
     font-size: 14px;
   }
 
-  &-cell{
+  &-cell {
   }
-
 }

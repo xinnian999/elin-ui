@@ -42,11 +42,13 @@ const columns: tableColumnsType = [
     label: '日期',
     prop: 'date',
     width: 200
+    // fixed: 'left'
   },
   {
     label: 'address',
     prop: 'address',
     width: 200
+    // fixed: 'right'
   },
   {
     label: '操作',

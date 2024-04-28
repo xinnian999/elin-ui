@@ -22,8 +22,8 @@ const Td = defineComponent({
       <td
         class={{
           [ns('table-td')]: true,
-          'is-fixed': fixed,
-          [`is-fixed-${fixed}`]: true
+          'is-fixed': fixed
+          //   [`is-fixed-${fixed}`]: true
         }}
       >
         <div class={ns('table-cell')} style={{ width: `${width}px` }}>
