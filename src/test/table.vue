@@ -41,8 +41,7 @@ const columns: tableColumnsType = [
   {
     label: '日期',
     prop: 'date',
-    width: 200
-    // fixed: 'left'
+    width: 200,
   },
   {
     label: 'address',

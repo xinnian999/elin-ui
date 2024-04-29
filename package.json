@@ -21,9 +21,11 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "release": "vite build --config release.config.ts"
+    "release": "vite build --config release.config.ts",
+    "test": "vitest"
   },
   "dependencies": {
+    "@vue/test-utils": "^2.4.5",
     "animate.css": "^4.1.1",
     "postcss": "^8.4.38",
     "vite-plugin-dts": "^3.8.1",
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",
+    "@testing-library/vue": "^8.0.3",
     "@tsconfig/node20": "^20.1.2",
     "@types/node": "^20.11.10",
     "@vitejs/plugin-vue": "^5.0.3",
@@ -40,12 +43,14 @@
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "happy-dom": "^14.7.1",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
     "sass": "^1.74.1",
     "typescript": "~5.3.0",
     "vite": "^5.0.11",
     "vitepress": "^1.0.1",
+    "vitest": "^1.5.2",
     "vue-tsc": "^1.8.27"
   }
 }

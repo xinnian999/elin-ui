@@ -6,7 +6,7 @@
 import { computed, inject } from 'vue'
 import { $config } from '@/symbol'
 
-const { namespace } = inject($config)!
+const { namespace } = inject($config, { namespace: 'elin' })!
 
 const props = withDefaults(
   defineProps<{

@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, ref, watchEffect } from 'vue'
+import { computed, inject, ref } from 'vue'
 import type { tableColumnsType } from '@/type'
 import { $config } from '@/symbol'
 import Td from './Td'
