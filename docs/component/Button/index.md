@@ -1,56 +1,32 @@
+
+<script setup lang="ts">
+import Basic from './basic.vue'
+import Plain from './plain.vue'
+
+</script>
+
 # Button
 
 常用的操作按钮。
 
 ## 基础按钮
 
-<e-space>
-  <e-button>Default</e-button>
-  <e-button type="primary">Primary</e-button>
-  <e-button type="success">Success</e-button>
-  <e-button type="info">Info</e-button>
-  <e-button type="warning">Warning</e-button>
-  <e-button type="danger">danger</e-button>
-</e-space>
+<Basic/>
 
 ::: details 查看代码
 
-```html
-<e-space>
-  <e-button>Default</e-button>
-  <e-button type="primary">Primary</e-button>
-  <e-button type="success">Success</e-button>
-  <e-button type="info">Info</e-button>
-  <e-button type="warning">Warning</e-button>
-  <e-button type="danger">danger</e-button>
-</e-space>
-```
+<<< ./basic.vue
 
 :::
 
 ## 朴素按钮
 
-<e-space>
-  <e-button plain>Default</e-button>
-  <e-button type="primary" plain>Primary</e-button>
-  <e-button type="success" plain>Success</e-button>
-  <e-button type="info" plain>Info</e-button>
-  <e-button type="warning" plain>Warning</e-button>
-  <e-button type="danger" plain>danger</e-button>
-</e-space>
+<Plain/>
+
 
 ::: details 查看代码
 
-```html
-<e-space>
-  <e-button plain>Default</e-button>
-  <e-button type="primary" plain>Primary</e-button>
-  <e-button type="success" plain>Success</e-button>
-  <e-button type="info" plain>Info</e-button>
-  <e-button type="warning" plain>Warning</e-button>
-  <e-button type="danger" plain>danger</e-button>
-</e-space>
-```
+<<< ./plain.vue
 
 :::
 
@@ -117,11 +93,6 @@
 <e-button type="danger">删除<IconDelete /></e-button>
 </e-space>
 
-<script setup lang="ts">
-import { IconDelete } from '../../dist/elin-design'
-
-
-</script>
 
 ::: details 查看代码
 

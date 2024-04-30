@@ -41,7 +41,7 @@ const columns: tableColumnsType = [
   {
     label: '日期',
     prop: 'date',
-    width: 200,
+    width: 200
   },
   {
     label: 'address',
@@ -59,9 +59,9 @@ const columns: tableColumnsType = [
           <e-button text type="primary">
             修改
           </e-button>
-          {/* <e-button text type="primary">
+          {/* <e-Button text type="primary">
             删除
-          </e-button> */}
+          </e-Button> */}
         </>
       )
     }

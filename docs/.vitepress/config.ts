@@ -18,7 +18,7 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/install' },
-      { text: '组件', link: `/component/Button` }
+      { text: '组件', link: `/component/Button/` }
     ],
     sidebar: {
       '/guide/': [
@@ -29,14 +29,13 @@ export default defineConfig({
         {
           text: '基础组件',
           items: [
-            { text: 'Button 按钮', link: `/component/Button` },
+            { text: 'Button 按钮', link: `/component/Button/` },
             { text: 'Space 间距', link: '/component/Space' },
             { text: 'Modal 弹窗', link: '/component/Modal' }
           ]
         }
       ]
     },
-
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }]
   }
 })

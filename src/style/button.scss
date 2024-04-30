@@ -9,6 +9,7 @@ $buttonClass: '#{$namespace}-button-';
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  font-weight: 500;
   background-color: getVar('button', 'bg', 'color');
   transition-duration: 0.2s;
   border: 1px solid getVar('button', 'border', 'color');
