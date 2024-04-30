@@ -1,17 +1,25 @@
 import { defineConfig } from 'vitepress'
+import { fileURLToPath, URL } from 'node:url'
 
-// https://vitepress.dev/reference/site-config
+const UIBase = fileURLToPath(new URL('../../src/', import.meta.url))
+
 export default defineConfig({
   title: 'Elin Design',
   description: '一个有趣的vue3组件库',
+  vite: {
+    resolve: {
+      alias: {
+        '@': UIBase // 假设你想为 VitePress 主题目录设置别名
+      }
+    }
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
       { text: '指南', link: '/guide/install' },
-      { text: '组件', link: '/component/Button' }
+      { text: '组件', link: `/component/Button` }
     ],
-
     sidebar: {
       '/guide/': [
         { text: '安装', link: '/guide/install' },
@@ -21,7 +29,7 @@ export default defineConfig({
         {
           text: '基础组件',
           items: [
-            { text: 'Button 按钮', link: '/component/Button' },
+            { text: 'Button 按钮', link: `/component/Button` },
             { text: 'Space 间距', link: '/component/Space' },
             { text: 'Modal 弹窗', link: '/component/Modal' }
           ]

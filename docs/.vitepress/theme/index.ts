@@ -1,8 +1,8 @@
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import UI, { IconDelete, IconPlus } from '../../../dist/elin-design'
-// import UI from '../../../src/release'
-import '../../../dist/style.css'
+// import UI, { IconDelete, IconPlus } from '../../../dist/elin-design'
+import UI from '@/release'
+// import '../../../dist/style.css'
 
 export default {
   extends: DefaultTheme,
