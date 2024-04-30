@@ -17,8 +17,8 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { IconClose } from '@/release'
-import { $config } from '@/symbol'
 import { computed } from 'vue'
+import { $config, $configInit } from '@/config'
 
 defineOptions({
   inheritAttrs: false
@@ -41,7 +41,7 @@ const props = withDefaults(
   }
 )
 
-const { namespace } = inject($config)!
+const { namespace } = inject($config, $configInit)!
 
 const style = computed(() => ({
   [`--${namespace}-dialog-width`]: `${props.width}px`,

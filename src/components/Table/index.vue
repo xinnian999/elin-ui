@@ -46,10 +46,10 @@
 <script setup lang="ts">
 import { computed, inject, ref } from 'vue'
 import type { tableColumnsType } from '@/type'
-import { $config } from '@/symbol'
+import { $config, $configInit } from '@/config'
 import Td from './Td'
 
-const { ns } = inject($config)!
+const { ns } = inject($config, $configInit)!
 
 const props = defineProps<{
   data: { [key: string]: any }[]

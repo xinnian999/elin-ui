@@ -1,6 +1,6 @@
 import { defineComponent, inject } from 'vue'
-import { $config } from '@/symbol'
 import type { tableColType } from '@/type'
+import { $configInit, $config } from '@/config'
 
 type TdProps = {
   rowData: { [key: string]: any }
@@ -12,7 +12,7 @@ const Td = defineComponent({
   props: ['rowData', 'column', 'index'],
 
   setup({ rowData, column, index }: TdProps) {
-    const { ns } = inject($config)!
+    const { ns } = inject($config, $configInit)!
 
     const { formatter, prop = '', fixed, width } = column
 

@@ -1,7 +1,7 @@
 import type { App } from 'vue'
 import * as components from '@/components'
 import './style/index.scss'
-import { $config } from './symbol'
+import { $configInit, $config } from './config'
 import 'animate.css'
 
 export * from '@/components'
@@ -13,5 +13,5 @@ export default (app: App<Element>) => {
     app.component(key, value)
   })
 
-  app.provide($config, { namespace: 'elin', ns: (className) => `elin-${className}` })
+  app.provide($config, $configInit)
 }

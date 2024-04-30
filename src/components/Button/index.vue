@@ -4,9 +4,9 @@
 
 <script setup lang="ts">
 import { computed, inject } from 'vue'
-import { $config } from '@/symbol'
+import { $configInit, $config } from '@/config'
 
-const { namespace } = inject($config, { namespace: 'elin' })!
+const { namespace } = inject($config, $configInit)!
 
 const props = withDefaults(
   defineProps<{

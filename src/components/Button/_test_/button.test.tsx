@@ -1,19 +1,13 @@
 import { render } from '@testing-library/vue'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, test } from 'vitest'
-import Button from './index.vue'
+import Button from '../index.vue'
+import { namespace } from '@/config'
 
 describe('Button.vue', () => {
   it('create', () => {
     const wrapper = mount(() => <Button type="primary" />)
 
-    expect(wrapper.classes()).toContain('elin-button-primary')
+    expect(wrapper.classes()).toContain(`${namespace}-button-primary`)
   })
 })
-
-// test('it should work', () => {
-//   const { getByText } = render(<Button type="primary" />)
-//
-//   // 断言输出
-//   getByText('...')
-// })
