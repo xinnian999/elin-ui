@@ -1,12 +1,12 @@
 @mixin button-type($type) {
   @include generate-var-map(
     (
-      'text-color': getVar('fill', 'color', 'blank'),
+      'text-color': #fff,
       'border-color': getVar($type, 'color'),
       'bg-color': getVar($type, 'color'),
       'hover-bg-color': getVar($type, 'color'),
       'hover-border-color': getVar($type, 'color'),
-      'hover-text-color': getVar('fill', 'color', 'blank'),
+      'hover-text-color': #fff,
       'hover-opacity': 0.8
     ),
     'button'
@@ -16,11 +16,11 @@
 @mixin button-type-plain($type) {
   @include generate-var-map(
     (
-      'bg-color': getVar($type, 'color', 'light', '9'),
+      'bg-color': getVar($type, 'color',  '9'),
       'text-color': getVar($type, 'color'),
-      'border-color': getVar($type, 'color', 'light', '5'),
+      'border-color': getVar($type, 'color',  '5'),
       'hover-bg-color': getVar($type, 'color'),
-      'hover-text-color': getVar('fill', 'color', 'blank')
+      'hover-text-color': #fff
     ),
     'button'
   );
@@ -30,9 +30,9 @@
   //初始化变量
   @include generate-var-map(
     (
-      'text-color': getVar('text', 'color', 'primary'),
-      'border-color': getVar('border', 'color', 'primary'),
-      'hover-bg-color': getVar('primary', 'color', 'light', '9'),
+      'text-color': getVar('text', 'color'),
+      'border-color': getVar('border', 'color'),
+      'hover-bg-color': getVar('primary', 'color',  '9'),
       'hover-border-color': getVar('primary', 'color'),
       'hover-text-color': getVar('primary', 'color'),
       'hover-opacity': 1
@@ -45,7 +45,8 @@
     @include generate-var-map(
       (
         'bg-color': getVar('fill', 'color', 'blank'),
-        'hover-bg-color': getVar('fill', 'color', 'blank')
+        'hover-bg-color': getVar('fill', 'color', 'blank'),
+              'hover-opacity': 1
       ),
       'button'
     );

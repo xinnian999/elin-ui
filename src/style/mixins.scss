@@ -7,7 +7,7 @@
 }
 
 @mixin disabled() {
-  opacity: $disabledOpacity;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -39,12 +39,33 @@
   }
 }
 
-@mixin generate-lighter-colors($colors) {
+@mixin generate-colors($colors, $type) {
   @each $key, $value in $colors {
     @include setVar(($key, 'color'), $value);
-    $lightmap: get-lighter-colors($value);
-    @each $lightKey, $lighValue in $lightmap {
-      @include setVar(($key, 'color', $lightKey), $lighValue);
+
+    $color-map: (); // 创建一个空 map
+
+    @for $i from 2 through 10 {
+      $color: '';
+      @if ($type== 'light') {
+        $color: lighten($value, $i * 5%); // 计算颜色
+      } @else {
+        $color: darken($value, $i * 5%); // 计算颜色
+      }
+
+      $color-name: '#{$i}'; // 设置变量名
+      $var-name: '--#{$color-name}'; // CSS 自定义属性名称
+
+      $color-map: map-merge(
+        $color-map,
+        (
+          $i: $color
+        )
+      );
+    }
+
+    @each $colorKey, $colorValue in $color-map {
+      @include setVar(($key, 'color', $colorKey), $colorValue);
     }
   }
 }

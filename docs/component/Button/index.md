@@ -1,7 +1,8 @@
-
 <script setup lang="ts">
-import Basic from './basic.vue'
-import Plain from './plain.vue'
+import  {IconDelete} from '@/release';
+import Basic from './basic.vue';
+import Plain from './plain.vue';
+import Text from './text.vue'
 
 </script>
 
@@ -11,7 +12,7 @@ import Plain from './plain.vue'
 
 ## 基础按钮
 
-<Basic/>
+<Basic />
 
 ::: details 查看代码
 
@@ -32,53 +33,35 @@ import Plain from './plain.vue'
 
 ## 文字按钮
 
-通过text属性设置
-
-<e-space>
-  <e-button text>Default</e-button>
-  <e-button type="primary" text>Primary</e-button>
-  <e-button type="success" text>Success</e-button>
-  <e-button type="info" text>Info</e-button>
-  <e-button type="warning" text>Warning</e-button>
-  <e-button type="danger" text>danger</e-button>
-</e-space>
+<Text/>
 
 ::: details 查看代码
 
-```html
-<e-space>
-  <e-button text>Default</e-button>
-  <e-button type="primary" text>Primary</e-button>
-  <e-button type="success" text>Success</e-button>
-  <e-button type="info" text>Info</e-button>
-  <e-button type="warning" text>Warning</e-button>
-  <e-button type="danger" text>danger</e-button>
-</e-space>
-```
+<<< ./text.vue
 
 :::
 
 ## 圆形按钮
 
  <e-space>
-      <e-button circle><e-icon name="delete" /></e-button>
-      <e-button type="primary" circle><e-icon name="delete" /></e-button>
-      <e-button type="success" circle><e-icon name="delete" /></e-button>
-      <e-button type="info" circle><e-icon name="delete" /></e-button>
-      <e-button type="warning" circle><e-icon name="delete" /></e-button>
-      <e-button type="danger" circle><e-icon name="delete" /></e-button>
+      <e-button circle><IconDelete /></e-button>
+      <e-button type="primary" circle><IconDelete /></e-button>
+      <e-button type="success" circle><IconDelete /></e-button>
+      <e-button type="info" circle><IconDelete /></e-button>
+      <e-button type="warning" circle><IconDelete /></e-button>
+      <e-button type="danger" circle><IconDelete /></e-button>
  </e-space>
 
 ::: details 查看代码
 
 ```html
 <e-space>
-  <e-button circle><e-icon name="delete" /></e-button>
-  <e-button type="primary" circle><e-icon name="delete" /></e-button>
-  <e-button type="success" circle><e-icon name="delete" /></e-button>
-  <e-button type="info" circle><e-icon name="delete" /></e-button>
-  <e-button type="warning" circle><e-icon name="delete" /></e-button>
-  <e-button type="danger" circle><e-icon name="delete" /></e-button>
+  <e-button circle><IconDelete /></e-button>
+  <e-button type="primary" circle><IconDelete /></e-button>
+  <e-button type="success" circle><IconDelete /></e-button>
+  <e-button type="info" circle><IconDelete /></e-button>
+  <e-button type="warning" circle><IconDelete /></e-button>
+  <e-button type="danger" circle><IconDelete /></e-button>
 </e-space>
 ```
 
@@ -98,8 +81,8 @@ import Plain from './plain.vue'
 
 ```html
 <e-space>
-  <e-button type="danger"><e-icon name="delete" />删除</e-button>
-  <e-button type="danger">删除<e-icon name="delete" /></e-button>
+  <e-button type="danger"><IconDelete />删除</e-button>
+  <e-button type="danger">删除<IconDelete /></e-button>
 </e-space>
 ```
 

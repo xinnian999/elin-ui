@@ -1,52 +1,44 @@
 $themeColor: (
-  'primary': #2563EB,
+  'primary': #2563eb,
   'success': #67c23a,
   'info': #607d8b,
   'warning': #efa314,
   'danger': #ee0a24
 );
 
-$textColor: (
-  'primary': #303133,
-  'regular': #606266,
-  'secondary': #909399,
-  'placeholder': #a8abb2,
-  'disabled': #c0c4cc
+$lights: (
+  'text-color': #303133,
+  'text-color-regular': #606266,
+  'text-color-placeholder': #a8abb2,
+  'border-color': #dcdfe6,
+  'fill-color': #f0f2f5,
+  'fill-color-light': #f5f7fa,
+  'fill-color-blank': #ffffff,
+  'overlay-color': rgba(0, 0, 0, 0.8),
+  'overlay-color-light': rgba(0, 0, 0, 0.7),
+  'overlay-color-lighter': rgba(0, 0, 0, 0.5)
 );
 
-$borderColor: (
-  'primary': #dcdfe6,
-  'light': #e4e7ed,
-  'lighter': #ebeef5,
-  'dark': #d4d7de,
-  'darker': #cdd0d6
+$darks: (
+  'text-color': #e5eaf3,
+  'text-color-regular': #cfd3dc,
+  'text-color-placeholder': #8d9095,
+  'border-color': #dcdfe6,
+  'fill-color': #303030,
+  'fill-color-light': #262727,
+  'fill-color-blank': transparent
 );
 
-$fillColor: (
-  '': #f0f2f5,
-  'light': #f5f7fa,
-  'lighter': #fafafa,
-  'extra-light': #fafcff,
-  'dark': #ebedf0,
-  'darker': #e6e8eb,
-  'blank': #ffffff
-);
-
-$overlayColor: (
-  '': rgba(0, 0, 0, 0.8),
-  'light': rgba(0, 0, 0, 0.7),
-  'lighter': rgba(0, 0, 0, 0.5)
-);
 
 :root {
-  @include generate-lighter-colors($themeColor);
-  @include generate-var-map($textColor, 'text-color');
-  @include generate-var-map($borderColor, 'border-color');
-  @include generate-var-map($fillColor, 'fill-color');
-  @include generate-var-map($overlayColor, 'overlay-color');
+  @include generate-colors($themeColor, light);
+  @include generate-var-map($lights);
+  &.dark {
+    @include generate-colors($themeColor, dark);
+    @include generate-var-map($darks);
+  }
 }
 
 $border-radius: 7px;
 $border-color: #dcdfe6;
-$disabledOpacity: 0.5;
 $text-color: #303133;

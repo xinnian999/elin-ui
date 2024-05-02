@@ -27,6 +27,7 @@ $buttonClass: '#{$namespace}-button-';
     transform: scale(0.95);
   }
 
+
   &.is-text {
     background-color: transparent;
     border: none;
@@ -40,6 +41,7 @@ $buttonClass: '#{$namespace}-button-';
     border-radius: 50%;
     width: 40px;
     text-align: center;
+    padding: 12px;
   }
 
   &.is-round {
