@@ -2,6 +2,8 @@
   position: fixed;
   height: 100%;
   width: 100%;
+  left: 0;
+  top: 0;
   background-color: getVar('overlay', 'color', 'lighter');
   z-index: 2024;
 }
@@ -9,7 +11,7 @@
 @include ns(dialog) {
   width: getVar('dialog', 'width');
   margin: getVar('dialog', 'top') auto 0;
-  background-color: getVar('fill', 'color', 'blank');
+  background-color: getVar('bg', 'color');
   padding: 25px;
   border-radius: $border-radius;
   display: flex;
@@ -18,6 +20,7 @@
   animation: zoomIn;
   animation-duration: 0.3s;
   position: relative;
+  box-shadow: getVar('box-shadow');
 
   &-close {
     position: absolute;

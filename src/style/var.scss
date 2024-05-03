@@ -7,6 +7,7 @@ $themeColor: (
 );
 
 $lights: (
+  'bg-color': #fff,
   'text-color': #303133,
   'text-color-regular': #606266,
   'text-color-placeholder': #a8abb2,
@@ -16,19 +17,27 @@ $lights: (
   'fill-color-blank': #ffffff,
   'overlay-color': rgba(0, 0, 0, 0.8),
   'overlay-color-light': rgba(0, 0, 0, 0.7),
-  'overlay-color-lighter': rgba(0, 0, 0, 0.5)
+  'overlay-color-lighter': rgba(0, 0, 0, 0.5),
+  'box-shadow': (
+    0px 12px 32px 4px rgba(0, 0, 0, 0.04),
+    0px 8px 20px rgba(0, 0, 0, 0.08)
+  )
 );
 
 $darks: (
+  'bg-color': #141414,
   'text-color': #e5eaf3,
   'text-color-regular': #cfd3dc,
   'text-color-placeholder': #8d9095,
-  'border-color': #dcdfe6,
+  'border-color': #4C4D4F,
   'fill-color': #303030,
   'fill-color-light': #262727,
-  'fill-color-blank': transparent
+  'fill-color-blank': transparent,
+  'box-shadow': (
+    0px 12px 32px 4px rgba(0, 0, 0, 0.36),
+    0px 8px 20px rgba(0, 0, 0, 0.72)
+  )
 );
-
 
 :root {
   @include generate-colors($themeColor, light);

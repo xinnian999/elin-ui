@@ -15,11 +15,7 @@
 @mixin setVar($var, $value) {
   $varName: joinVarName($var);
 
-  @if type-of($value) == 'list' {
-    #{$varName}: var(#{joinVarName($value)});
-  } @else {
-    #{$varName}: $value;
-  }
+  #{$varName}: $value;
 }
 
 //设置全局var，根据var名map取值

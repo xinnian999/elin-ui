@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import  {IconDelete} from '@/release';
 import Basic from './basic.vue';
 import Plain from './plain.vue';
 import Text from './text.vue'
+import Circle from './circle.vue'
 
 </script>
 
@@ -43,27 +43,11 @@ import Text from './text.vue'
 
 ## 圆形按钮
 
- <e-space>
-      <e-button circle><IconDelete /></e-button>
-      <e-button type="primary" circle><IconDelete /></e-button>
-      <e-button type="success" circle><IconDelete /></e-button>
-      <e-button type="info" circle><IconDelete /></e-button>
-      <e-button type="warning" circle><IconDelete /></e-button>
-      <e-button type="danger" circle><IconDelete /></e-button>
- </e-space>
+<Circle/>
 
 ::: details 查看代码
 
-```html
-<e-space>
-  <e-button circle><IconDelete /></e-button>
-  <e-button type="primary" circle><IconDelete /></e-button>
-  <e-button type="success" circle><IconDelete /></e-button>
-  <e-button type="info" circle><IconDelete /></e-button>
-  <e-button type="warning" circle><IconDelete /></e-button>
-  <e-button type="danger" circle><IconDelete /></e-button>
-</e-space>
-```
+<<< ./circle.vue
 
 :::
 

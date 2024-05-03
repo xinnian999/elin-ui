@@ -3,5 +3,5 @@
 ## 使用包管理器
 
 ```xml
-npm install elin-design
+npm install elin-ui
 ```

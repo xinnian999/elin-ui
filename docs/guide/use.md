@@ -7,8 +7,8 @@
 ```ts
 // main.ts
 import { createApp } from 'vue'
-import ElinDesign from 'elin-design'
-import 'elin-design/dist/style.css'
+import ElinDesign from 'elin-ui'
+import 'elin-ui/dist/style.css'
 import App from './App.vue'
 
 const app = createApp(App)
@@ -26,7 +26,7 @@ app.mount('#app')
 {
   "compilerOptions": {
     // ...
-    "types": ["elin-design/global"]
+    "types": ["elin-ui/global"]
   }
 }
 ```

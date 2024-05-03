@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: 'Elin Design'
+  name: 'Elin UI'
   text: '好看丰富的vue3组件库'
   tagline: 为vue3项目提供开箱即用的页面组件
   actions:

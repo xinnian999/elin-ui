@@ -2,6 +2,10 @@
   display: inline-block;
   width: 1em;
   height: 1em;
-  overflow: hidden;
+  color: inherit;
+  font-style: normal;
+  vertical-align: -2px;
+  outline: none;
+  stroke: currentColor;
   fill: currentColor;
 }

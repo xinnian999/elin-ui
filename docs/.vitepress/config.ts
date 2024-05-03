@@ -4,12 +4,13 @@ import { fileURLToPath, URL } from 'node:url'
 const UIBase = fileURLToPath(new URL('../../src/', import.meta.url))
 
 export default defineConfig({
-  title: 'Elin Design',
+  title: 'Elin-UI',
   description: '一个有趣的vue3组件库',
   vite: {
     resolve: {
       alias: {
-        '@': UIBase // 假设你想为 VitePress 主题目录设置别名
+        '@': UIBase,
+        'elin-ui': fileURLToPath(new URL('../../src/release/', import.meta.url))
       }
     }
   },
@@ -31,7 +32,7 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: `/component/Button/` },
             { text: 'Space 间距', link: '/component/Space' },
-            { text: 'Modal 弹窗', link: '/component/Modal' }
+            { text: 'Dialog 对话框', link: '/component/Dialog/' }
           ]
         }
       ]

@@ -3,6 +3,5 @@
 </template>
 
 <script setup lang="ts">
-import Test from './test/table.vue'
-
+import Test from './test/dialog.vue'
 </script>

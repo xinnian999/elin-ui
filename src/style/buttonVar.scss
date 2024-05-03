@@ -52,9 +52,14 @@
     );
   }
 
+  $test:('text', 'color', 'regular');
+  $test2:0px 12px 32px 4px rgba(0, 0, 0, 0.36);
+
+@debug  type-of($test2);
+
   //文字按钮变量
   &.is-text {
-    @include setVar(('button', 'text', 'color'), ('text', 'color', 'regular'));
+    @include setVarFormVar(('button', 'text', 'color'), ('text', 'color', 'regular'));
   }
 
   &-primary {
@@ -65,7 +70,7 @@
     }
 
     &.is-text {
-      @include setVar(('button', 'text', 'color'), ('primary', 'color'));
+      @include setVarFormVar(('button', 'text', 'color'), ('primary', 'color'));
     }
   }
 
@@ -77,7 +82,7 @@
     }
 
     &.is-text {
-      @include setVar(('button', 'text', 'color'), ('success', 'color'));
+      @include setVarFormVar(('button', 'text', 'color'), ('success', 'color'));
     }
   }
 
@@ -88,7 +93,7 @@
     }
 
     &.is-text {
-      @include setVar(('button', 'text', 'color'), ('info', 'color'));
+      @include setVarFormVar(('button', 'text', 'color'), ('info', 'color'));
     }
   }
 
@@ -100,7 +105,7 @@
     }
 
     &.is-text {
-      @include setVar(('button', 'text', 'color'), ('warning', 'color'));
+      @include setVarFormVar(('button', 'text', 'color'), ('warning', 'color'));
     }
   }
 
@@ -112,7 +117,7 @@
     }
 
     &.is-text {
-      @include setVar(('button', 'text', 'color'), ('danger', 'color'));
+      @include setVarFormVar(('button', 'text', 'color'), ('danger', 'color'));
     }
   }
 }
