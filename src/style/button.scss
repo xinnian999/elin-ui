@@ -15,6 +15,7 @@ $buttonClass: '#{$namespace}-button-';
   border: 1px solid getVar('button', 'border', 'color');
   color: getVar('button', 'text-color');
   font-size: 14px;
+  vertical-align: middle;
 
   &:hover:not(.is-disabled, .is-text) {
     opacity: getVar('button', 'hover', 'opacity');

@@ -3,6 +3,9 @@ import Basic from './basic.vue';
 import Plain from './plain.vue';
 import Text from './text.vue'
 import Circle from './circle.vue'
+import Icon from './icon.vue'
+import Disabled from './disabled.vue'
+import Size from './size.vue'
 
 </script>
 
@@ -55,52 +58,30 @@ import Circle from './circle.vue'
 
 直接将图标插入到文字的前面或者后面即可
 
-<e-space>
-<e-button type="primary"><IconDelete />新建</e-button>
-<e-button type="danger">删除<IconDelete /></e-button>
-</e-space>
-
+<Icon/>
 
 ::: details 查看代码
 
-```html
-<e-space>
-  <e-button type="danger"><IconDelete />删除</e-button>
-  <e-button type="danger">删除<IconDelete /></e-button>
-</e-space>
-```
+<<< ./icon.vue
 
 :::
 
 ## 不同大小
 
-  <e-space>
-      <e-button size="large">Large</e-button>
-      <e-button size="default">Default</e-button>
-      <e-button size="small">Small</e-button>
-  </e-space>
+<Size />
 
 ::: details 查看代码
 
-```html
-<e-space>
-  <e-button size="large">Large</e-button>
-  <e-button size="default">Default</e-button>
-  <e-button size="small">Small</e-button>
-  <e-button size="tiny">Tiny</e-button>
-</e-space>
-```
+<<< ./size.vue
 
 :::
 
-## 禁用状态
+## 禁用按钮
 
-<e-button disabled>Default</e-button>
+<Disabled />
 
 ::: details 查看代码
 
-```html
-<e-button disabled>Default</e-button>
-```
+<<< ./disabled.vue
 
 :::
