@@ -29,7 +29,6 @@ import Loading from './loading.vue'
 
 <Plain/>
 
-
 ::: details 查看代码
 
 <<< ./plain.vue
@@ -39,7 +38,6 @@ import Loading from './loading.vue'
 ## 圆角按钮
 
 <Round/>
-
 
 ::: details 查看代码
 
@@ -108,3 +106,11 @@ import Loading from './loading.vue'
 <<< ./loading.vue
 
 :::
+
+## API
+
+| 属性名 | 说明 | 类型 |默认值
+|-----|----|----|----|
+|     |    |    ||
+|     |    |    ||
+

@@ -66,7 +66,7 @@ $buttonClass: '#{$namespace}-button-';
     font-size: 12px;
   }
 
-  & + & {
+  & + &:not(.is-text) {
     margin-left: 15px;
   }
 }

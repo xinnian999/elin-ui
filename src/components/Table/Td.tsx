@@ -1,10 +1,10 @@
 import { defineComponent, inject } from 'vue'
-import type { tableColType } from '@/type'
+import type { tableCol } from '@/type'
 import { $configInit, $config } from '@/config'
 
 type TdProps = {
   rowData: { [key: string]: any }
-  column: tableColType
+  column: tableCol
   index: number
 }
 
@@ -26,9 +26,7 @@ const Td = defineComponent({
           //   [`is-fixed-${fixed}`]: true
         }}
       >
-        <div class={ns('table-cell')} style={{ width: `${width}px` }}>
-          {value}
-        </div>
+        <div class={ns('table-cell')}>{value}</div>
       </td>
     )
   }

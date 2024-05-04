@@ -1,6 +1,9 @@
 <template>
   <div :class="{ [ns('table-wrapper')]: true, 'is-scroll': isScroll }" ref="wrapperRef">
     <table :class="ns('table')">
+      <colgroup>
+        <col v-for="{ width } in columns" :width="width" />
+      </colgroup>
       <thead :class="ns('table-thead')">
         <tr :class="ns('table-tr')" ref="trRef">
           <th
@@ -45,7 +48,7 @@
 
 <script setup lang="ts">
 import { computed, inject, ref } from 'vue'
-import type { tableColumnsType } from '@/type'
+import type { tableColumns } from '@/type'
 import { $config, $configInit } from '@/config'
 import Td from './Td'
 
@@ -53,7 +56,7 @@ const { ns } = inject($config, $configInit)!
 
 const props = defineProps<{
   data: { [key: string]: any }[]
-  columns: tableColumnsType
+  columns: tableColumns
 }>()
 
 const trRef = ref()

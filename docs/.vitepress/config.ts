@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const UIBase = fileURLToPath(new URL('../../src/', import.meta.url))
 
@@ -12,7 +13,8 @@ export default defineConfig({
         '@': UIBase,
         'elin-ui': fileURLToPath(new URL('../../src/release/', import.meta.url))
       }
-    }
+    },
+    plugins: [vueJsx()]
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -32,7 +34,8 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: `/component/Button/` },
             { text: 'Space 间距', link: '/component/Space' },
-            { text: 'Dialog 对话框', link: '/component/Dialog/' }
+            { text: 'Dialog 对话框', link: '/component/Dialog/' },
+            { text: 'Table 表格', link: '/component/Table/' }
           ]
         }
       ]

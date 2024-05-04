@@ -3,7 +3,7 @@
 </template>
 
 <script lang="tsx" setup>
-import type { tableColumnsType } from '@/release'
+import type { tableColumns } from '@/release'
 const tableData = [
   {
     date: '2016-05-03',
@@ -28,7 +28,7 @@ const tableData = [
   }
 ]
 
-const columns: tableColumnsType = [
+const columns: tableColumns = [
   {
     label: '姓名',
     prop: 'name',

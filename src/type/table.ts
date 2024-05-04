@@ -1,4 +1,4 @@
-export type tableColType = {
+export type tableCol = {
   label?: string
   prop?: string
   width?: number
@@ -6,4 +6,4 @@ export type tableColType = {
   formatter?: (data: { val: any; row: object; index: number }) => any
 }
 
-export type tableColumnsType = tableColType[]
+export type tableColumns = tableCol[]

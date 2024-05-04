@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { IconDelete } from '@/release'
+import { IconDelete } from 'elin-ui'
 import { ref } from 'vue'
 
 const visible = ref(false)

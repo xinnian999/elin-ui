@@ -1,3 +1,3 @@
 <template>
-  <e-button type="primary" loading> Primary</e-button>
+  <e-button type="primary" loading> Loading</e-button>
 </template>
