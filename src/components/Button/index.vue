@@ -1,12 +1,15 @@
 <template>
-  <button :class="classNames" v-bind="$attrs" @click="handleClick"><slot /></button>
+  <button :class="classNames" v-bind="$attrs" @click="handleClick">
+    <IconLoading v-if="loading" :class="ns('icon-loading')" /> <slot />
+  </button>
 </template>
 
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import { $configInit, $config } from '@/config'
+import { IconLoading } from '@/release'
 
-const { namespace } = inject($config, $configInit)!
+const { namespace, ns } = inject($config, $configInit)!
 
 const props = withDefaults(
   defineProps<{
@@ -17,6 +20,7 @@ const props = withDefaults(
     disabled?: boolean
     text?: boolean
     size?: 'large' | 'default' | 'small' | 'tiny'
+    loading?: boolean
   }>(),
   { size: 'default', type: 'default' }
 )
@@ -32,7 +36,7 @@ const classNames = computed(() => ({
   'is-plain': props.plain,
   'is-circle': props.circle,
   'is-round': props.round,
-  'is-disabled': props.disabled,
+  'is-disabled': props.disabled || props.loading,
   'is-text': props.text
 }))
 

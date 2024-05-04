@@ -1,11 +1,26 @@
-.elin-icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  color: inherit;
-  font-style: normal;
-  vertical-align: -2px;
-  outline: none;
-  stroke: currentColor;
-  fill: currentColor;
+@include ns(icon) {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    color: inherit;
+    font-style: normal;
+    vertical-align: -2px;
+    outline: none;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+
+@include ns(icon-loading) {
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  };
+
+  animation: rotate 2s linear infinite;
 }

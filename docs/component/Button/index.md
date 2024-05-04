@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import Basic from './basic.vue';
 import Plain from './plain.vue';
+import Round from './round.vue';
 import Text from './text.vue'
 import Circle from './circle.vue'
 import Icon from './icon.vue'
 import Disabled from './disabled.vue'
 import Size from './size.vue'
+import Loading from './loading.vue'
 
 </script>
 
@@ -31,6 +33,17 @@ import Size from './size.vue'
 ::: details 查看代码
 
 <<< ./plain.vue
+
+:::
+
+## 圆角按钮
+
+<Round/>
+
+
+::: details 查看代码
+
+<<< ./round.vue
 
 :::
 
@@ -76,12 +89,22 @@ import Size from './size.vue'
 
 :::
 
-## 禁用按钮
+## 禁用状态
 
 <Disabled />
 
 ::: details 查看代码
 
 <<< ./disabled.vue
+
+:::
+
+## 加载状态
+
+<Loading />
+
+::: details 查看代码
+
+<<< ./loading.vue
 
 :::

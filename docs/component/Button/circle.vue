@@ -5,6 +5,8 @@
   <e-button type="info" circle><IconDelete /></e-button>
   <e-button type="warning" circle><IconDelete /></e-button>
   <e-button type="danger" circle><IconDelete /></e-button>
+  <br />
+  <br />
 </template>
 
 <script setup lang="ts">
