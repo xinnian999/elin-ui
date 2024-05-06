@@ -5,6 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   title: 'Elin-UI',
   description: '一个有趣的vue3组件库',
+  base: '/elin.github.io/dist/',
   vite: {
     resolve: {
       alias: {
@@ -12,8 +13,7 @@ export default defineConfig({
         'elin-ui': fileURLToPath(new URL('../../src/release', import.meta.url))
       }
     },
-    plugins: [vueJsx()],
-    base: './'
+    plugins: [vueJsx()]
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

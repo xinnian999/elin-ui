@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "dev": "vitepress dev docs",
-    "build": "vitepress build docs --base=/elin.github.io/dist/",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
     "type-check": "vue-tsc --build --force",
     "release": "vite build --config release.config.ts",
     "test": "vitest"
