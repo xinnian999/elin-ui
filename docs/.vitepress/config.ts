@@ -2,15 +2,13 @@ import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
-const UIBase = fileURLToPath(new URL('../../src/', import.meta.url))
-
 export default defineConfig({
   title: 'Elin-UI',
   description: '一个有趣的vue3组件库',
   vite: {
     resolve: {
       alias: {
-        '@': UIBase,
+        '@': fileURLToPath(new URL('../../src/', import.meta.url)),
         'elin-ui': fileURLToPath(new URL('../../src/release/', import.meta.url))
       }
     },

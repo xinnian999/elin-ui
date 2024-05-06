@@ -109,8 +109,10 @@ import Loading from './loading.vue'
 
 ## API
 
-| 属性名 | 说明 | 类型 |默认值
-|-----|----|----|----|
-|     |    |    ||
-|     |    |    ||
+### defineProps
 
+<!--@include: ./defineProps.md-->
+
+### defineEmits
+
+<!--@include: ./defineEmits.md-->
