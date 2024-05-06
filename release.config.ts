@@ -27,8 +27,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: fileURLToPath(new URL('./src/release.ts', import.meta.url)), //指定组件编译入口文件
-      name: 'elin-design', // 包名
-      fileName: 'elin-design' // 打包文件名
+      name: 'elin-ui', // 包名
+      fileName: 'elin-ui' // 打包文件名
     },
     rollupOptions: {
       // 确保外部化处理那些你不想打包进库的依赖

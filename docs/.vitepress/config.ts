@@ -9,10 +9,11 @@ export default defineConfig({
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('../../src/', import.meta.url)),
-        'elin-ui': fileURLToPath(new URL('../../src/release/', import.meta.url))
+        'elin-ui': fileURLToPath(new URL('../../src/release', import.meta.url))
       }
     },
-    plugins: [vueJsx()]
+    plugins: [vueJsx()],
+    base: './'
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

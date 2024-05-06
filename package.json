@@ -1,26 +1,19 @@
 {
-  "name": "elin-design",
-  "version": "1.0.3",
+  "name": "elin-ui",
+  "version": "1.0.0",
   "private": false,
   "type": "module",
-  "main": "./dist/elin-design.js",
-  "module": "./dist/elin-design.js",
-  "types": "./dist/elin-design.d.ts",
+  "main": "./dist/elin-ui.js",
+  "module": "./dist/elin-ui.js",
+  "types": "./dist/elin-ui.d.ts",
   "files": [
     "dist",
     "global.d.ts"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
-    "preview": "vite preview",
-    "build-only": "vite build",
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs --base=/elin.github.io/dist/",
     "type-check": "vue-tsc --build --force",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
     "release": "vite build --config release.config.ts",
     "test": "vitest"
   },

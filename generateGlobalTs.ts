@@ -22,7 +22,7 @@ export default function vitePluginCopyGlobalComponents() {
       // 尝试读取源文件内容并替换
       try {
         let content = fs.readFileSync(sourcePath, 'utf-8')
-        content = content.replace(/@\/components/g, 'elin-design')
+        content = content.replace(/@\/components/g, 'elin-ui')
         content = content.replace("'vue'", "'@vue/runtime-core'")
 
         // 将替换后的内容写入目标文件
