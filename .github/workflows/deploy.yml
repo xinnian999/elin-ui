@@ -34,6 +34,9 @@ jobs:
           fetch-depth: 0 # 如果未启用 lastUpdated，则不需要
           uses: pnpm/action-setup@v3
       # - uses: oven-sh/setup-bun@v1 # 如果使用 Bun，请取消注释
+      - name: Install pnpm
+        run: |
+          curl -L https://unpkg.com/@pnpm/self-installer | node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
