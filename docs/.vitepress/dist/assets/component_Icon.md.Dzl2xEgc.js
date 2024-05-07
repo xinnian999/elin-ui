@@ -1,0 +1,1 @@
+import{_ as e,a as t,o}from"./chunks/framework.DI4jW7Xc.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"component/Icon.md","filePath":"component/Icon.md"}'),n={name:"component/Icon.md"};function a(c,r,s,p,m,_){return o(),t("div")}const f=e(n,[["render",a]]);export{i as __pageData,f as default};

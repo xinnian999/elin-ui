@@ -1,0 +1,1 @@
+import{_ as e,a as t,o as a}from"./chunks/framework.DI4jW7Xc.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"component/Space.md","filePath":"component/Space.md"}'),o={name:"component/Space.md"};function c(n,p,r,s,m,_){return a(),t("div")}const f=e(o,[["render",c]]);export{i as __pageData,f as default};
