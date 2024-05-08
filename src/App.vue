@@ -1,7 +1,7 @@
 <template>
-  <Test />
+  <div />
 </template>
 
 <script setup lang="ts">
-import Test from './test/dialog.vue'
+// import Test from './test/dialog.vue'
 </script>

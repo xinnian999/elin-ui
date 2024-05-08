@@ -1,11 +1,11 @@
 @include ns(table-wrapper) {
-  overflow: auto;
+  overflow-x: auto;
 
   &.is-scroll {
     .is-fixed {
       position: sticky;
       z-index: 20;
-      background-color: #fff;
+      background-color: getVar('bg','color');
       &::after {
         content: '';
         position: absolute;
@@ -49,7 +49,7 @@
 
   &-tr {
     //padding: 10px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid getVar('border', 'color','lighter');
     overflow: auto;
     position: relative;
   }

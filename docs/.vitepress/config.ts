@@ -32,9 +32,10 @@ export default defineConfig({
           text: '基础组件',
           items: [
             { text: 'Button 按钮', link: `/component/Button/` },
-            { text: 'Space 间距', link: '/component/Space' },
+            // { text: 'Space 间距', link: '/component/Space' },
             { text: 'Dialog 对话框', link: '/component/Dialog/' },
-            { text: 'Table 表格', link: '/component/Table/' }
+            { text: 'Table 表格', link: '/component/Table/' },
+            { text: 'Input 输入框', link: '/component/Input/' }
           ]
         }
       ]

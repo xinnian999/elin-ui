@@ -12,6 +12,8 @@ $lights: (
   'text-color-regular': #606266,
   'text-color-placeholder': #a8abb2,
   'border-color': #dcdfe6,
+  'border-color-lighter': #ebeef5,
+
   'fill-color': #f0f2f5,
   'fill-color-light': #f5f7fa,
   'fill-color-blank': #ffffff,
@@ -25,11 +27,12 @@ $lights: (
 );
 
 $darks: (
-  'bg-color': #141414,
+  'bg-color': #1b1b1f,
   'text-color': #e5eaf3,
   'text-color-regular': #cfd3dc,
   'text-color-placeholder': #8d9095,
-  'border-color': #4C4D4F,
+  'border-color': #4c4d4f,
+  'border-color-lighter': #363637,
   'fill-color': #303030,
   'fill-color-light': #262727,
   'fill-color-blank': transparent,
@@ -40,6 +43,8 @@ $darks: (
 );
 
 :root {
+  @include setVar('border-radius', 7px);
+
   @include generate-colors($themeColor, light);
   @include generate-var-map($lights);
   &.dark {
