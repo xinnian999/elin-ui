@@ -5,7 +5,7 @@
 <script setup lang="ts">
 import { ref, watchEffect } from 'vue'
 
-const value = ref('')
+const value = ref(false)
 
 watchEffect(() => {
   console.log(value.value)
