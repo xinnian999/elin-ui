@@ -5,7 +5,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   title: 'Elin-UI',
   description: '一个有趣的vue3组件库',
-  base: '/elin.github.io/dist/',
+  base: '/elin-ui/',
   vite: {
     resolve: {
       alias: {
