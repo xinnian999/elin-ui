@@ -35,7 +35,8 @@ export default defineConfig({
             // { text: 'Space 间距', link: '/component/Space' },
             { text: 'Dialog 对话框', link: '/component/Dialog/' },
             { text: 'Table 表格', link: '/component/Table/' },
-            { text: 'Input 输入框', link: '/component/Input/' }
+            { text: 'Input 输入框', link: '/component/Input/' },
+            { text: 'Checkbox 多选框', link: '/component/Checkbox/' }
           ]
         }
       ]

@@ -2,6 +2,7 @@
   border-radius: getVar('border', 'radius');
   border: 1px solid getVar('border', 'color');
   padding: 5px 10px;
+  position: relative;
   &-inner {
     width: 100%;
   }
