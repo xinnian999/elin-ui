@@ -1,22 +1,34 @@
 <script setup lang="ts">
-import { inject } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 import { $config, $configInit } from '@/config'
 import { IconChecked } from '@/assets/icons'
 
-withDefaults(defineProps<{ label?: string; value?: string | number | boolean }>(), {})
+const props = withDefaults(defineProps<{ label?: string; value?: string | number | boolean }>(), {})
 
 const { namespace } = inject($config, $configInit)!
 
 const model = defineModel()
+
+const val = ref(false)
+
+watch(val, (newValue) => {
+  if (newValue) {
+    model.value = Array.isArray(model.value) ? [...model.value, props.value] : true
+  } else {
+    model.value = Array.isArray(model.value)
+      ? model.value.filter((item) => item !== props.value)
+      : false
+  }
+})
 </script>
 
 <template>
   <label :class="`${namespace}-checkbox`">
     <span :class="`${namespace}-checkbox-box`">
-      <input v-model="model" type="checkbox" />
-      <span v-if="model" :class="`${namespace}-checkbox-box-inner`">
-        <IconChecked class="checked-ico"
-      /></span>
+      <input v-model="val" type="checkbox" />
+      <span v-if="val" :class="`${namespace}-checkbox-box-inner`">
+        <IconChecked class="checked-ico" />
+      </span>
     </span>
     <span>{{ label }}</span>
   </label>
