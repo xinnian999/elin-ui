@@ -36,7 +36,8 @@ export default defineConfig({
             { text: 'Dialog 对话框', link: '/component/Dialog/' },
             { text: 'Table 表格', link: '/component/Table/' },
             { text: 'Input 输入框', link: '/component/Input/' },
-            { text: 'Checkbox 多选框', link: '/component/Checkbox/' }
+            { text: 'Checkbox 多选框', link: '/component/Checkbox/' },
+            { text: 'Popover 悬浮气泡', link: '/component/Popover/' }
           ]
         }
       ]
