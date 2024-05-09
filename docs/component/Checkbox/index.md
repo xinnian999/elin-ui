@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Basic from './basic.vue'
 import Label from './label.vue'
+import Group from './group.vue'
 
 </script>
 
@@ -31,5 +32,18 @@ value参数，初始值必须是数组时才会生效
 ::: details 查看代码
 
 <<< ./label.vue
+
+:::
+
+## 多选框组
+
+
+
+<Group />
+
+
+::: details 查看代码
+
+<<< ./group.vue
 
 :::

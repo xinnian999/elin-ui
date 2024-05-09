@@ -39,3 +39,8 @@
     }
   }
 }
+
+@include ns(checkbox-group) {
+  display: flex;
+  gap: 20px;
+}
