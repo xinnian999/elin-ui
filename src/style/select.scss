@@ -6,17 +6,23 @@
   min-height: 36px;
   cursor: pointer;
   font-size: getVar('font-size-base');
+  font-weight: 500;
   &-placeholder {
     color: getVar('text', 'color', 'placeholder');
+    user-select: none;
   }
 
-  &-inner {
-    width: 100%;
+  &-value {
+    user-select: none;
   }
 
-  //&:focus-within {
-  //  border-color: getVar('primary', 'color');
-  //}
+  &-suffix {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
   &.is-focus {
     border-color: getVar('primary', 'color');
   }

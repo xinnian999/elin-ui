@@ -43,8 +43,6 @@ const updatePosition = async () => {
     placement: props.placement // 指定初始化浮动位置
   })
 
-  console.log(x, y)
-
   Object.assign(floating.value.style, {
     transform: `translate(${x}px, ${y}px)`
   })

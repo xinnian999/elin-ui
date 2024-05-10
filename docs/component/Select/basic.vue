@@ -1,5 +1,5 @@
 <template>
-  <e-select v-model="value" style="width: 350px" :options />
+  <e-select v-model="value" style="width: 250px" :options />
 </template>
 
 <script setup lang="ts">
