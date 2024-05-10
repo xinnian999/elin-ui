@@ -2,9 +2,10 @@
 import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
 import Checkbox from './Checkbox.vue'
+import type { Options } from '@/components/common'
 
 defineProps<{
-  options: { label: string; value: string }[]
+  options: Options
 }>()
 
 const { ns } = inject($config, $configInit)

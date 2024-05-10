@@ -1,0 +1,21 @@
+@include ns(menu) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    &:hover {
+      background-color: getVar('primary-color-8');
+      border-radius: getVar('border', 'radius');
+    }
+
+    &.is-active {
+      color: getVar('primary-color');
+    }
+  }
+}

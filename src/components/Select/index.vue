@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { inject, ref } from 'vue'
 import { $config, $configInit } from '@/config'
+import type { Options } from '@/components/common'
 
 withDefaults(
   defineProps<{
     placeholder?: string
-    options?: { label: string; value: string }[]
+    options?: Options
   }>(),
   { placeholder: '请选择' }
 )
