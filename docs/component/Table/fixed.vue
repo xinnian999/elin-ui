@@ -3,7 +3,7 @@
 </template>
 
 <script lang="tsx" setup>
-import type { tableColumns } from '@/release'
+import type { tableColumns } from 'elin-ui'
 
 const tableData = [
   {

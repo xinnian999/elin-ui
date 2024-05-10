@@ -48,7 +48,7 @@
 
 <script setup lang="ts">
 import { computed, inject, ref } from 'vue'
-import type { tableColumns } from '@/type'
+import type { tableColumns } from './type'
 import { $config, $configInit } from '@/config'
 import Td from './Td'
 

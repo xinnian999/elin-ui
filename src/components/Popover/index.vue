@@ -1,7 +1,10 @@
 <template>
   <span ref="reference" @click="handleClick"><slot /></span>
   <Teleport to="body">
-    <div v-if="visible" ref="floating" :style="floatingStyles" :class="ns('popover')">Tooltip</div>
+    <div v-if="visible" ref="floating" :style="floatingStyles" :class="ns('popover')">
+      <slot v-if="$slots.content" name="content" />
+      <div v-else>{{ content }}</div>
+    </div>
   </Teleport>
 </template>
 
@@ -9,32 +12,15 @@
 import { inject, ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
+import type { PopoverProps } from './type'
 
-withDefaults(
-  defineProps<{
-    placement:
-      | 'top'
-      | 'top-start'
-      | 'top-end'
-      | 'bottom'
-      | 'bottom-start'
-      | 'bottom-end'
-      | 'left'
-      | 'left-start'
-      | 'left-end'
-      | 'right'
-      | 'right-start'
-      | 'right-end'
-  }>(),
-  {}
-)
+const props = withDefaults(defineProps<PopoverProps>(), { placement: 'bottom' })
 
 const { ns } = inject($config, $configInit)!
 
 const reference = ref()
 const floating = ref()
 const { floatingStyles } = useFloating(reference, floating, {
-  placement: 'bottom',
   strategy: 'fixed',
   middleware: []
 })
@@ -48,7 +34,7 @@ const handleClick = () => {
 const updatePosition = async () => {
   const { x, y } = await computePosition(reference.value, floating.value, {
     middleware: [shift(), flip(), offset(15)], // 按需引用的中间件
-    placement: 'bottom' // 指定初始化浮动位置
+    placement: props.placement // 指定初始化浮动位置
   })
 
   Object.assign(floating.value.style, {

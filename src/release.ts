@@ -6,7 +6,7 @@ import 'animate.css'
 
 export * from '@/components'
 export * from '@/assets/icons'
-export * from '@/type'
+// export * from '@/type'
 
 export default (app: App<Element>) => {
   Object.entries(components).forEach(([key, value]) => {

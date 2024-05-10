@@ -1,5 +1,5 @@
 import { defineComponent, inject } from 'vue'
-import type { tableCol } from '@/type'
+import type { tableCol } from './type'
 import { $configInit, $config } from '@/config'
 
 type TdProps = {
