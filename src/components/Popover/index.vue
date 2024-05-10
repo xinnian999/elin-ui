@@ -1,5 +1,5 @@
 <template>
-  <span ref="reference" @click="handleClick"><slot /></span>
+  <div ref="reference" @click="handleClick" style="display: contents"><slot /></div>
   <Teleport to="body">
     <div v-if="visible" ref="floating" :style="floatingStyles" :class="ns('popover')">
       <slot v-if="$slots.content" name="content" />
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
+import { inject, ref, watch, nextTick, onMounted, onUnmounted, computed } from 'vue'
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
 import type { PopoverProps } from './type'
@@ -19,8 +19,9 @@ const props = withDefaults(defineProps<PopoverProps>(), { placement: 'bottom' })
 const { ns } = inject($config, $configInit)!
 
 const reference = ref()
+const referenceSlot = computed(() => reference.value?.children[0])
 const floating = ref()
-const { floatingStyles } = useFloating(reference, floating, {
+const { floatingStyles } = useFloating(referenceSlot, floating, {
   strategy: 'fixed',
   middleware: []
 })
@@ -32,8 +33,8 @@ const handleClick = () => {
 }
 
 const updatePosition = async () => {
-  const { x, y } = await computePosition(reference.value, floating.value, {
-    middleware: [shift(), flip(), offset(15)], // 按需引用的中间件
+  const { x, y } = await computePosition(referenceSlot.value, floating.value, {
+    middleware: [shift(), flip(), offset(5)], // 按需引用的中间件
     placement: props.placement // 指定初始化浮动位置
   })
 
@@ -62,7 +63,7 @@ watch(visible, (newValue) => {
 
 const dismiss = (event: MouseEvent) => {
   const isClickFloating = floating.value?.contains(event.target)
-  const isClickReference = reference.value?.contains(event.target)
+  const isClickReference = referenceSlot.value?.contains(event.target)
 
   if (!isClickFloating && !isClickReference) {
     visible.value = false

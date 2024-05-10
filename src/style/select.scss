@@ -1,0 +1,15 @@
+@include ns(select) {
+  border-radius: getVar('border', 'radius');
+  border: 1px solid getVar('border', 'color');
+  padding: 5px 10px;
+  position: relative;
+  min-height: 36px;
+  cursor: pointer;
+  &-inner {
+    width: 100%;
+  }
+
+  &:focus-within {
+    border-color: getVar('primary', 'color');
+  }
+}

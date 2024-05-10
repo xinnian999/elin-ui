@@ -1,14 +1,23 @@
-<template>
-  <select class="select w-full max-w-xs">
-    <option disabled selected>Pick your favorite Simpson</option>
-    <option>Homer</option>
-    <option>Marge</option>
-    <option>Bart</option>
-    <option>Lisa</option>
-    <option>Maggie</option>
-  </select>
-</template>
-
 <script setup lang="ts">
-// defineProps({})
+import { inject } from 'vue'
+import { $config, $configInit } from '@/config'
+
+withDefaults(
+  defineProps<{
+    placeholder?: string
+  }>(),
+  { placeholder: '请输入文本' }
+)
+
+const { namespace } = inject($config, $configInit)!
+
+const value = defineModel()
 </script>
+
+<template>
+  <e-popover>
+    <div :class="`${namespace}-select`">
+      <!--    <input :class="`${namespace}-select-inner`" v-model="value" :placeholder />-->
+    </div>
+  </e-popover>
+</template>

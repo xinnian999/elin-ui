@@ -6,11 +6,6 @@
   }
 }
 
-@mixin disabled() {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
 //设置全局var
 @mixin setVar($var, $value) {
   $varName: joinVarName($var);
@@ -64,4 +59,9 @@
       @include setVar(($key, 'color', $colorKey), $colorValue);
     }
   }
+}
+
+@mixin disabled() {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
