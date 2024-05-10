@@ -6,11 +6,28 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref, watch, nextTick } from 'vue'
+import { inject, ref, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
 
-withDefaults(defineProps<{}>(), {})
+withDefaults(
+  defineProps<{
+    placement:
+      | 'top'
+      | 'top-start'
+      | 'top-end'
+      | 'bottom'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'left'
+      | 'left-start'
+      | 'left-end'
+      | 'right'
+      | 'right-start'
+      | 'right-end'
+  }>(),
+  {}
+)
 
 const { ns } = inject($config, $configInit)!
 
@@ -28,21 +45,14 @@ const handleClick = () => {
   visible.value = !visible.value
 }
 
-const middleware = [shift(), flip(), offset(15)]
-
-const updatePosition = () => {
-  computePosition(reference.value as HTMLElement, floating.value as HTMLElement, {
-    middleware, // 按需引用的中间件
+const updatePosition = async () => {
+  const { x, y } = await computePosition(reference.value, floating.value, {
+    middleware: [shift(), flip(), offset(15)], // 按需引用的中间件
     placement: 'bottom' // 指定初始化浮动位置
-  }).then(({ x, y }) => {
-    // computePosition根据传入参数计算目标元素和浮动元素位置，
-    // 异步返回浮动元素坐标后可手动设置浮层位置
-    Object.assign(floating.value.style, {
-      // left: `${x}px`,
-      // top: `${y}px`,
-      transform: `translate(${x}px, ${y}px)`
-    })
-    console.log('调整位置', x, y)
+  })
+
+  Object.assign(floating.value.style, {
+    transform: `translate(${x}px, ${y}px)`
   })
 }
 
@@ -62,5 +72,22 @@ watch(visible, (newValue) => {
     window.onresize = null
     window.onscroll = null
   }
+})
+
+const dismiss = (event: MouseEvent) => {
+  const isClickFloating = floating.value?.contains(event.target)
+  const isClickReference = reference.value?.contains(event.target)
+
+  if (!isClickFloating && !isClickReference) {
+    visible.value = false
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('click', dismiss)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('click', dismiss)
 })
 </script>
