@@ -1,5 +1,8 @@
 @include ns(table-wrapper) {
-  overflow-x: auto;
+  overflow-x: hidden;
+  &:hover {
+    overflow-x: auto;
+  }
 
   &.is-scroll {
     .is-fixed {
