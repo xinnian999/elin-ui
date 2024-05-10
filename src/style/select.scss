@@ -5,11 +5,20 @@
   position: relative;
   min-height: 36px;
   cursor: pointer;
+
+  &-placeholder {
+    font-size: 14px;
+    color: getVar('text', 'color', 'placeholder');
+  }
+
   &-inner {
     width: 100%;
   }
 
-  &:focus-within {
+  //&:focus-within {
+  //  border-color: getVar('primary', 'color');
+  //}
+  &.is-focus {
     border-color: getVar('primary', 'color');
   }
 }

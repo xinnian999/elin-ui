@@ -1,23 +1,27 @@
 <script setup lang="ts">
-import { inject } from 'vue'
+import { inject, ref } from 'vue'
 import { $config, $configInit } from '@/config'
 
 withDefaults(
   defineProps<{
     placeholder?: string
+    options?: { label: string; value: string }[]
   }>(),
-  { placeholder: '请输入文本' }
+  { placeholder: '请选择' }
 )
 
 const { namespace } = inject($config, $configInit)!
 
 const value = defineModel()
+const popover = ref()
 </script>
 
 <template>
-  <e-popover>
-    <div :class="`${namespace}-select`">
-      <!--    <input :class="`${namespace}-select-inner`" v-model="value" :placeholder />-->
+  <e-popover ref="popover">
+    <div :class="[`${namespace}-select`, popover?.visible && 'is-focus']" v-bind="$attrs">
+      <div :class="`${namespace}-select-placeholder`" v-if="!value">{{ placeholder }}</div>
     </div>
+
+    <template #content> </template>
   </e-popover>
 </template>

@@ -1,7 +1,12 @@
 <template>
   <div ref="reference" @click="handleClick" style="display: contents"><slot /></div>
   <Teleport to="body">
-    <div v-if="visible" ref="floating" :style="floatingStyles" :class="ns('popover')">
+    <div
+      v-if="visible"
+      ref="floating"
+      :style="{ ...floatingStyles, width: referenceSlot.clientWidth + 'px' }"
+      :class="ns('popover')"
+    >
       <slot v-if="$slots.content" name="content" />
       <div v-else>{{ content }}</div>
     </div>
@@ -71,10 +76,13 @@ const dismiss = (event: MouseEvent) => {
 }
 
 onMounted(() => {
+  // console.dir(referenceSlot.value)
   window.addEventListener('click', dismiss)
 })
 
 onUnmounted(() => {
   window.removeEventListener('click', dismiss)
 })
+
+defineExpose({ visible })
 </script>
