@@ -1,7 +1,7 @@
 $buttonClass: '#{$namespace}-button-';
 
 @include ns(button) {
-  border-radius: $border-radius;
+  border-radius: getVar('border', 'radius');
   height: 40px;
   padding: 15px;
   display: inline-flex;
@@ -14,7 +14,7 @@ $buttonClass: '#{$namespace}-button-';
   transition-duration: 0.2s;
   border: 1px solid getVar('button', 'border', 'color');
   color: getVar('button', 'text-color');
-  font-size: 14px;
+  font-size: getVar('font-size-base');
   vertical-align: middle;
 
   &:hover:not(.is-disabled, .is-text) {
@@ -27,7 +27,6 @@ $buttonClass: '#{$namespace}-button-';
   &:active:not(.is-disabled) {
     transform: scale(0.95);
   }
-
 
   &.is-text {
     background-color: transparent;

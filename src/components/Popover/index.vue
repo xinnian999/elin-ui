@@ -2,9 +2,9 @@
   <div ref="reference" @click="handleClick" style="display: contents"><slot /></div>
   <Teleport to="body">
     <div
-      v-if="visible"
+      v-show="visible"
       ref="floating"
-      :style="{ ...floatingStyles, width: referenceSlot.clientWidth + 'px' }"
+      :style="{ ...floatingStyles, width: referenceSlot?.clientWidth + 'px' }"
       :class="ns('popover')"
     >
       <slot v-if="$slots.content" name="content" />
@@ -27,7 +27,7 @@ const reference = ref()
 const referenceSlot = computed(() => reference.value?.children[0])
 const floating = ref()
 const { floatingStyles } = useFloating(referenceSlot, floating, {
-  strategy: 'fixed',
+  // strategy: 'fixed',
   middleware: []
 })
 
@@ -42,6 +42,8 @@ const updatePosition = async () => {
     middleware: [shift(), flip(), offset(5)], // 按需引用的中间件
     placement: props.placement // 指定初始化浮动位置
   })
+
+  console.log(x, y)
 
   Object.assign(floating.value.style, {
     transform: `translate(${x}px, ${y}px)`
@@ -76,7 +78,6 @@ const dismiss = (event: MouseEvent) => {
 }
 
 onMounted(() => {
-  // console.dir(referenceSlot.value)
   window.addEventListener('click', dismiss)
 })
 
@@ -84,5 +85,11 @@ onUnmounted(() => {
   window.removeEventListener('click', dismiss)
 })
 
-defineExpose({ visible })
+defineExpose({
+  visible,
+  referenceSlot,
+  close: () => {
+    visible.value = false
+  }
+})
 </script>

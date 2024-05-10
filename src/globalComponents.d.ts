@@ -9,6 +9,7 @@ declare module 'vue' {
     ECheckbox: (typeof import('@/components'))['ECheckbox']
     ECheckboxGroup: (typeof import('@/components'))['ECheckboxGroup']
     EPopover: (typeof import('@/components'))['EPopover']
+    EMenu: (typeof import('@/components'))['EMenu']
   }
 }
 

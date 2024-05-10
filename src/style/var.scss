@@ -44,6 +44,7 @@ $darks: (
 
 :root {
   @include setVar('border-radius', 7px);
+  @include setVar('font-size-base', 14px);
 
   @include generate-colors($themeColor, light);
   @include generate-var-map($lights);
@@ -52,7 +53,3 @@ $darks: (
     @include generate-var-map($darks);
   }
 }
-
-$border-radius: 7px;
-$border-color: #dcdfe6;
-$text-color: #303133;

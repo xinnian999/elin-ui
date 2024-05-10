@@ -5,9 +5,8 @@
   position: relative;
   min-height: 36px;
   cursor: pointer;
-
+  font-size: getVar('font-size-base');
   &-placeholder {
-    font-size: 14px;
     color: getVar('text', 'color', 'placeholder');
   }
 

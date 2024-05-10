@@ -5,7 +5,7 @@
     .is-fixed {
       position: sticky;
       z-index: 20;
-      background-color: getVar('bg','color');
+      background-color: getVar('bg', 'color');
       &::after {
         content: '';
         position: absolute;
@@ -49,7 +49,7 @@
 
   &-tr {
     //padding: 10px;
-    border-bottom: 1px solid getVar('border', 'color','lighter');
+    border-bottom: 1px solid getVar('border', 'color', 'lighter');
     overflow: auto;
     position: relative;
   }
@@ -57,7 +57,7 @@
   &-td {
     padding: 12px 16px;
     position: relative;
-    font-size: 14px;
+    font-size: getVar('font-size-base');
   }
 
   &-cell {

@@ -13,7 +13,7 @@
   margin: getVar('dialog', 'top') auto 0;
   background-color: getVar('bg', 'color');
   padding: 25px;
-  border-radius: $border-radius;
+  border-radius: getVar('border', 'radius');
   display: flex;
   flex-direction: column;
   gap: 15px;
