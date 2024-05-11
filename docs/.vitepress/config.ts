@@ -39,7 +39,8 @@ export default defineConfig({
             { text: 'Checkbox 多选框', link: '/component/Checkbox/' },
             { text: 'Popover 悬浮气泡', link: '/component/Popover/' },
             { text: 'Select 选择框', link: '/component/Select/' },
-            { text: 'Menu 菜单', link: '/component/Menu/' }
+            { text: 'Menu 菜单', link: '/component/Menu/' },
+            { text: 'List 列表', link: '/component/List/' }
           ]
         }
       ]

@@ -12,7 +12,7 @@
     </div>
 
     <template #content>
-      <e-menu :items="options" direction="vertical" @change="handleSelect" />
+      <e-menu :items="options" direction="vertical" @select="handleSelect" />
     </template>
   </e-popover>
 </template>

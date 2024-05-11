@@ -1,0 +1,24 @@
+@include ns(list) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: getVar('font-size-base');
+    font-weight: 500;
+    border-radius: getVar('border', 'radius');
+
+    &:hover {
+      background-color: getVar('primary-color-8');
+    }
+
+    &.is-active {
+      background-color: getVar('primary-color-8');
+    }
+  }
+}

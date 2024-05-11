@@ -21,15 +21,14 @@ import type { Options, Direction } from '@/components/common'
 
 withDefaults(
   defineProps<{
-    placeholder?: string
     items?: Options
     direction?: Direction
   }>(),
-  { placeholder: '请输入文本', direction: 'horizontal' }
+  { direction: 'horizontal' }
 )
 
 const emits = defineEmits<{
-  change: [key: string]
+  select: [key: string]
 }>()
 
 const { namespace } = inject($config, $configInit)!
@@ -38,6 +37,6 @@ const active = ref()
 
 const handleItemClick = (key) => {
   active.value = key
-  emits('change', key)
+  emits('select', key)
 }
 </script>
