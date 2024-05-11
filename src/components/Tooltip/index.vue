@@ -1,25 +1,53 @@
 <template>
-  <div ref="reference" @click="handleClick" style="display: contents"><slot /></div>
-  <Teleport to="body">
-    <div
-      v-show="visible"
-      ref="floating"
-      :style="{ ...floatingStyles, width: referenceSlot?.clientWidth + 'px' }"
-      :class="ns('popover')"
-    >
-      <slot v-if="$slots.content" name="content" />
-      <div v-else>{{ content }}</div>
-    </div>
-  </Teleport>
+  <div
+    ref="reference"
+    @[triggerName]="handleOpen"
+    @mouseleave="handleClose"
+    style="display: contents"
+  >
+    <slot />
+    <Teleport to="body">
+      <div
+        v-show="visible"
+        ref="floating"
+        :style="{ ...floatingStyles, width: referenceSlot?.clientWidth + 'px' }"
+        :class="ns('tooltip')"
+      >
+        <slot v-if="$slots.content" name="content" />
+        <div v-else>{{ content }}</div>
+      </div>
+    </Teleport>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { inject, ref, watch, nextTick, onMounted, onUnmounted, computed } from 'vue'
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
-import type { PopoverProps } from './type'
 
-const props = withDefaults(defineProps<PopoverProps>(), { placement: 'bottom' })
+const props = withDefaults(
+  defineProps<{
+    placement?:
+      | 'top'
+      | 'top-start'
+      | 'top-end'
+      | 'bottom'
+      | 'bottom-start'
+      | 'bottom-end'
+      | 'left'
+      | 'left-start'
+      | 'left-end'
+      | 'right'
+      | 'right-start'
+      | 'right-end'
+    content?: string
+    trigger?: 'hover' | 'click'
+  }>(),
+  {
+    placement: 'top',
+    trigger: 'hover'
+  }
+)
 
 const { ns } = inject($config, $configInit)!
 
@@ -30,8 +58,21 @@ const { floatingStyles } = useFloating(referenceSlot, floating)
 
 const visible = ref(false)
 
-const handleClick = () => {
-  visible.value = !visible.value
+const triggerName = computed(() => {
+  return props.trigger === 'hover' ? 'mousemove' : 'click'
+})
+
+const handleOpen = () => {
+  if (props.trigger === 'click') {
+    return (visible.value = !visible.value)
+  }
+  visible.value = true
+}
+
+const handleClose = () => {
+  if (props.trigger === 'hover') {
+    visible.value = false
+  }
 }
 
 const updatePosition = async () => {

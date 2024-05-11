@@ -1,13 +1,10 @@
 <template>
-  <p>当前值: {{ value }}</p>
-  <e-select v-model="value" style="width: 250px" :options />
+  <e-dropdown :options>
+    <e-button type="primary">打开下拉</e-button>
+  </e-dropdown>
 </template>
 
-<script setup lang="ts">
-import { ref } from 'vue'
-
-const value = ref('')
-
+<script setup>
 const options = [
   { label: '选项一', value: 'value1' },
   { label: '选项二', value: 'value2' },

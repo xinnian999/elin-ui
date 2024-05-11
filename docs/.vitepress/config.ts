@@ -37,7 +37,9 @@ export default defineConfig({
             { text: 'Table 表格', link: '/component/Table/' },
             { text: 'Input 输入框', link: '/component/Input/' },
             { text: 'Checkbox 多选框', link: '/component/Checkbox/' },
+            { text: 'Tooltip 文字提示', link: '/component/Tooltip/' },
             { text: 'Popover 悬浮气泡', link: '/component/Popover/' },
+            { text: 'Dropdown 下拉菜单', link: '/component/Dropdown/' },
             { text: 'Select 选择框', link: '/component/Select/' },
             { text: 'Menu 菜单', link: '/component/Menu/' },
             { text: 'List 列表', link: '/component/List/' }

@@ -1,4 +1,4 @@
-export type PopoverProps = {
+export interface TooltipProps {
   placement?:
     | 'top'
     | 'top-start'

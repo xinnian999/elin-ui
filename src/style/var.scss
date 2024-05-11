@@ -44,6 +44,7 @@ $darks: (
 
 :root {
   @include setVar('border-radius', 7px);
+  @include setVar('font-size-small', 13px);
   @include setVar('font-size-base', 14px);
 
   @include generate-colors($themeColor, light);

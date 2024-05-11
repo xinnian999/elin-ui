@@ -14,6 +14,9 @@ dependencies:
   animate.css:
     specifier: ^4.1.1
     version: 4.1.1
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   postcss:
     specifier: ^8.4.38
     version: 8.4.38

@@ -1,24 +1,20 @@
 <template>
-  <e-popover ref="popover">
-    <div :class="[`${namespace}-select`, popover?.visible && 'is-focus']" v-bind="$attrs">
+  <e-dropdown v-model="value" :options ref="popover">
+    <div :class="[ns('select'), isFocused && 'is-focus']" v-bind="$attrs">
       <div v-if="!value" :class="ns('select-placeholder')">{{ placeholder }}</div>
       <div v-else :class="ns('select-value')">
         {{ options.find((item) => item.value === value)?.label }}
       </div>
       <div :class="ns('select-suffix')">
-        <IconDropUp v-if="popover?.visible" />
+        <IconDropUp v-if="isFocused" />
         <IconDropDown v-else />
       </div>
     </div>
-
-    <template #content>
-      <e-menu :items="options" direction="vertical" @select="handleSelect" />
-    </template>
-  </e-popover>
+  </e-dropdown>
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { IconDropDown, IconDropUp } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
 import type { Options } from '@/components/common'
@@ -31,13 +27,11 @@ withDefaults(
   { placeholder: '请选择', options: [] }
 )
 
-const { namespace, ns } = inject($config, $configInit)!
+const { ns } = inject($config, $configInit)!
 
 const value = defineModel()
+
 const popover = ref()
 
-const handleSelect = (key: string) => {
-  value.value = key
-  popover.value.close()
-}
+const isFocused = computed(() => popover.value?.visible)
 </script>
