@@ -7,6 +7,7 @@
         ref="floating"
         :style="{ ...floatingStyles, width: referenceSlot?.clientWidth + 'px' }"
         :class="ns('tooltip')"
+        v-bind="$attrs"
       >
         <slot v-if="$slots.content" name="content" />
         <div v-else>{{ content }}</div>
@@ -20,6 +21,10 @@ import { inject, ref, watch, nextTick, onMounted, onUnmounted, computed } from '
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
 import { debounce } from 'lodash'
+
+defineOptions({
+  inheritAttrs: false
+})
 
 const props = withDefaults(
   defineProps<{

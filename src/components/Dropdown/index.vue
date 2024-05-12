@@ -1,5 +1,5 @@
 <template>
-  <e-popover ref="popover">
+  <e-popover v-model="visible">
     <slot />
 
     <template #content>
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 import type { Options } from '@/components/common'
 
 withDefaults(
@@ -25,17 +25,15 @@ const emits = defineEmits<{
 
 const value = defineModel()
 
-const popover = ref()
+const visible = ref(false)
 
 const handleSelect = (key: string) => {
   value.value = key
   emits('select', key)
-  popover.value.close()
+  visible.value = false
 }
 
-const popoverVisible = computed(() => popover.value?.visible)
-
 defineExpose({
-  visible: popoverVisible
+  visible
 })
 </script>
