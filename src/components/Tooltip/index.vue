@@ -1,10 +1,5 @@
 <template>
-  <div
-    ref="reference"
-    @[triggerName]="handleOpen"
-    @mouseleave="handleClose"
-    style="display: contents"
-  >
+  <div ref="reference" @[triggerName]="handleOpen" style="display: contents">
     <slot />
     <Teleport to="body">
       <div
@@ -24,6 +19,7 @@
 import { inject, ref, watch, nextTick, onMounted, onUnmounted, computed } from 'vue'
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
+import { debounce } from 'lodash'
 
 const props = withDefaults(
   defineProps<{
@@ -56,7 +52,7 @@ const referenceSlot = computed(() => reference.value?.children[0])
 const floating = ref()
 const { floatingStyles } = useFloating(referenceSlot, floating)
 
-const visible = ref(false)
+const visible = defineModel()
 
 const triggerName = computed(() => {
   return props.trigger === 'hover' ? 'mousemove' : 'click'
@@ -104,21 +100,21 @@ watch(visible, (newValue) => {
   }
 })
 
-const dismiss = (event: MouseEvent) => {
+const dismiss = debounce((event: MouseEvent) => {
   const isClickFloating = floating.value?.contains(event.target)
   const isClickReference = referenceSlot.value?.contains(event.target)
 
   if (!isClickFloating && !isClickReference) {
     visible.value = false
   }
-}
+}, 50)
 
 onMounted(() => {
-  window.addEventListener('click', dismiss)
+  window.addEventListener(triggerName.value, dismiss)
 })
 
 onUnmounted(() => {
-  window.removeEventListener('click', dismiss)
+  window.removeEventListener(triggerName.value, dismiss)
 })
 
 defineExpose({
