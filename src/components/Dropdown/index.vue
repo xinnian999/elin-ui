@@ -1,5 +1,5 @@
 <template>
-  <e-tooltip :class="ns('popover')" v-bind="{ ...$props, ...$attrs }" v-model:visible="visible">
+  <e-tooltip :class="ns('popover')" v-bind="{ ...$props, ...$attrs }" v-model="visible">
     <slot />
     <template #content>
       <e-menu :items="options" direction="vertical" @select="handleSelect" />
@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import type { Options, TooltipProps } from '@/components/common'
-import { inject, ref } from 'vue'
+import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
 
 const { ns } = inject($config, $configInit)
@@ -27,7 +27,6 @@ const emits = defineEmits<{
 }>()
 
 const selected = defineModel('selected', { default: '' })
-// const selected = ref()
 
 const visible = defineModel('visible', { default: false })
 

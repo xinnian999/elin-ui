@@ -3,7 +3,7 @@
     <slot />
     <Teleport to="body">
       <div
-        v-if="visible"
+        v-show="visible"
         ref="floating"
         :style="{ ...floatingStyles, width: referenceSlot?.clientWidth + 'px' }"
         :class="ns('tooltip')"
@@ -39,7 +39,7 @@ const referenceSlot = computed(() => reference.value?.children[0])
 const floating = ref()
 const { floatingStyles } = useFloating(referenceSlot, floating)
 
-const visible = defineModel('visible', { default: false })
+const visible = defineModel()
 
 const triggerName = computed(() => {
   return props.trigger === 'hover' ? 'mousemove' : 'click'
