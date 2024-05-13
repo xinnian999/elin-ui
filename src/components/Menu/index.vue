@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, ref } from 'vue'
+import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
 import type { Options, Direction } from '@/components/common'
 

@@ -1,18 +1,15 @@
 <template>
-  <e-tooltip :class="ns('popover')" v-bind="{ ...$props, ...$attrs }" v-model="visible">
+  <e-popover v-bind="{ ...$props, ...$attrs }" v-model="visible">
     <slot />
     <template #content>
       <e-menu v-model="selected" :items="options" direction="vertical" @select="handleSelect" />
     </template>
-  </e-tooltip>
+  </e-popover>
 </template>
 
 <script setup lang="ts">
 import type { Options, TooltipProps } from '@/components/common'
-import { inject } from 'vue'
-import { $config, $configInit } from '@/config'
 
-const { ns } = inject($config, $configInit)
 withDefaults(
   defineProps<
     TooltipProps & {
@@ -27,6 +24,6 @@ const selected = defineModel('selected', { default: '' })
 const visible = defineModel('visible', { default: false })
 
 const handleSelect = () => {
-  // visible.value = false
+  visible.value = false
 }
 </script>

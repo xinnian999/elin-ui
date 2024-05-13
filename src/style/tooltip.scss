@@ -1,4 +1,7 @@
 @include ns(tooltip) {
+  position: absolute;
+  left: 0;
+  top: 0;
   background-color: getVar('text', 'color');
   color: getVar('bg', 'color');
   font-size: getVar('font', 'size', 'small');
