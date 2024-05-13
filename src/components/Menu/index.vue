@@ -33,7 +33,7 @@ const emits = defineEmits<{
 
 const { namespace } = inject($config, $configInit)!
 
-const active = ref()
+const active = defineModel()
 
 const handleItemClick = (key) => {
   active.value = key

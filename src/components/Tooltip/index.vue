@@ -54,7 +54,7 @@ const handleOpen = _.debounce(() => {
 
 const updatePosition = async () => {
   const { x, y } = await computePosition(referenceSlot.value, floating.value, {
-    middleware: [shift(), flip(), offset(3)], // 按需引用的中间件
+    middleware: [shift(), flip(), offset(5)], // 按需引用的中间件
     placement: props.placement // 指定初始化浮动位置
   })
   // console.log(x, y)
@@ -96,13 +96,5 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener(triggerName.value, dismiss)
-})
-
-defineExpose({
-  visible,
-  referenceSlot,
-  close: () => {
-    visible.value = false
-  }
 })
 </script>
