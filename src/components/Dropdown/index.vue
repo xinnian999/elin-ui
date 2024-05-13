@@ -9,7 +9,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import type { Options, Placement, Trigger } from '@/components/common'
 
 withDefaults(
@@ -28,15 +27,11 @@ const emits = defineEmits<{
 
 const value = defineModel()
 
-const visible = ref(false)
+const visible = defineModel('visible', { default: false })
 
 const handleSelect = (key: string) => {
   value.value = key
   emits('select', key as any)
   visible.value = false
 }
-
-defineExpose({
-  visible
-})
 </script>
