@@ -20,7 +20,7 @@
 import { inject, ref, watch, nextTick, onMounted, onUnmounted, computed } from 'vue'
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
-import { debounce } from 'lodash'
+import _ from 'lodash'
 import type { TooltipProps } from '@/components/common'
 
 defineOptions({
@@ -45,7 +45,7 @@ const triggerName = computed(() => {
   return props.trigger === 'hover' ? 'mousemove' : 'click'
 })
 
-const handleOpen = debounce(() => {
+const handleOpen = _.debounce(() => {
   if (props.trigger === 'click') {
     return (visible.value = !visible.value)
   }
@@ -81,7 +81,7 @@ watch(visible, (newValue) => {
   }
 })
 
-const dismiss = debounce((event: MouseEvent) => {
+const dismiss = _.debounce((event: MouseEvent) => {
   const isClickFloating = floating.value?.contains(event.target)
   const isClickReference = referenceSlot.value?.contains(event.target)
 
