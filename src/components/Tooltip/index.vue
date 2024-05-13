@@ -21,6 +21,7 @@ import { inject, ref, watch, nextTick, onMounted, onUnmounted, computed } from '
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
 import { debounce } from 'lodash'
+import type { Placement, Trigger } from '@/components/common'
 
 defineOptions({
   inheritAttrs: false
@@ -28,21 +29,9 @@ defineOptions({
 
 const props = withDefaults(
   defineProps<{
-    placement?:
-      | 'top'
-      | 'top-start'
-      | 'top-end'
-      | 'bottom'
-      | 'bottom-start'
-      | 'bottom-end'
-      | 'left'
-      | 'left-start'
-      | 'left-end'
-      | 'right'
-      | 'right-start'
-      | 'right-end'
+    placement?: Placement
     content?: string
-    trigger?: 'hover' | 'click'
+    trigger?: Trigger
   }>(),
   {
     placement: 'top',
@@ -63,25 +52,19 @@ const triggerName = computed(() => {
   return props.trigger === 'hover' ? 'mousemove' : 'click'
 })
 
-const handleOpen = () => {
+const handleOpen = debounce(() => {
   if (props.trigger === 'click') {
     return (visible.value = !visible.value)
   }
   visible.value = true
-}
-
-const handleClose = () => {
-  if (props.trigger === 'hover') {
-    visible.value = false
-  }
-}
+}, 50)
 
 const updatePosition = async () => {
   const { x, y } = await computePosition(referenceSlot.value, floating.value, {
     middleware: [shift(), flip(), offset(5)], // 按需引用的中间件
     placement: props.placement // 指定初始化浮动位置
   })
-
+  console.log(x, y)
   Object.assign(floating.value.style, {
     transform: `translate(${x}px, ${y}px)`
   })

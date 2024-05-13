@@ -1,5 +1,5 @@
 <template>
-  <e-popover v-model="visible">
+  <e-popover v-bind="{ ...$attrs, ...$props }" v-model="visible">
     <slot />
 
     <template #content>
@@ -10,13 +10,16 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import type { Options } from '@/components/common'
+import type { Options, Placement, Trigger } from '@/components/common'
 
 withDefaults(
   defineProps<{
+    placement?: Placement
+    content?: string
+    trigger?: Trigger
     options?: Options
   }>(),
-  { options: [] }
+  { options: [] as any, trigger: 'click' }
 )
 
 const emits = defineEmits<{
@@ -29,7 +32,7 @@ const visible = ref(false)
 
 const handleSelect = (key: string) => {
   value.value = key
-  emits('select', key)
+  emits('select', key as any)
   visible.value = false
 }
 
