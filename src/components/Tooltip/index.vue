@@ -3,7 +3,7 @@
     <slot />
     <Teleport to="body">
       <div
-        v-show="visible"
+        v-if="visible"
         ref="floating"
         :style="{ ...floatingStyles, width: referenceSlot?.clientWidth + 'px' }"
         :class="ns('tooltip')"
@@ -39,7 +39,7 @@ const referenceSlot = computed(() => reference.value?.children[0])
 const floating = ref()
 const { floatingStyles } = useFloating(referenceSlot, floating)
 
-const visible = defineModel()
+const visible = defineModel('visible', { default: false })
 
 const triggerName = computed(() => {
   return props.trigger === 'hover' ? 'mousemove' : 'click'
@@ -54,10 +54,10 @@ const handleOpen = _.debounce(() => {
 
 const updatePosition = async () => {
   const { x, y } = await computePosition(referenceSlot.value, floating.value, {
-    middleware: [shift(), flip(), offset(5)], // 按需引用的中间件
+    middleware: [shift(), flip(), offset(3)], // 按需引用的中间件
     placement: props.placement // 指定初始化浮动位置
   })
-  console.log(x, y)
+  // console.log(x, y)
   Object.assign(floating.value.style, {
     transform: `translate(${x}px, ${y}px)`
   })

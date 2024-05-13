@@ -1,9 +1,16 @@
 <template>
-  <div>
-    <e-tooltip content="11111"><e-button>111</e-button></e-tooltip>
-  </div>
+  <p>当前值: {{ value }}</p>
+  <e-select v-model="value" style="width: 250px" :options />
 </template>
 
 <script setup lang="ts">
-// import Test from './test/dialog.vue'
+import { ref } from 'vue'
+
+const value = ref('')
+
+const options = [
+  { label: '选项一', value: 'value1' },
+  { label: '选项二', value: 'value2' },
+  { label: '选项三', value: 'value3' }
+]
 </script>
