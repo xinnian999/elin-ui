@@ -11,16 +11,9 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
-import type { Placement, Trigger } from '@/components/common'
+import type { TooltipProps } from '@/components/common'
 
-withDefaults(
-  defineProps<{
-    placement?: Placement
-    content?: string
-    trigger?: Trigger
-  }>(),
-  { placement: 'bottom' }
-)
+withDefaults(defineProps<TooltipProps>(), { placement: 'bottom' })
 
-const { ns } = inject($config, $configInit)!
+const { ns } = inject($config, $configInit)
 </script>

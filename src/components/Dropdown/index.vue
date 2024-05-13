@@ -9,15 +9,14 @@
 </template>
 
 <script setup lang="ts">
-import type { Options, Placement, Trigger } from '@/components/common'
+import type { Options, TooltipProps } from '@/components/common'
 
 withDefaults(
-  defineProps<{
-    placement?: Placement
-    content?: string
-    trigger?: Trigger
-    options?: Options
-  }>(),
+  defineProps<
+    TooltipProps & {
+      options?: Options
+    }
+  >(),
   { options: [] as any, trigger: 'click' }
 )
 

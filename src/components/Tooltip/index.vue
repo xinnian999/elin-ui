@@ -21,23 +21,16 @@ import { inject, ref, watch, nextTick, onMounted, onUnmounted, computed } from '
 import { $config, $configInit } from '@/config'
 import { computePosition, flip, offset, shift, useFloating } from '@floating-ui/vue'
 import { debounce } from 'lodash'
-import type { Placement, Trigger } from '@/components/common'
+import type { TooltipProps } from '@/components/common'
 
 defineOptions({
   inheritAttrs: false
 })
 
-const props = withDefaults(
-  defineProps<{
-    placement?: Placement
-    content?: string
-    trigger?: Trigger
-  }>(),
-  {
-    placement: 'top',
-    trigger: 'hover'
-  }
-)
+const props = withDefaults(defineProps<TooltipProps>(), {
+  placement: 'top',
+  trigger: 'hover'
+})
 
 const { ns } = inject($config, $configInit)!
 

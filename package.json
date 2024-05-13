@@ -16,7 +16,8 @@
     "preview": "vitepress preview docs",
     "type-check": "vue-tsc --build --force",
     "release": "vite build --config release.config.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "dev-web": "vite"
   },
   "dependencies": {
     "@floating-ui/vue": "^1.0.6",
