@@ -10,15 +10,13 @@
     $color-map: map-merge(
       $color-map,
       (
-              $i: $lighter-color
+        $i: $lighter-color
       )
     ); // 将变量设置到 map 中
   }
 
   @return $color-map; // 返回颜色 map
 }
-
-
 
 @function joinVarName($list) {
   $name: '--' + $namespace;

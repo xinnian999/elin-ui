@@ -24,6 +24,8 @@
 }
 
 @include ns(click-water) {
+  $imageColor: #fff;
+
   &::before {
     content: '';
     display: block;
@@ -49,7 +51,7 @@
     height: 100%;
     left: var(--x, 0);
     top: var(--y, 0);
-    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-image: radial-gradient(circle, $imageColor 10%, transparent 10.01%);
     background-repeat: no-repeat;
     background-position: 50%;
     transform: translate(-50%, -50%) scale(10);
