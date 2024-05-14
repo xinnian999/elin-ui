@@ -1,8 +1,8 @@
 # Elin UI
 
-一个Vue3组件库
+一个Vue3组件
 
-[前往在线文档]([https://xinnian999.github.io/elin-ui/](https://xinnian999.github.io/elin-ui/))
+[前往在线文档](https://xinnian999.github.io/elin-ui/)
 
 ## 使用方法
 
