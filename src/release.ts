@@ -1,12 +1,12 @@
 import type { App } from 'vue'
 import * as components from '@/components'
+import * as directives from '@/directive'
 import './style/index.scss'
 import { $configInit, $config } from './config'
 import 'animate.css'
 
 export * from '@/components'
 export * from '@/assets/icons'
-// export * from '@/type'
 
 export default (app: App<Element>) => {
   Object.entries(components).forEach(([key, value]) => {
@@ -14,4 +14,6 @@ export default (app: App<Element>) => {
   })
 
   app.provide($config, $configInit)
+
+  Object.values(directives).forEach((fn) => fn(app, $configInit))
 }

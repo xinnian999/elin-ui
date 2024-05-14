@@ -11,6 +11,8 @@
     cursor: pointer;
     font-size: getVar('font-size-base');
     font-weight: 500;
+    position: relative;
+    overflow: hidden;
     &:hover {
       background-color: getVar('primary-color-8');
       border-radius: getVar('border', 'radius');

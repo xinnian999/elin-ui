@@ -8,6 +8,7 @@
       v-for="{ label, value } in items"
       :key="value"
       @click="handleItemClick(value)"
+      v-click-water
     >
       {{ label }}
     </li>

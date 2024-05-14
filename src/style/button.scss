@@ -16,6 +16,8 @@ $buttonClass: '#{$namespace}-button-';
   color: getVar('button', 'text-color');
   font-size: getVar('font-size-base');
   vertical-align: middle;
+  position: relative;
+  overflow: hidden;
 
   &:hover:not(.is-disabled, .is-text) {
     opacity: getVar('button', 'hover', 'opacity');
@@ -24,9 +26,9 @@ $buttonClass: '#{$namespace}-button-';
     border-color: getVar('button', 'hover', 'border', 'color');
   }
 
-  &:active:not(.is-disabled) {
-    transform: scale(0.95);
-  }
+  //&:active:not(.is-disabled) {
+  //  transform: scale(0.95);
+  //}
 
   &.is-text {
     background-color: transparent;

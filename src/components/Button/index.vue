@@ -1,5 +1,5 @@
 <template>
-  <button :class="classNames" v-bind="$attrs" @click="handleClick">
+  <button v-click-water :class="classNames" v-bind="$attrs" @click="handleClick" ref="el">
     <IconLoading v-if="loading" :class="ns('icon-loading')" /> <slot />
   </button>
 </template>
