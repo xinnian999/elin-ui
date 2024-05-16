@@ -50,7 +50,8 @@ export default defineConfig({
           text: '数据展示',
           items: [
             { text: 'Table 表格', link: '/component/Table/' },
-            { text: 'List 列表', link: '/component/List/' }
+            { text: 'List 列表', link: '/component/List/' },
+            { text: 'Tag 标签', link: '/component/Tag/' }
           ]
         },
         {

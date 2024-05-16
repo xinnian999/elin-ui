@@ -41,6 +41,7 @@ const isActive = computed(() => {
   const { multiple } = props
 
   return (value) => {
+    if (!active.value) return
     if (multiple) {
       return active.value.includes(value)
     } else {
@@ -51,12 +52,12 @@ const isActive = computed(() => {
 
 const handleItemClick = (key) => {
   const { multiple } = props
-
   if (multiple) {
+    const currentValue = active.value || []
     if (active.value.includes(key)) {
-      active.value = active.value.filter((item) => item !== key)
+      active.value = currentValue.filter((item) => item !== key)
     } else {
-      active.value = [...active.value, key]
+      active.value = [...currentValue, key]
     }
   } else {
     active.value = key
@@ -65,10 +66,9 @@ const handleItemClick = (key) => {
   emits('select', key)
 }
 
-onMounted(() => {
-  console.log(props.multiple)
-  if (!active.value && props.multiple) {
-    active.value = []
-  }
-})
+// onMounted(() => {
+//   if (!active.value && props.multiple) {
+//     active.value = []
+//   }
+// })
 </script>

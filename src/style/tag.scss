@@ -1,0 +1,27 @@
+@include ns(tag) {
+  background-color: var(--el-tag-bg-color);
+  border-color: getVar('border', 'color');
+  color: getVar('text', 'color');
+  display: inline-flex;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  vertical-align: middle;
+  height: 24px;
+  padding: 0 9px;
+  font-size: getVar('font-size-base');
+  line-height: 1;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: getVar('border', 'radius');
+  box-sizing: border-box;
+  white-space: nowrap;
+
+  .close-ico {
+    font-size: 12px;
+    cursor: pointer;
+    &:hover {
+      color: getVar('primary', 'color');
+    }
+  }
+}
