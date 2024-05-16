@@ -1,9 +1,10 @@
 @include ns(tag) {
-  background-color: var(--el-tag-bg-color);
-  border-color: getVar('border', 'color');
-  color: getVar('text', 'color');
+  background-color: getVar('primary', 'color', '8');
+  border-color: getVar('primary', 'color', '5');
+  color: getVar('primary', 'color');
   display: inline-flex;
   justify-content: center;
+  font-weight: 500;
   gap: 5px;
   align-items: center;
   vertical-align: middle;
@@ -16,12 +17,17 @@
   border-radius: getVar('border', 'radius');
   box-sizing: border-box;
   white-space: nowrap;
+  animation: zoomIn 0.3s;
 
   .close-ico {
-    font-size: 12px;
+    font-size: 14px;
     cursor: pointer;
+    color: getVar('primary', 'color');
+    border-radius: 50%;
+    padding: 2px;
     &:hover {
-      color: getVar('primary', 'color');
+      color: #fff;
+      background-color: getVar('primary', 'color');
     }
   }
 }

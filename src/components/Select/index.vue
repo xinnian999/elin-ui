@@ -11,11 +11,11 @@
         {{ placeholder }}
       </div>
       <div v-else :class="ns('select-value')">
-        <template v-if="multiple">
+        <div v-if="multiple" :class="ns('select-value-multiple')">
           <e-tag v-for="val in value" :key="val" closable @close="handleClose(val)">{{
             options.find((item) => item.value === val)?.label
           }}</e-tag>
-        </template>
+        </div>
 
         <template v-else>
           {{ options.find((item) => item.value === value)?.label }}
