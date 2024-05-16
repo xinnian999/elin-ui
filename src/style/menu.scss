@@ -13,9 +13,11 @@
     font-weight: 500;
     position: relative;
     overflow: hidden;
+    border-radius: getVar('border', 'radius');
+    @include setVar('click-water', #333);
+
     &:hover {
       background-color: getVar('primary-color-8');
-      border-radius: getVar('border', 'radius');
     }
 
     &.is-active {

@@ -31,3 +31,7 @@
 @function getVar($args...) {
   @return var(#{joinVarName($args)});
 }
+
+@function get-var-with-default($name, $default) {
+  @return var(#{joinVarName($name)}, $default);
+}

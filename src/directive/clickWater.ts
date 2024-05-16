@@ -2,7 +2,8 @@ import { type App, nextTick } from 'vue'
 import type { $Config } from '@/config'
 
 const clickWater = (app: App<Element>, config: $Config) => {
-  const handle = async (el: HTMLElement) => {
+  const handle = async (el: HTMLElement, { value = true }) => {
+    if (!value) return
     await nextTick()
     const { ns } = config
 

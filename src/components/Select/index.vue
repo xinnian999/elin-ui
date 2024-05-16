@@ -1,5 +1,11 @@
 <template>
-  <e-dropdown v-model:selected="value" v-model:visible="visible" :options>
+  <e-dropdown
+    v-model:selected="value"
+    v-model:visible="visible"
+    :options
+    :autoClose="!multiple"
+    :multiple
+  >
     <div :class="[ns('select'), visible && 'is-focus']" v-bind="$attrs">
       <div v-if="!value" :class="ns('select-placeholder')">{{ placeholder }}</div>
       <div v-else :class="ns('select-value')">
@@ -23,6 +29,7 @@ withDefaults<{}>(
   defineProps<{
     placeholder?: string
     options?: Options
+    multiple?: boolean
   }>(),
   { placeholder: '请选择', options: [] }
 )

@@ -8,6 +8,7 @@ import Icon from './icon.vue'
 import Disabled from './disabled.vue'
 import Size from './size.vue'
 import Loading from './loading.vue'
+import ClickEffect from './clickEffect.vue'
 
 </script>
 
@@ -84,6 +85,16 @@ import Loading from './loading.vue'
 ::: details 查看代码
 
 <<< ./size.vue
+
+:::
+
+## 不同点击效果
+
+<ClickEffect />
+
+::: details 查看代码
+
+<<< ./clickEffect.vue
 
 :::
 

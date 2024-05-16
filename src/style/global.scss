@@ -24,8 +24,9 @@
 }
 
 @include ns(click-water) {
-  $imageColor: #fff;
+  $imageColor: get-var-with-default('click-water', #fff);
 
+  @debug $imageColor;
   &::before {
     content: '';
     display: block;
@@ -34,7 +35,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    transition: 0.2s;
+    transition: 0.3s;
     background: #fff;
     opacity: 0;
   }

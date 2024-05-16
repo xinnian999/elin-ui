@@ -2,7 +2,13 @@
   <e-popover v-bind="{ ...$props, ...$attrs }" v-model="visible">
     <slot />
     <template #content>
-      <e-menu v-model="selected" :items="options" direction="vertical" @select="handleSelect" />
+      <e-menu
+        v-model="selected"
+        :items="options"
+        direction="vertical"
+        @select="handleSelect"
+        :multiple
+      />
     </template>
   </e-popover>
 </template>
@@ -10,13 +16,15 @@
 <script setup lang="ts">
 import type { Options, TooltipProps } from '@/components/common'
 
-withDefaults(
+const props = withDefaults(
   defineProps<
     TooltipProps & {
       options?: Options
+      autoClose?: boolean
+      multiple?: boolean
     }
   >(),
-  { options: [] as any, trigger: 'click', placement: 'bottom' }
+  { options: [] as any, trigger: 'click', placement: 'bottom', autoClose: true }
 )
 
 const selected = defineModel('selected', { default: '' })
@@ -24,6 +32,8 @@ const selected = defineModel('selected', { default: '' })
 const visible = defineModel('visible', { default: false })
 
 const handleSelect = () => {
-  visible.value = false
+  if (props.autoClose) {
+    visible.value = false
+  }
 }
 </script>

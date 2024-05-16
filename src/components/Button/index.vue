@@ -1,6 +1,12 @@
 <template>
-  <button v-click-water :class="classNames" v-bind="$attrs" @click="handleClick" ref="el">
-    <IconLoading v-if="loading" :class="ns('icon-loading')" /> <slot />
+  <button
+    v-click-water="clickEffect === 'water' && !disabled && !loading"
+    :class="classNames"
+    v-bind="$attrs"
+    @click="handleClick"
+  >
+    <IconLoading v-if="loading" :class="ns('icon-loading')" />
+    <slot />
   </button>
 </template>
 
@@ -21,8 +27,9 @@ const props = withDefaults(
     text?: boolean
     size?: 'large' | 'default' | 'small' | 'tiny'
     loading?: boolean
+    clickEffect: 'water' | 'zoom'
   }>(),
-  { size: 'default', type: 'default' }
+  { size: 'default', type: 'default', clickEffect: 'water' }
 )
 
 const emit = defineEmits<{
@@ -37,7 +44,8 @@ const classNames = computed(() => ({
   'is-circle': props.circle,
   'is-round': props.round,
   'is-disabled': props.disabled || props.loading,
-  'is-text': props.text
+  'is-text': props.text,
+  'is-click-zoom': props.clickEffect === 'zoom'
 }))
 
 const handleClick = (evt: MouseEvent) => {

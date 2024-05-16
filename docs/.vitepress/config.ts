@@ -13,7 +13,10 @@ export default defineConfig({
         'elin-ui': fileURLToPath(new URL('../../src/release', import.meta.url))
       }
     },
-    plugins: [vueJsx()]
+    plugins: [vueJsx()],
+    server: {
+      port: 9999
+    }
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

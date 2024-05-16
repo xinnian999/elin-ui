@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Basic from './basic.vue'
+import Multiple from './multiple.vue'
 
 </script>
 
@@ -15,12 +16,12 @@ import Basic from './basic.vue'
 
 :::
 
-## 基础用法
+## 多选
 
-<Basic />
+<Multiple />
 
 ::: details 查看代码
 
-<<< ./basic.vue
+<<< ./multiple.vue
 
 :::
