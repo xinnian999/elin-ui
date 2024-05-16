@@ -11,7 +11,7 @@ $buttonClass: '#{$namespace}-button-';
   cursor: pointer;
   font-weight: 500;
   background-color: getVar('button', 'bg', 'color');
-  transition-duration: 0.3s;
+  transition-duration: 0.1s;
   border: 1px solid getVar('button', 'border', 'color');
   color: getVar('button', 'text-color');
   font-size: getVar('font-size-base');
