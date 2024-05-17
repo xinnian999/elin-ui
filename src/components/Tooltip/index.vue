@@ -71,6 +71,12 @@ const dismiss = _.debounce((event: MouseEvent) => {
   }
 }, 50)
 
+const resizeObserver = new ResizeObserver(() => {
+  if (visible.value) {
+    updatePosition()
+  }
+})
+
 watch(visible, (newValue) => {
   if (newValue) {
     nextTick(() => {
@@ -91,9 +97,13 @@ watch(visible, (newValue) => {
 
 onMounted(() => {
   window.addEventListener(triggerName.value, dismiss)
+
+  resizeObserver.observe(referenceSlot.value)
 })
 
 onUnmounted(() => {
   window.removeEventListener(triggerName.value, dismiss)
+
+  resizeObserver.disconnect()
 })
 </script>

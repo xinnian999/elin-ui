@@ -1,4 +1,5 @@
 @include ns(select) {
+  $name: &;
   border-radius: getVar('border', 'radius');
   border: 1px solid getVar('border', 'color');
   padding: 5px 10px;
@@ -26,9 +27,13 @@
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    transition: transform 0.2s;
   }
 
   &.is-focus {
     border-color: getVar('primary', 'color');
+    #{$name}-suffix {
+      transform: translateY(-50%) rotate(180deg);
+    }
   }
 }

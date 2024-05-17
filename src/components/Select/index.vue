@@ -22,8 +22,7 @@
         </template>
       </div>
       <div :class="ns('select-suffix')">
-        <IconDropUp v-if="visible" />
-        <IconDropDown v-else />
+        <IconDropDown />
       </div>
     </div>
   </e-dropdown>
