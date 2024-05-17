@@ -31,11 +31,11 @@
 
 <script setup lang="tsx">
 import { inject, ref } from 'vue'
-import { IconDropDown } from '@/assets/icons'
+import { IconDropDown, IconChecked } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
 import type { Options } from '@/components/common'
 
-withDefaults<{}>(
+const props = withDefaults(
   defineProps<{
     placeholder?: string
     options?: Options
@@ -54,10 +54,17 @@ const handleClose = (val) => {
   value.value = value.value.filter((item) => item !== val)
 }
 
-const renderLabel = ({ label, value }) => {
+const renderLabel = ({ label, value: val }) => {
+  let checked = false
+  if (props.multiple) {
+    checked = value.value.includes(val)
+  } else {
+    checked = value.value === val
+  }
+
   return (
-    <div>
-      <span>{label}</span>
+    <div style={{ display: 'flex', 'justify-content': 'space-between', alignItems: 'center' }}>
+      <span>{label}</span> {checked && <IconChecked />}
     </div>
   )
 }

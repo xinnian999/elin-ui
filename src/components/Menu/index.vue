@@ -5,14 +5,15 @@
   >
     <li
       v-for="item in items"
-      :class="[`${namespace}-menu-item`, isActive(item) && 'is-active']"
+      :class="[`${namespace}-menu-item`, isActive(item.value) && 'is-active']"
       :key="item.value"
       @click="handleItemClick(item.value)"
       v-click-water
     >
       <template v-if="renderLabel">
-        <component v-if="isVNode(renderLabel(item))" :is="renderLabel(item)" />
-        <template v-else> {{ renderLabel(item) }}</template>
+        <!--        <component v-if="isVNode(renderLabel(item))" :is="renderLabel(item)" />-->
+        <!--        <template v-else> {{ renderLabel(item) }}</template>-->
+        <component :is="renderLabel(item)" />
       </template>
       <template v-else>
         {{ item.label }}
