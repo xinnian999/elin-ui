@@ -22,11 +22,10 @@ const handleCopy = (name) => {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 
   li {
-    width: 100px;
     height: 100px;
     text-align: center;
     cursor: pointer;
