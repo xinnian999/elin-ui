@@ -4,27 +4,34 @@
     :style="{ flexDirection: direction === 'horizontal' ? 'row' : 'column' }"
   >
     <li
-      :class="[`${namespace}-menu-item`, isActive(value) && 'is-active']"
-      v-for="{ label, value } in items"
-      :key="value"
-      @click="handleItemClick(value)"
+      v-for="item in items"
+      :class="[`${namespace}-menu-item`, isActive(item) && 'is-active']"
+      :key="item.value"
+      @click="handleItemClick(item.value)"
       v-click-water
     >
-      {{ label }}
+      <template v-if="renderLabel">
+        <component v-if="isVNode(renderLabel(item))" :is="renderLabel(item)" />
+        <template v-else> {{ renderLabel(item) }}</template>
+      </template>
+      <template v-else>
+        {{ item.label }}
+      </template>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import { computed, inject, onMounted } from 'vue'
+import { computed, inject, isVNode } from 'vue'
 import { $config, $configInit } from '@/config'
-import type { Options, Direction } from '@/components/common'
+import type { Option, Options, Direction } from '@/components/common'
 
 const props = withDefaults(
   defineProps<{
     items?: Options
     direction?: Direction
     multiple?: boolean
+    renderLabel?: (item: Option) => any
   }>(),
   { direction: 'horizontal' }
 )

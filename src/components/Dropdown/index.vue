@@ -8,13 +8,14 @@
         direction="vertical"
         @select="handleSelect"
         :multiple
+        :renderLabel
       />
     </template>
   </e-popover>
 </template>
 
 <script setup lang="ts">
-import type { Options, TooltipProps } from '@/components/common'
+import type { Option, Options, TooltipProps } from '@/components/common'
 
 const props = withDefaults(
   defineProps<
@@ -22,6 +23,7 @@ const props = withDefaults(
       options?: Options
       autoClose?: boolean
       multiple?: boolean
+      renderLabel?: (item: Option) => any
     }
   >(),
   { options: [] as any, trigger: 'click', placement: 'bottom', autoClose: true }

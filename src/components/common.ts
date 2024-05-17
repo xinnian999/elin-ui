@@ -1,4 +1,6 @@
-export type Options = { label: string; value: string }[]
+export type Option = { label: string; value: string }
+
+export type Options = Option[]
 
 export type Direction = 'vertical' | 'horizontal'
 

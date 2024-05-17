@@ -5,6 +5,7 @@
     :options
     :autoClose="!multiple"
     :multiple
+    :renderLabel
   >
     <div :class="[ns('select'), visible && 'is-focus']" v-bind="$attrs">
       <div v-if="!value" :class="ns('select-placeholder')">
@@ -28,9 +29,9 @@
   </e-dropdown>
 </template>
 
-<script setup lang="ts">
+<script setup lang="tsx">
 import { inject, ref } from 'vue'
-import { IconDropDown, IconDropUp } from '@/assets/icons'
+import { IconDropDown } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
 import type { Options } from '@/components/common'
 
@@ -51,5 +52,13 @@ const visible = ref(false)
 
 const handleClose = (val) => {
   value.value = value.value.filter((item) => item !== val)
+}
+
+const renderLabel = ({ label, value }) => {
+  return (
+    <div>
+      <span>{label}</span>
+    </div>
+  )
 }
 </script>
