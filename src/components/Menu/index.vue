@@ -73,10 +73,4 @@ const handleItemClick = (key) => {
 
   emits('select', key)
 }
-
-// onMounted(() => {
-//   if (!active.value && props.multiple) {
-//     active.value = []
-//   }
-// })
 </script>

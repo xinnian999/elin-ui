@@ -1,7 +1,19 @@
+@mixin tag-type($type) {
+  @include generate-var-map(
+    (
+      'tag-bg-color': getVar($type, 'color', '8'),
+      'tag-border-color': getVar($type, 'color', 5),
+      'tag-text-color': getVar($type, 'color')
+    )
+  );
+}
+
 @include ns(tag) {
-  background-color: getVar('primary', 'color', '8');
-  border-color: getVar('primary', 'color', '5');
-  color: getVar('primary', 'color');
+  @include tag-type(primary);
+
+  background-color: getVar('tag-bg-color');
+  border-color: getVar('tag-border-color');
+  color: getVar('tag-text-color');
   display: inline-flex;
   justify-content: center;
   font-weight: 500;
@@ -29,5 +41,21 @@
       color: #fff;
       background-color: getVar('primary', 'color');
     }
+  }
+
+  &-success {
+    @include tag-type(success);
+  }
+
+  &-warning {
+    @include tag-type(warning);
+  }
+
+  &-danger {
+    @include tag-type(danger);
+  }
+
+  &-info {
+    @include tag-type(info);
   }
 }
