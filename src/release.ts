@@ -6,6 +6,7 @@ import { $configInit, $config } from './config'
 import 'animate.css'
 
 export * from '@/components'
+export * from '@/components/common'
 export * from '@/assets/icons'
 
 export default (app: App<Element>) => {

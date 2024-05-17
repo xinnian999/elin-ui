@@ -1,3 +1,5 @@
+export type StatusType = 'primary' | 'success' | 'info' | 'warning' | 'danger'
+
 export type Option = { label: string; value: string }
 
 export type Options = Option[]

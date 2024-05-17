@@ -8,11 +8,15 @@
 import { computed, inject } from 'vue'
 import { IconClose } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
+import type { StatusType } from '@/components/common'
 
-const props = defineProps<{
-  closable?: boolean
-  type?: 'success' | 'info' | 'warning' | 'danger'
-}>()
+const props = withDefaults(
+  defineProps<{
+    closable?: boolean
+    type: StatusType
+  }>(),
+  { type: 'primary' }
+)
 
 const emits = defineEmits<{
   close: [e: Event]
