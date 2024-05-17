@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Basic from './basic.vue'
+import Close from './close.vue'
 
 </script>
 
@@ -12,5 +13,15 @@ import Basic from './basic.vue'
 ::: details 查看代码
 
 <<< ./basic.vue
+
+:::
+
+## 可关闭
+
+<Close />
+
+::: details 查看代码
+
+<<< ./close.vue
 
 :::

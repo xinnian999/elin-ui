@@ -1,0 +1,11 @@
+@include ns(space) {
+  @include generate-var-map(
+    (
+      'space-direction': row
+    )
+  );
+
+  display: flex;
+  gap: 20px;
+  flex-direction: getVar('space-direction');
+}

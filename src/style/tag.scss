@@ -34,12 +34,11 @@
   .close-ico {
     font-size: 14px;
     cursor: pointer;
-    color: getVar('primary', 'color');
     border-radius: 50%;
     padding: 2px;
     &:hover {
       color: #fff;
-      background-color: getVar('primary', 'color');
+      background-color: getVar('tag-text-color');
     }
   }
 

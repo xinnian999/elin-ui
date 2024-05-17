@@ -1,11 +1,12 @@
 <template>
-  <div class="space-container">
+  <div :class="ns('space')" :style>
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
+import { $config, $configInit } from '@/config'
 
 const props = withDefaults(
   defineProps<{
@@ -14,8 +15,12 @@ const props = withDefaults(
   { direction: 'horizontal' }
 )
 
-const directionCss = computed(() => {
-  return props.direction === 'vertical' ? 'column' : 'row'
+const { ns } = inject($config, $configInit)!
+
+const style = computed(() => {
+  return {
+    [`--${ns('space-direction')}`]: props.direction === 'vertical' ? 'column' : 'row'
+  }
 })
 </script>
 
