@@ -8,10 +8,6 @@ const createMessage = ({ type, msg }: { type: StatusType; msg: string }) => {
   const container = document.createElement('div')
 
   render(VNode, container)
-
-  setTimeout(() => {
-    VNode.component!.exposed!.visible.value = false
-  }, 3000)
 }
 
 export const EMessage = {
