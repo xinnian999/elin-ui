@@ -1,0 +1,19 @@
+@include ns(card) {
+  $padding: 15px;
+  border-radius: getVar('border', 'radius');
+  border: 1px solid getVar('border', 'color');
+  box-shadow: getVar('box-shadow');
+  background-color: #fff;
+
+  &-header {
+    padding: $padding;
+    border-bottom: 1px solid getVar('border', 'color');
+  }
+  &-body {
+    padding: $padding;
+  }
+  &-footer {
+    padding: $padding;
+    border-top: 1px solid getVar('border', 'color');
+  }
+}

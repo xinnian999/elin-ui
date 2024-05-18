@@ -16,6 +16,7 @@ declare module 'vue' {
     EListItem: (typeof import('@/components'))['EListItem']
     EDropdown: (typeof import('@/components'))['EDropdown']
     ETag: (typeof import('@/components'))['ETag']
+    ECard: (typeof import('@/components'))['ECard']
   }
 }
 

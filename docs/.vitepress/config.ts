@@ -53,7 +53,8 @@ export default defineConfig({
           items: [
             { text: 'Table 表格', link: '/component/Table/' },
             { text: 'List 列表', link: '/component/List/' },
-            { text: 'Tag 标签', link: '/component/Tag/' }
+            { text: 'Tag 标签', link: '/component/Tag/' },
+            { text: 'Card 卡片', link: '/component/Card/' }
           ]
         },
         {
