@@ -7,7 +7,7 @@
       @mousemove="handleMove"
       @mouseleave="handleLeave"
     >
-      <slot />
+      <component :is="icons[type]" /> <slot />
     </div>
   </Teleport>
 </template>
@@ -16,12 +16,13 @@
 import { computed, inject, onMounted, ref } from 'vue'
 import { $config, $configInit } from '@/config'
 import type { StatusType } from '@/components/common'
+import { IconError, IconInfo, IconSuccess, IconWarning } from '@/assets/icons'
 
 const props = withDefaults(
   defineProps<{
     type: StatusType
   }>(),
-  { type: 'primary' }
+  { type: 'info' }
 )
 
 const { ns } = inject($config, $configInit)
@@ -30,6 +31,13 @@ const classNames = computed(() => ({
   [ns('message')]: true,
   [ns(`message-${props.type}`)]: true
 }))
+
+const icons = {
+  success: IconSuccess,
+  warning: IconWarning,
+  info: IconInfo,
+  danger: IconError
+}
 
 const visible = ref(true)
 

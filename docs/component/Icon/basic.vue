@@ -9,10 +9,11 @@
 
 <script setup lang="ts">
 import * as icons from '@/assets/icons'
+import { EMessage } from 'elin-ui'
 
-const handleCopy = (name) => {
+const handleCopy = (name: string) => {
   navigator.clipboard.writeText(`<${name}/>`).then(() => {
-    alert('复制成功')
+    EMessage.success('复制成功')
   })
 }
 </script>

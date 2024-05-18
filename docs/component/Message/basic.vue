@@ -6,6 +6,6 @@
 import { EMessage } from 'elin-ui'
 
 const handleOpen = () => {
-  EMessage.danger('success')
+  EMessage('消息提示')
 }
 </script>
