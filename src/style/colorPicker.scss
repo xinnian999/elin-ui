@@ -1,10 +1,13 @@
-@include ns(input) {
+@include ns(color-picker) {
   border-radius: getVar('border', 'radius');
   border: 1px solid getVar('border', 'color');
-  padding: 5px 10px;
+  padding: 3px 5px;
   position: relative;
+  width: 50px;
+  cursor: pointer;
   &-inner {
     width: 100%;
+    cursor: pointer;
   }
 
   &:hover {

@@ -6,6 +6,7 @@ declare module 'vue' {
     ETable: (typeof import('@/components'))['ETable']
     ESelect: (typeof import('@/components'))['ESelect']
     EInput: (typeof import('@/components'))['EInput']
+    EColorPicker: (typeof import('@/components'))['EColorPicker']
     ECheckbox: (typeof import('@/components'))['ECheckbox']
     ECheckboxGroup: (typeof import('@/components'))['ECheckboxGroup']
     ETooltip: (typeof import('@/components'))['ETooltip']

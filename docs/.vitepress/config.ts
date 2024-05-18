@@ -44,7 +44,8 @@ export default defineConfig({
           items: [
             { text: 'Input 输入框', link: '/component/Input/' },
             { text: 'Checkbox 多选框', link: '/component/Checkbox/' },
-            { text: 'Select 选择框', link: '/component/Select/' }
+            { text: 'Select 选择框', link: '/component/Select/' },
+            { text: 'ColorPicker 取色器', link: '/component/ColorPicker/' }
           ]
         },
         {
