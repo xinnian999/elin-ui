@@ -1,0 +1,52 @@
+@mixin tag-type($type) {
+  @include generate-var-map(
+    (
+      'message-bg-color': getVar($type, 'color', '9'),
+      'message-border-color': getVar($type, 'color', '7'),
+      'message-text-color':getVar($type, 'color')
+    )
+  );
+}
+
+@include ns(message) {
+  @include tag-type(primary);
+
+  @keyframes messageIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -100%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+
+  position: fixed;
+  padding: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  background-color: getVar('message-bg-color');
+  color: getVar('message-text-color');
+  border: 1px solid getVar('message', 'border', 'color');
+  z-index: 2024;
+  border-radius: getVar('border', 'radius');
+  animation: messageIn 0.3s;
+
+  &-success {
+    @include tag-type(success);
+  }
+
+  &-warning {
+    @include tag-type(warning);
+  }
+
+  &-danger {
+    @include tag-type(danger);
+  }
+
+  &-info {
+    @include tag-type(info);
+  }
+}
