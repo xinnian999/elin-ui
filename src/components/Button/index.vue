@@ -27,7 +27,7 @@ const props = withDefaults(
     text?: boolean
     size?: 'large' | 'default' | 'small' | 'tiny'
     loading?: boolean
-    clickEffect: 'water' | 'zoom'
+    clickEffect?: 'water' | 'zoom'
   }>(),
   { size: 'default', type: 'default', clickEffect: 'water' }
 )

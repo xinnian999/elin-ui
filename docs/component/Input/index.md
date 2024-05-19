@@ -18,3 +18,14 @@ import Basic from './basic.vue'
 <<< ./basic.vue
 
 :::
+
+
+
+## API
+
+### defineProps
+
+| 属性名     | 说明   | 类型     | 默认值   |
+|---------|------|--------|-------|
+| v-model | 值    | `string` | --    |
+| placeholder | 占位文本 | `string` | `'请输入'` |

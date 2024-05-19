@@ -6,7 +6,7 @@ withDefaults(
   defineProps<{
     placeholder?: string
   }>(),
-  { placeholder: '请输入文本' }
+  { placeholder: '请输入' }
 )
 
 const { namespace } = inject($config, $configInit)!
