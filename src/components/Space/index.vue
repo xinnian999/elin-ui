@@ -7,10 +7,12 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 import { $config, $configInit } from '@/config'
+import type { Direction } from '@/components/common'
 
 const props = withDefaults(
   defineProps<{
-    direction: string
+    direction: Direction
+    wrap: boolean
   }>(),
   { direction: 'horizontal' }
 )
@@ -19,7 +21,8 @@ const { ns } = inject($config, $configInit)!
 
 const style = computed(() => {
   return {
-    [`--${ns('space-direction')}`]: props.direction === 'vertical' ? 'column' : 'row'
+    [`--${ns('space-direction')}`]: props.direction === 'vertical' ? 'column' : 'row',
+    [`--${ns('space-wrap')}`]: props.wrap ? 'wrap' : 'nowrap'
   }
 })
 </script>

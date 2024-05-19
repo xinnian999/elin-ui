@@ -2,13 +2,7 @@
   <div ref="reference" @[triggerName]="handleOpen" style="display: contents">
     <slot />
     <Teleport to="body">
-      <div
-        v-show="visible"
-        ref="floating"
-        :style="{ width: referenceSlot?.clientWidth + 'px' }"
-        :class="ns('tooltip')"
-        v-bind="$attrs"
-      >
+      <div v-show="visible" ref="floating" :class="ns('tooltip')" v-bind="$attrs">
         <slot v-if="$slots.content" name="content" />
         <div v-else>{{ content }}</div>
       </div>

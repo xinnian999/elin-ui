@@ -35,8 +35,8 @@ export default defineConfig({
           text: '基础组件',
           items: [
             { text: 'Button 按钮', link: `/component/Button/` },
-            { text: 'Icon 图标', link: `/component/Icon/` }
-            // { text: 'Space 间距', link: '/component/Space' },
+            { text: 'Icon 图标', link: `/component/Icon/` },
+            { text: 'Space 间距', link: '/component/Space/' }
           ]
         },
         {
