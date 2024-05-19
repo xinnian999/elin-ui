@@ -54,7 +54,8 @@ $buttonClass: '#{$namespace}-button-';
   }
 
   &.is-disabled {
-    @include disabled;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   &-large {

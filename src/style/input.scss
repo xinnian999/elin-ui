@@ -1,4 +1,5 @@
 @include ns(input) {
+  $name: &;
   border-radius: getVar('border', 'radius');
   border: 1px solid getVar('border', 'color');
   padding: 5px 10px;
@@ -13,5 +14,14 @@
 
   &:focus-within {
     border-color: getVar('primary', 'color');
+  }
+
+  &.is-disabled {
+    background-color: getVar('disabled-bg-color');
+    cursor: not-allowed;
+    border-color: getVar('border', 'color');
+    #{$name}-inner {
+      cursor: not-allowed;
+    }
   }
 }

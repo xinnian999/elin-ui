@@ -3,7 +3,7 @@
   border-radius: getVar('border', 'radius');
   border: 1px solid getVar('border', 'color');
   box-shadow: getVar('box-shadow');
-  background-color: #fff;
+  background-color: getVar('bg-color');
 
   &-header {
     padding: $padding;

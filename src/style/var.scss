@@ -24,7 +24,8 @@ $lights: (
   'box-shadow': (
     0px 12px 32px 4px rgba(0, 0, 0, 0.04),
     0px 8px 20px rgba(0, 0, 0, 0.08)
-  )
+  ),
+  'disabled-bg-color': #f5f7fa
 );
 
 $darks: (
@@ -40,7 +41,8 @@ $darks: (
   'box-shadow': (
     0px 12px 32px 4px rgba(0, 0, 0, 0.36),
     0px 8px 20px rgba(0, 0, 0, 0.72)
-  )
+  ),
+  'disabled-bg-color': #262727
 );
 
 :root {
