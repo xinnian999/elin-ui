@@ -2,6 +2,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 // @ts-ignore
 import ElinUI from 'elin-ui'
+// @ts-ignore
 import Enum from './Enum.vue'
 
 export default {

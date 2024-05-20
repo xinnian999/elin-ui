@@ -1,3 +1,5 @@
+import { toast } from 'vue3-toastify'
+
 export { default as EButton } from './Button/index.vue'
 export { default as ESpace } from './Space/index.vue'
 export { default as EDialog } from './Dialog/index.vue'
@@ -12,6 +14,6 @@ export { default as ECard } from '@/components/Card/index.vue'
 export * from './Checkbox'
 export { default as EList } from './List/index.vue'
 export { default as ETag } from './Tag/index.vue'
-export * from './Message'
 export * from './Table'
 export * from './List'
+export { toast as EMessage }

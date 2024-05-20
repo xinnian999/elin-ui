@@ -26,7 +26,8 @@
     "lodash": "^4.17.21",
     "postcss": "^8.4.38",
     "vite-plugin-dts": "^3.8.1",
-    "vue": "^3.4.15"
+    "vue": "^3.4.15",
+    "vue3-toastify": "^0.2.1"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",

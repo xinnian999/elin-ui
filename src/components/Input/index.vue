@@ -7,7 +7,6 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
-// import Disabled from '@/components/Disabled.vue'
 
 withDefaults(
   defineProps<{
