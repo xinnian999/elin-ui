@@ -13,7 +13,7 @@ export * from '@/assets/icons'
 
 export default (app: App<Element>) => {
   Object.entries(components).forEach(([key, value]) => {
-    app.component(key, value)
+    app.component(key, value as any)
   })
 
   app.provide($config, $configInit)

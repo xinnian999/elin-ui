@@ -1,12 +1,15 @@
 <template>
-  <div :class="[ns('input'), disabled && 'is-disabled']">
-    <input :class="ns('input-inner')" v-model="value" :placeholder :readonly :disabled />
-  </div>
+  <Disabled :disabled>
+    <div :class="[ns('input')]" v-bind="$attrs">
+      <input :class="ns('input-inner')" v-model="value" :placeholder :readonly :disabled />
+    </div>
+  </Disabled>
 </template>
 
 <script setup lang="ts">
 import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
+import Disabled from '@/components/Disabled.vue'
 
 withDefaults(
   defineProps<{
