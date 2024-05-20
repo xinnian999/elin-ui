@@ -33,4 +33,5 @@ import Direction from './direction.vue'
 | 属性名       | 说明   | 类型                           | 默认值            |
 |-----------|------|------------------------------|----------------|
 | direction | 排列方向 | `'horizontal' \| 'vertical'` | `'horizontal'` |
-| wrap      | 自动换行 | `boolean`                      | false          |
+| wrap      | 自动换行 | `boolean`                    | false          |
+| gap       | 间距大小 | `number`                     | 20             |

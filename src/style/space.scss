@@ -1,13 +1,14 @@
 @include ns(space) {
-  @include generate-var-map(
-    (
-      'space-direction': row,
-      'space-wrap': nowrap
-    )
-  );
+  //@include generate-var-map(
+  //  (
+  //    'space-direction': row,
+  //    'space-wrap': nowrap,
+  //    'space-wrap': 20,
+  //  )
+  //);
 
   display: flex;
-  gap: 20px;
+  gap:  getVar('space-gap');
   flex-direction: getVar('space-direction');
   flex-wrap: getVar('space-wrap');
 }

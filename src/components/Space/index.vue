@@ -13,8 +13,9 @@ const props = withDefaults(
   defineProps<{
     direction: Direction
     wrap: boolean
+    gap: number
   }>(),
-  { direction: 'horizontal' }
+  { direction: 'horizontal', gap: 20 }
 )
 
 const { ns } = inject($config, $configInit)!
@@ -22,15 +23,8 @@ const { ns } = inject($config, $configInit)!
 const style = computed(() => {
   return {
     [`--${ns('space-direction')}`]: props.direction === 'vertical' ? 'column' : 'row',
-    [`--${ns('space-wrap')}`]: props.wrap ? 'wrap' : 'nowrap'
+    [`--${ns('space-wrap')}`]: props.wrap ? 'wrap' : 'nowrap',
+    [`--${ns('space-gap')}`]: props.gap + 'px'
   }
 })
 </script>
-
-<style>
-.space-container {
-  display: flex;
-  gap: 20px;
-  flex-direction: v-bind(directionCss);
-}
-</style>
