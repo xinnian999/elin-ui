@@ -23,3 +23,9 @@ export interface TooltipProps {
   content?: string
   trigger?: 'hover' | 'click'
 }
+
+export interface FormItemCommon {
+  placeholder?: string
+  disabled?: boolean
+  readonly?: boolean
+}

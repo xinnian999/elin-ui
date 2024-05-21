@@ -1,6 +1,4 @@
 @include ns(input) {
-  @include setVar('input-cursor', auto);
-
   border-radius: getVar('border', 'radius');
   border: 1px solid getVar('border', 'color');
   padding: 5px 10px;
@@ -9,7 +7,7 @@
 
   &-inner {
     width: 100%;
-    cursor: getVar('input-cursor');
+    cursor: inherit;
   }
 
   &:hover {
@@ -21,8 +19,8 @@
   }
 
   &.is-disabled {
-    @include setVar('input-cursor', not-allowed);
     background-color: getVar('disabled-bg-color');
     border-color: getVar('border', 'color');
+    cursor: not-allowed;
   }
 }

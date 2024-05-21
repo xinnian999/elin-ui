@@ -33,14 +33,15 @@
 import { inject, ref } from 'vue'
 import { IconDropDown, IconChecked } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
-import type { Options } from '@/components/common'
+import type { FormItemCommon, Options } from '@/components/common'
 
 const props = withDefaults(
-  defineProps<{
-    placeholder?: string
-    options?: Options
-    multiple?: boolean
-  }>(),
+  defineProps<
+    FormItemCommon & {
+      options?: Options
+      multiple?: boolean
+    }
+  >(),
   { placeholder: '请选择', options: [] }
 )
 

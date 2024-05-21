@@ -1,24 +1,15 @@
 <template>
-  <Disabled :disabled>
-    <div :class="[ns('input')]" v-bind="$attrs">
-      <input :class="ns('input-inner')" v-model="value" :placeholder :readonly :disabled />
-    </div>
-  </Disabled>
+  <div :class="{ [ns('input')]: true, 'is-disabled': disabled }" v-bind="$attrs">
+    <input :class="ns('input-inner')" v-model="value" :placeholder :readonly :disabled />
+  </div>
 </template>
 
 <script setup lang="ts">
 import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
-import Disabled from '@/components/Disabled.vue'
+import type { FormItemCommon } from '@/components/common'
 
-withDefaults(
-  defineProps<{
-    placeholder?: string
-    disabled?: boolean
-    readonly?: boolean
-  }>(),
-  { placeholder: '请输入' }
-)
+withDefaults(defineProps<FormItemCommon>(), { placeholder: '请输入' })
 
 const { ns } = inject($config, $configInit)!
 
