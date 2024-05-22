@@ -16,7 +16,7 @@ import ClickEffect from './clickEffect.vue'
 
 常用的操作按钮。
 
-## 基础按钮
+## 主要按钮
 
 <Basic />
 
@@ -26,13 +26,24 @@ import ClickEffect from './clickEffect.vue'
 
 :::
 
-## 朴素按钮
+## 次要按钮
 
 <Plain/>
 
 ::: details 查看代码
 
 <<< ./plain.vue
+
+:::
+
+
+## 文字按钮
+
+<Text/>
+
+::: details 查看代码
+
+<<< ./text.vue
 
 :::
 
@@ -46,15 +57,6 @@ import ClickEffect from './clickEffect.vue'
 
 :::
 
-## 文字按钮
-
-<Text/>
-
-::: details 查看代码
-
-<<< ./text.vue
-
-:::
 
 ## 圆形按钮
 

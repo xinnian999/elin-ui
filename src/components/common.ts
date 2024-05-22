@@ -1,3 +1,5 @@
+export type anyObject = { [key: string]: any }
+
 export type StatusType = 'primary' | 'success' | 'info' | 'warning' | 'danger'
 
 export type Option = { label: string; value: string }
@@ -22,6 +24,7 @@ export interface TooltipProps {
     | 'right-end'
   content?: string
   trigger?: 'hover' | 'click'
+  followWidth?: boolean
 }
 
 export interface FormItemCommon {

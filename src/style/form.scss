@@ -1,0 +1,17 @@
+@include ns(form) {
+}
+
+@include ns(form-item) {
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  &-label {
+    font-size: getVar('font-size-base');
+    text-align: right;
+    width: 70px;
+  }
+  &-content {
+    flex: 1;
+  }
+}

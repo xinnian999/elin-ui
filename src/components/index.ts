@@ -16,4 +16,5 @@ export { default as EList } from './List/index.vue'
 export { default as ETag } from './Tag/index.vue'
 export * from './Table'
 export * from './List'
+export * from './Form'
 export { toast as EMessage }

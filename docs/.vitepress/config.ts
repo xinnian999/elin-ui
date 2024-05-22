@@ -42,6 +42,7 @@ export default defineConfig({
         {
           text: '表单组件',
           items: [
+            { text: 'Form 表单', link: '/component/Form/' },
             { text: 'Input 输入框', link: '/component/Input/' },
             { text: 'Checkbox 多选框', link: '/component/Checkbox/' },
             { text: 'Select 选择框', link: '/component/Select/' },

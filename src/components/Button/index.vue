@@ -4,6 +4,7 @@
     :class="classNames"
     v-bind="$attrs"
     @click="handleClick"
+    type="button"
   >
     <IconLoading v-if="loading" :class="ns('icon-loading')" />
     <slot />
