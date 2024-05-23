@@ -10,6 +10,11 @@
     font-size: getVar('font-size-base');
     text-align: right;
     width: 70px;
+    position: relative;
+    &-rule {
+      color: getVar('danger-color');
+      margin-right: 5px;
+    }
   }
   &-content {
     flex: 1;

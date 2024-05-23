@@ -41,6 +41,7 @@ const validate = () => {
 
 provide('$form', {
   errors,
+  rules: currentRules,
   setRules: (rules) => {
     currentRules.value = { ...currentRules.value, ...rules }
   }

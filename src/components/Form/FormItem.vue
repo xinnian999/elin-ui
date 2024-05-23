@@ -1,6 +1,7 @@
 <template>
   <div :class="ns('form-item')">
     <div :class="ns('form-item-label')">
+      <span :class="ns('form-item-label-rule')" v-if="rules[name]">*</span>
       <label>{{ label }}</label>
     </div>
     <div :class="ns('form-item-content')">
@@ -21,7 +22,7 @@ const props = defineProps<{ label?: string; name?: string; rules?: Rule }>()
 
 const { ns } = inject($config, $configInit)
 
-const { errors, setRules } = inject('$form')
+const { rules, errors, setRules } = inject('$form')
 
 const rejected = computed(() => errors.value.find((item) => item.field === props.name))
 

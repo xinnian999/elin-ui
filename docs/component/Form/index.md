@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Basic from './basic.vue'
-import Disabled from './disabled.vue'
+import Vaildate from './validate.vue'
 
 </script>
 
 # Form 表单
 
-通过键盘输入字符，录入信息
+
 
 ## 基础用法
 
@@ -15,6 +15,16 @@ import Disabled from './disabled.vue'
 ::: details 查看代码
 
 <<< ./basic.vue
+
+:::
+
+## 表单校验
+
+<Vaildate />
+
+::: details 查看代码
+
+<<< ./validate.vue
 
 :::
 
