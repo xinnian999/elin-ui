@@ -23,4 +23,8 @@
     border-color: getVar('border', 'color');
     cursor: not-allowed;
   }
+
+  &.is-reject {
+    border-color: getVar('danger', 'color');
+  }
 }

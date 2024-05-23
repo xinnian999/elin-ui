@@ -5,28 +5,32 @@
     </div>
     <div :class="ns('form-item-content')">
       <slot />
-      <div :class="ns('form-item-content-message')" v-if="isReject">
-        {{ ruleConfig.message }}
+      <div :class="ns('form-item-content-message')" v-if="rejected">
+        {{ rejected.message }}
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, inject, watchEffect } from 'vue'
+import { computed, inject, onMounted, provide } from 'vue'
 import { $config, $configInit } from '@/config'
+import type { Rule } from 'async-validator'
 
-const props = defineProps<{ label?: string; name?: string }>()
+const props = defineProps<{ label?: string; name?: string; rules?: Rule }>()
 
 const { ns } = inject($config, $configInit)
 
-const { rules, errors } = inject('$form')
+const { errors, setRules } = inject('$form')
 
-const ruleConfig = computed(() => errors.value.find((item) => item.field === props.name))
+const rejected = computed(() => errors.value.find((item) => item.field === props.name))
 
-const isReject = computed(() => rules[props.name] && ruleConfig.value)
-
-watchEffect(() => {
-  // console.log(ruleConfig.value)
+onMounted(() => {
+  const { name, rules } = props
+  if (rules) {
+    setRules({ [name]: rules })
+  }
 })
+
+provide('$isReject', rejected)
 </script>

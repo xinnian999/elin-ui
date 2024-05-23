@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import type { anyObject } from '@/components/common'
-import { computed, inject, provide, ref } from 'vue'
+import { inject, provide, ref } from 'vue'
 import { $config, $configInit } from '@/config'
 import AsyncValidator, { type Rules } from 'async-validator'
 
@@ -19,10 +19,12 @@ const props = withDefaults(defineProps<Props>(), { rules: {}, data: {} })
 
 const { ns } = inject($config, $configInit)
 
+const currentRules = ref(props.rules)
+
 const errors = ref([])
 
 const validate = () => {
-  const validator = new AsyncValidator(props.rules)
+  const validator = new AsyncValidator(currentRules.value)
 
   return new Promise((resolve, reject) => {
     validator.validate(props.data, (errs, fields) => {
@@ -39,7 +41,9 @@ const validate = () => {
 
 provide('$form', {
   errors,
-  rules: props.rules
+  setRules: (rules) => {
+    currentRules.value = { ...currentRules.value, ...rules }
+  }
 })
 
 defineExpose({ validate })
