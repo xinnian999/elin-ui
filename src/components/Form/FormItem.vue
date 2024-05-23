@@ -13,7 +13,7 @@
 import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
 
-defineProps<{ label: string }>()
+defineProps<{ label?: string }>()
 
 const { ns } = inject($config, $configInit)
 </script>

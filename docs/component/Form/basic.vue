@@ -1,8 +1,11 @@
 <template>
   <e-card header="登陆表单" style="width: 450px">
-    <e-form :data="formValues">
+    <e-form :data="formValues" :rules ref="formRef">
       <e-form-item label="用户名">
         <e-input v-model="formValues.username" />
+      </e-form-item>
+      <e-form-item label="密码">
+        <e-input v-model="formValues.password" />
       </e-form-item>
       <e-form-item label="模式">
         <e-select v-model="formValues.mode" :options />
@@ -15,7 +18,11 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
+import type { Rules } from 'async-validator'
+import { EMessage } from '@/components'
+
+const formRef = ref()
 
 const formValues = reactive({
   username: '',
@@ -23,17 +30,27 @@ const formValues = reactive({
   mode: ''
 })
 
+const rules: Rules = {
+  username: {
+    type: 'string',
+    required: true
+    // validator: (rule, value) => value === 'muji'
+  }
+}
+
 const options = [
-  { label: '选项一', value: 'value1' },
-  { label: '选项二', value: 'value2' },
-  { label: '选项三', value: 'value3' }
+  { label: '记住密码', value: 'yes' },
+  { label: '不记住', value: 'no' }
 ]
 
 // watchEffect(() => {
 //   console.log(formValues.username)
 // })
 
-const handleSubmit = () => {
-  console.log(formValues)
+const handleSubmit = async () => {
+  // console.log(formValues)
+  await formRef.value.validate()
+
+  EMessage.success('校验通过')
 }
 </script>
