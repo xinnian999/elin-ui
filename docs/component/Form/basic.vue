@@ -1,13 +1,13 @@
 <template>
   <e-card header="登陆表单" style="width: 450px">
     <e-form :data="formValues" :rules ref="formRef">
-      <e-form-item label="用户名">
+      <e-form-item label="用户名" name="username">
         <e-input v-model="formValues.username" />
       </e-form-item>
-      <e-form-item label="密码">
+      <e-form-item label="密码" name="password">
         <e-input v-model="formValues.password" />
       </e-form-item>
-      <e-form-item label="模式">
+      <e-form-item label="模式" name="mode">
         <e-select v-model="formValues.mode" :options />
       </e-form-item>
       <e-form-item>
@@ -48,7 +48,6 @@ const options = [
 // })
 
 const handleSubmit = async () => {
-  // console.log(formValues)
   await formRef.value.validate()
 
   EMessage.success('校验通过')

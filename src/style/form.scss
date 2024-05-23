@@ -2,7 +2,7 @@
 }
 
 @include ns(form-item) {
-  margin-bottom: 18px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -13,5 +13,14 @@
   }
   &-content {
     flex: 1;
+    position: relative;
+    &-message {
+      position: absolute;
+      left: 0;
+      bottom: -22px;
+      font-size: 12px;
+      color: getVar('danger-color');
+      animation: fadeIn 0.2s;
+    }
   }
 }
