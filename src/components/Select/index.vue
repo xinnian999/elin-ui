@@ -22,6 +22,9 @@
           {{ options.find((item) => item.value === value)?.label }}
         </template>
       </div>
+
+      <Clear v-if="clearable" v-model="value" />
+
       <div :class="ns('select-suffix')">
         <IconDropDown />
       </div>
@@ -34,16 +37,14 @@ import { inject, ref } from 'vue'
 import { IconDropDown, IconChecked } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
 import type { FormItemCommon, Options } from '@/components/common'
+import Clear from '@/components/Clear.vue'
 
-const props = withDefaults(
-  defineProps<
-    FormItemCommon & {
-      options?: Options
-      multiple?: boolean
-    }
-  >(),
-  { placeholder: '请选择', options: [] }
-)
+interface Props extends FormItemCommon {
+  options?: Options
+  multiple?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), { placeholder: '请选择', options: [] })
 
 const { ns } = inject($config, $configInit)!
 

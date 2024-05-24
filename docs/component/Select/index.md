@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Basic from './basic.vue'
 import Multiple from './multiple.vue'
+import Clearable from './clearable.vue'
 
 </script>
 
@@ -23,5 +24,16 @@ import Multiple from './multiple.vue'
 ::: details 查看代码
 
 <<< ./multiple.vue
+
+:::
+
+
+## 一键清除
+
+<Clearable />
+
+::: details 查看代码
+
+<<< ./clearable.vue
 
 :::

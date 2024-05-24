@@ -8,13 +8,17 @@
   cursor: pointer;
   font-size: getVar('font-size-base');
   font-weight: 500;
+  display: flex;
+  padding-right: 30px;
   &-placeholder {
     color: getVar('text', 'color', 'placeholder');
     user-select: none;
+    flex: 1;
   }
 
   &-value {
     user-select: none;
+    flex: 1;
     &-multiple {
       display: flex;
       flex-wrap: wrap;
