@@ -31,4 +31,5 @@ export interface FormItemCommon {
   placeholder?: string
   disabled?: boolean
   readonly?: boolean
+  clearable?: boolean
 }

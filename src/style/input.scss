@@ -4,6 +4,7 @@
   padding: 5px 10px;
   position: relative;
   cursor: getVar('input-cursor');
+  display: flex;
 
   &-inner {
     width: 100%;
@@ -23,8 +24,4 @@
     border-color: getVar('border', 'color');
     cursor: not-allowed;
   }
-
-  //&.is-reject {
-  //  border-color: getVar('danger', 'color');
-  //}
 }
