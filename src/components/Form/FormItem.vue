@@ -1,5 +1,5 @@
 <template>
-  <div :class="ns('form-item')">
+  <div :class="[ns('form-item'), rejected && 'is-reject']">
     <div :class="ns('form-item-label')">
       <span :class="ns('form-item-label-rule')" v-if="rules[name]">*</span>
       <label>{{ label }}</label>
@@ -15,7 +15,7 @@
 
 <script setup lang="ts">
 import { computed, inject, onMounted, provide } from 'vue'
-import { $config, $configInit } from '@/config'
+import { $config, $configInit, $formItem } from '@/config'
 import type { Rule } from 'async-validator'
 
 const props = defineProps<{ label?: string; name?: string; rules?: Rule }>()
@@ -33,8 +33,7 @@ onMounted(() => {
   }
 })
 
-provide('$formItem', {
-  isReject: rejected,
+provide($formItem, {
   validate: () => {
     validateField(props.name).catch(() => {})
   }

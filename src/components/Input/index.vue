@@ -1,8 +1,5 @@
 <template>
-  <div
-    :class="{ [ns('input')]: true, 'is-disabled': disabled, 'is-reject': isReject }"
-    v-bind="$attrs"
-  >
+  <div :class="{ [ns('input')]: true, 'is-disabled': disabled }" v-bind="$attrs">
     <input
       :class="ns('input-inner')"
       v-model="value"
@@ -17,16 +14,21 @@
 
 <script setup lang="ts">
 import { inject } from 'vue'
-import { $config, $configInit } from '@/config'
+import { $config, $configInit, $formItem, $formItemInit } from '@/config'
 import type { FormItemCommon } from '@/components/common'
 
-withDefaults(defineProps<FormItemCommon & { type: 'text' | 'password' | 'textarea' }>(), {
-  placeholder: '请输入'
+interface Props extends FormItemCommon {
+  type?: 'text' | 'password' | 'textarea'
+}
+
+withDefaults(defineProps<Props>(), {
+  placeholder: '请输入',
+  type: 'text'
 })
 
 const { ns } = inject($config, $configInit)
 
-const { isReject, validate } = inject('$formItem', {})
+const { validate } = inject($formItem, $formItemInit)
 
 const value = defineModel()
 

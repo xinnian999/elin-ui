@@ -28,4 +28,10 @@
       animation: fadeIn 0.2s;
     }
   }
+
+  &.is-reject {
+    .#{$namespace}-input {
+      border-color: getVar('danger', 'color');
+    }
+  }
 }
