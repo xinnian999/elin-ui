@@ -9,6 +9,7 @@ import type { anyObject } from '@/components/common'
 import { inject, provide, ref } from 'vue'
 import { $config, $configInit } from '@/config'
 import AsyncValidator, { type Rules } from 'async-validator'
+import { pick } from 'lodash'
 
 interface Props {
   data: anyObject
@@ -39,12 +40,25 @@ const validate = () => {
   })
 }
 
+const validateField = (name) => {
+  const validator = new AsyncValidator(pick(currentRules.value, [name]))
+
+  validator.validate(props.data, (errs) => {
+    if (errs) {
+      errors.value = [...errors.value, ...errs]
+      return
+    }
+    errors.value = errors.value.filter((item) => item.field !== name)
+  })
+}
+
 provide('$form', {
   errors,
   rules: currentRules,
   setRules: (rules) => {
     currentRules.value = { ...currentRules.value, ...rules }
-  }
+  },
+  validateField
 })
 
 defineExpose({ validate })

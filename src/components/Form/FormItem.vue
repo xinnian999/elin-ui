@@ -22,7 +22,7 @@ const props = defineProps<{ label?: string; name?: string; rules?: Rule }>()
 
 const { ns } = inject($config, $configInit)
 
-const { rules, errors, setRules } = inject('$form')
+const { rules, errors, setRules, validateField } = inject('$form')
 
 const rejected = computed(() => errors.value.find((item) => item.field === props.name))
 
@@ -33,5 +33,5 @@ onMounted(() => {
   }
 })
 
-provide('$isReject', rejected)
+provide('$formItem', { isReject: rejected, validate: () => validateField(props.name) })
 </script>

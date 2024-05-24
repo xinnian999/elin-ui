@@ -14,7 +14,17 @@
       >
         <e-input v-model="formValues.username" />
       </e-form-item>
-      <e-form-item label="密码" name="password">
+      <e-form-item
+        label="密码"
+        name="password"
+        :rules="[
+          {
+            type: 'string',
+            required: true,
+            message: '该字段是必填字段！'
+          } as RuleItem
+        ]"
+      >
         <e-input v-model="formValues.password" />
       </e-form-item>
       <e-form-item>
