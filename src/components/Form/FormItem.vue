@@ -33,5 +33,10 @@ onMounted(() => {
   }
 })
 
-provide('$formItem', { isReject: rejected, validate: () => validateField(props.name) })
+provide('$formItem', {
+  isReject: rejected,
+  validate: () => {
+    validateField(props.name).catch(() => {})
+  }
+})
 </script>

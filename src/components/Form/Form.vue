@@ -28,10 +28,10 @@ const validate = () => {
   const validator = new AsyncValidator(currentRules.value)
 
   return new Promise((resolve, reject) => {
-    validator.validate(props.data, (errs, fields) => {
+    validator.validate(props.data, (errs) => {
       if (errs) {
         errors.value = errs
-        return reject({ message: '校验不通过', errors, fields })
+        return reject({ message: '校验不通过', errors: errs })
       }
 
       errors.value = []
@@ -43,12 +43,15 @@ const validate = () => {
 const validateField = (name) => {
   const validator = new AsyncValidator(pick(currentRules.value, [name]))
 
-  validator.validate(props.data, (errs) => {
-    if (errs) {
-      errors.value = [...errors.value, ...errs]
-      return
-    }
-    errors.value = errors.value.filter((item) => item.field !== name)
+  return new Promise((resolve, reject) => {
+    validator.validate(props.data, (errs) => {
+      if (errs) {
+        errors.value = [...errors.value, ...errs]
+        return reject({ message: '校验不通过', errors: errs })
+      }
+      errors.value = errors.value.filter((item) => item.field !== name)
+      return resolve('校验通过')
+    })
   })
 }
 
@@ -61,5 +64,5 @@ provide('$form', {
   validateField
 })
 
-defineExpose({ validate })
+defineExpose({ validate, validateField })
 </script>
