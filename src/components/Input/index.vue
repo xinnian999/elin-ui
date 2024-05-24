@@ -9,6 +9,7 @@
       :placeholder
       :readonly
       :disabled
+      :type
       @blur="onBlur"
     />
   </div>
@@ -19,11 +20,13 @@ import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
 import type { FormItemCommon } from '@/components/common'
 
-withDefaults(defineProps<FormItemCommon>(), { placeholder: '请输入' })
+withDefaults(defineProps<FormItemCommon & { type: 'text' | 'password' | 'textarea' }>(), {
+  placeholder: '请输入'
+})
 
-const { ns } = inject($config, $configInit)!
+const { ns } = inject($config, $configInit)
 
-const { isReject, validate } = inject('$formItem')
+const { isReject, validate } = inject('$formItem', {})
 
 const value = defineModel()
 

@@ -9,7 +9,7 @@ import type { anyObject } from '@/components/common'
 import { inject, provide, ref } from 'vue'
 import { $config, $configInit } from '@/config'
 import AsyncValidator, { type Rules } from 'async-validator'
-import { pick } from 'lodash'
+import _ from 'lodash'
 
 interface Props {
   data: anyObject
@@ -41,7 +41,7 @@ const validate = () => {
 }
 
 const validateField = (name) => {
-  const validator = new AsyncValidator(pick(currentRules.value, [name]))
+  const validator = new AsyncValidator(_.pick(currentRules.value, [name]))
 
   return new Promise((resolve, reject) => {
     validator.validate(props.data, (errs) => {

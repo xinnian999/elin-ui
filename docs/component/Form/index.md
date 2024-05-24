@@ -6,8 +6,6 @@ import Vaildate from './validate.vue'
 
 # Form 表单
 
-
-
 ## 基础用法
 
 <Basic />
@@ -28,14 +26,31 @@ import Vaildate from './validate.vue'
 
 :::
 
+## Form API
 
+###  defineProps
 
-## API
+| 属性名   | 说明     | 类型        | 默认值 |
+| -------- |--------| ----------- | ------ |
+| data     | 表单值    | `object`    | --     |
+| disabled | 禁用整个表单 | `boolean`   | false  |
+| rules    | 校验规则   | `FormRules` | --     |
 
-### defineProps
+###  defineExpose
 
-| 属性名      | 说明  | 类型        | 默认值     |
-|----------|-----|-----------| ---------- |
-| data     | 表单值 | `object`  | --         |
-| disabled | 禁用  | `boolean` | false      |
+| 属性名        | 说明         | 类型                | 默认值 |
+| ------------- | ------------ |-------------------| ------ |
+| validate      | 校验表单     | `()=>Promise`     | --     |
+| validateField | 校验某个字段 | `(name)=>Promise` | --     |
+
+## FormItem API 
+
+###  defineProps
+
+| 属性名   | 说明     | 类型         | 默认值 |
+|-------|--------|------------|-----|
+| label | 字段标签   | `string`   | --  |
+| name  | 字段表示   | `string`   | --  |
+| rules | 字段校验规则 | `FormRule` | --  |
+
 

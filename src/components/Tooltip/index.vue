@@ -7,7 +7,7 @@
         ref="floating"
         :class="ns('tooltip')"
         :style="{
-          width: referenceSlot?.clientWidth + 'px'
+          width: followWidth && referenceSlot?.clientWidth + 'px'
         }"
         v-bind="$attrs"
       >

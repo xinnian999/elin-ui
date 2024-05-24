@@ -25,7 +25,7 @@
           } as RuleItem
         ]"
       >
-        <e-input v-model="formValues.password" />
+        <e-input v-model="formValues.password" type="password" />
       </e-form-item>
       <e-form-item>
         <e-button @click="handleSubmit" type="primary">提交</e-button>
