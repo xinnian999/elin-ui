@@ -1,12 +1,5 @@
 <template>
-  <e-dropdown
-    v-model:selected="value"
-    v-model:visible="visible"
-    :options
-    :autoClose="!multiple"
-    :multiple
-    :renderLabel
-  >
+  <e-tooltip v-model="visible" trigger="click" placement="bottom" :class="ns('select-drop')">
     <div :class="[ns('select'), visible && 'is-focus']" v-bind="$attrs">
       <div v-if="!value" :class="ns('select-placeholder')">
         {{ placeholder }}
@@ -29,7 +22,18 @@
         <IconDropDown />
       </div>
     </div>
-  </e-dropdown>
+
+    <template #content>
+      <e-menu
+        v-model="value"
+        :items="options"
+        direction="vertical"
+        :multiple
+        :renderLabel
+        @select="handleSelect"
+      />
+    </template>
+  </e-tooltip>
 </template>
 
 <script setup lang="tsx">
@@ -69,5 +73,11 @@ const renderLabel = ({ label, value: val }) => {
       <span>{label}</span> {checked && <IconChecked />}
     </div>
   )
+}
+
+const handleSelect = () => {
+  if (!props.multiple) {
+    visible.value = false
+  }
 }
 </script>
