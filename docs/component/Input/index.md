@@ -62,15 +62,15 @@ const type=`'text' | 'password' | 'textarea'`
 
 :::
 
-## API
+## Input API
 
 ### defineProps
 
-| 属性名         | 说明    | 类型                        | 默认值     |
-|-------------|-------|---------------------------| ---------- |
-| v-model     | 值     | `string`                  | --         |
-| type        | 输入框类型 | <e-enum>{{type}}</e-enum> | false      |
-| placeholder | 占位文本  | `string`                  | `'请输入'` |
-| disabled    | 禁用    | `boolean`                 | false      |
-| readonly    | 只读    | `boolean`                 | false      |
-| clearable   | 一键清除    | `boolean`                 | false      |
+| 属性名         | 说明            | 类型                        | 默认值     |
+|-------------|---------------|---------------------------| ---------- |
+| v-model     | 值             | `string`                  | --         |
+| type        | 输入框类型         | <e-enum>{{type}}</e-enum> | false      |
+| placeholder | 占位文本          | `string`                  | `'请输入'` |
+| disabled    | 禁用            | `boolean`                 | false      |
+| readonly    | 只读            | `boolean`                 | false      |
+| clearable   | 一键清除，文本域模式下无效 | `boolean`                 | false      |

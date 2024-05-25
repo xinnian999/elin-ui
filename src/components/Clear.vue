@@ -1,6 +1,6 @@
 <template>
-  <div v-if="model" class="clear" @click="model = ''">
-    <IconError />
+  <div v-if="model" class="clear">
+    <span @click="handleClear"> <IconError class="clear-ico" /></span>
   </div>
 </template>
 
@@ -10,13 +10,21 @@ import { watchEffect } from 'vue'
 
 const model = defineModel()
 
+const handleClear = () => {
+  console.log(111)
+  model.value = ''
+}
+
 watchEffect(() => {
-  // console.log(model.value)
+  console.log(model.value)
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .clear {
-  cursor: pointer;
+  padding-left: 5px;
+  &-ico {
+    cursor: pointer;
+  }
 }
 </style>

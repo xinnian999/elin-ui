@@ -9,10 +9,11 @@
       :disabled
       :type
       @input="oninput"
+      @focus="onFocus"
       @blur="onBlur"
     />
 
-    <Clear v-if="clearable && type !== 'textarea'" v-model="value" />
+    <Clear v-show="clearable && type !== 'textarea'" v-model="value" />
   </div>
 </template>
 
@@ -40,6 +41,8 @@ const value = defineModel()
 const oninput = (e) => {
   value.value = e.target.value
 }
+
+const onFocus = () => {}
 
 const onBlur = () => {
   validate()

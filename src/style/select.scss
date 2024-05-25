@@ -40,4 +40,15 @@
       transform: translateY(-50%) rotate(180deg);
     }
   }
+
+  .clear {
+    display: none;
+  }
+
+  &:hover {
+    border-color: getVar('border', 'color', 'darker');
+    .clear {
+      display: block;
+    }
+  }
 }

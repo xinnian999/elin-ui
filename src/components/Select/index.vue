@@ -23,7 +23,7 @@
         </template>
       </div>
 
-      <Clear v-if="clearable" v-model="value" />
+      <Clear v-if="clearable && !multiple" v-model="value" />
 
       <div :class="ns('select-suffix')">
         <IconDropDown />

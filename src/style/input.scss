@@ -6,6 +6,10 @@
   cursor: getVar('input-cursor');
   display: flex;
 
+  .clear {
+    display: none;
+  }
+
   &-inner {
     width: 100%;
     cursor: inherit;
@@ -13,6 +17,9 @@
 
   &:hover {
     border-color: getVar('border', 'color', 'darker');
+    .clear {
+      display: block;
+    }
   }
 
   &:focus-within {
