@@ -1,5 +1,6 @@
 <template>
-  <e-input v-model="value" style="width: 250px" :options />
+  <p>当前值: {{ value }}</p>
+  <e-select v-model="value" style="width: 250px" :options disabled />
 </template>
 
 <script setup lang="ts">

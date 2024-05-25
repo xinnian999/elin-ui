@@ -1,5 +1,8 @@
 <template>
-  <div :class="{ [ns('input')]: true, 'is-disabled': disabled }" v-bind="$attrs">
+  <div
+    :class="{ [ns('input')]: true, 'is-disabled': disabled, 'is-textarea': type === 'textarea' }"
+    v-bind="$attrs"
+  >
     <component
       :is="type === 'textarea' ? 'textarea' : 'input'"
       :class="ns('input-inner')"

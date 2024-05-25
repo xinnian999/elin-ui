@@ -2,7 +2,7 @@ export type anyObject = { [key: string]: any }
 
 export type StatusType = 'primary' | 'success' | 'info' | 'warning' | 'danger'
 
-export type Option = { label: string; value: string }
+export type Option = { label: string; value: string; [key: string]: number | string }
 
 export type Options = Option[]
 
@@ -25,6 +25,7 @@ export interface TooltipProps {
   content?: string
   trigger?: 'hover' | 'click'
   followWidth?: boolean
+  disabled?: boolean
 }
 
 export interface FormItemCommon {

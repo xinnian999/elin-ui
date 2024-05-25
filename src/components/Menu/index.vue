@@ -5,9 +5,9 @@
   >
     <li
       v-for="item in items"
-      :class="[`${namespace}-menu-item`, isActive(item.value) && 'is-active']"
-      :key="item.value"
-      @click="handleItemClick(item.value)"
+      :class="[`${namespace}-menu-item`, isActive(item[valueKey]) && 'is-active']"
+      :key="item[valueKey]"
+      @click="handleItemClick(item[valueKey])"
       v-click-water
     >
       <template v-if="renderLabel">
@@ -16,7 +16,7 @@
         <component :is="renderLabel(item)" />
       </template>
       <template v-else>
-        {{ item.label }}
+        {{ item[labelKey] }}
       </template>
     </li>
   </ul>
@@ -33,8 +33,10 @@ const props = withDefaults(
     direction?: Direction
     multiple?: boolean
     renderLabel?: (item: Option) => any
+    labelKey: string
+    valueKey: string
   }>(),
-  { direction: 'horizontal' }
+  { direction: 'horizontal', labelKey: 'label', valueKey: 'value' }
 )
 
 const emits = defineEmits<{

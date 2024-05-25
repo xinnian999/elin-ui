@@ -1,6 +1,12 @@
 <template>
-  <e-tooltip v-model="visible" trigger="click" placement="bottom" :class="ns('select-drop')">
-    <div :class="[ns('select'), visible && 'is-focus']" v-bind="$attrs">
+  <e-tooltip
+    v-model="visible"
+    trigger="click"
+    placement="bottom"
+    :class="ns('select-drop')"
+    :disabled
+  >
+    <div :class="[ns('select'), visible && 'is-focus', disabled && 'is-disabled']" v-bind="$attrs">
       <div v-if="!value" :class="ns('select-placeholder')">
         {{ placeholder }}
       </div>
@@ -27,6 +33,8 @@
       <e-menu
         v-model="value"
         :items="options"
+        :labelKey
+        :valueKey
         direction="vertical"
         :multiple
         :renderLabel
@@ -46,6 +54,8 @@ import Clear from '@/components/Clear.vue'
 interface Props extends FormItemCommon {
   options?: Options
   multiple?: boolean
+  labelKey?: string
+  valueKey?: string
 }
 
 const props = withDefaults(defineProps<Props>(), { placeholder: '请选择', options: [] })

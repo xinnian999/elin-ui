@@ -41,11 +41,17 @@
     }
   }
 
+  &.is-disabled {
+    background-color: getVar('disabled-bg-color');
+    border-color: getVar('border', 'color');
+    cursor: not-allowed;
+  }
+
   .clear {
     display: none;
   }
 
-  &:hover {
+  &:hover:not(.is-disabled) {
     border-color: getVar('border', 'color', 'darker');
     .clear {
       display: block;
@@ -53,7 +59,7 @@
   }
 }
 
-@include ns(select-drop){
+@include ns(select-drop) {
   background-color: getVar('bg', 'color');
   color: getVar('text-color');
 }

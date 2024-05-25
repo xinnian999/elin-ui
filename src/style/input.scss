@@ -1,10 +1,10 @@
 @include ns(input) {
   border-radius: getVar('border', 'radius');
   border: 1px solid getVar('border', 'color');
-  padding: 5px 10px;
   position: relative;
   cursor: getVar('input-cursor');
   display: flex;
+  align-items: center;
 
   .clear {
     display: none;
@@ -13,6 +13,10 @@
   &-inner {
     width: 100%;
     cursor: inherit;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px 10px;
   }
 
   &:hover {
@@ -30,5 +34,9 @@
     background-color: getVar('disabled-bg-color');
     border-color: getVar('border', 'color');
     cursor: not-allowed;
+  }
+
+  &.is-textarea {
+    // padding: 5px 0 0 10px;
   }
 }

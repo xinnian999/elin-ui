@@ -57,6 +57,7 @@ const updatePosition = async () => {
 }
 
 const handleOpen = _.debounce(() => {
+  if (props.disabled) return
   updatePosition()
   if (props.trigger === 'click') {
     return (visible.value = !visible.value)
