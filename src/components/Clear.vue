@@ -22,7 +22,7 @@ watchEffect(() => {
 
 <style scoped lang="scss">
 .clear {
-  padding: 0 5px;
+  padding-right: 10px;
   &-ico {
     cursor: pointer;
   }
