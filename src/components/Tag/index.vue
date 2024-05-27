@@ -13,7 +13,7 @@ import type { StatusType } from '@/components/common'
 const props = withDefaults(
   defineProps<{
     closable?: boolean
-    type: StatusType
+    type?: StatusType
   }>(),
   { type: 'primary' }
 )

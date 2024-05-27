@@ -45,6 +45,9 @@
     #{$name}-suffix {
       transform: translateY(-50%) rotate(180deg);
     }
+    #{$name}-value {
+      color: getVar('text', 'color', 'placeholder');
+    }
   }
 
   &.is-disabled {

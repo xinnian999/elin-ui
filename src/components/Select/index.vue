@@ -63,7 +63,7 @@ interface Props extends FormItemCommon {
 
 const props = withDefaults(defineProps<Props>(), {
   placeholder: '请选择',
-  options: [],
+  options: () => [],
   labelKey: 'label',
   valueKey: 'value'
 })

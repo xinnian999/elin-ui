@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, isVNode } from 'vue'
+import { computed, inject } from 'vue'
 import { $config, $configInit } from '@/config'
 import type { Option, Options, Direction } from '@/components/common'
 
@@ -36,7 +36,7 @@ const props = withDefaults(
     labelKey: string
     valueKey: string
   }>(),
-  { direction: 'horizontal', labelKey: 'label', valueKey: 'value' }
+  { direction: 'horizontal', labelKey: 'label', valueKey: 'value', items: () => [] }
 )
 
 const emits = defineEmits<{
