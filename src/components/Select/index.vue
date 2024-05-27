@@ -7,10 +7,10 @@
     :disabled
   >
     <div :class="[ns('select'), visible && 'is-focus', disabled && 'is-disabled']" v-bind="$attrs">
-      <div v-if="!value" :class="ns('select-placeholder')">
+      <div v-if="!value && !q" :class="ns('select-placeholder')">
         {{ placeholder }}
       </div>
-      <div v-else :class="ns('select-value')">
+      <div v-if="value && !q" :class="ns('select-value')">
         <div v-if="multiple" :class="ns('select-value-multiple')">
           <e-tag v-for="val in value" :key="val" closable @close="handleClose(val)">{{
             options.find((item) => item.value === val)?.label
@@ -22,6 +22,8 @@
         </template>
       </div>
 
+      <input v-if="filterable" v-model="q" class="filter-input" />
+
       <Clear v-if="clearable && !multiple" v-model="value" />
 
       <div :class="ns('select-suffix')">
@@ -32,7 +34,7 @@
     <template #content>
       <e-menu
         v-model="value"
-        :items="options"
+        :items="currentOptions"
         :labelKey
         :valueKey
         direction="vertical"
@@ -45,7 +47,7 @@
 </template>
 
 <script setup lang="tsx">
-import { inject, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import { IconDropDown, IconChecked } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
 import type { FormItemCommon, Options } from '@/components/common'
@@ -56,15 +58,31 @@ interface Props extends FormItemCommon {
   multiple?: boolean
   labelKey?: string
   valueKey?: string
+  filterable?: boolean
 }
 
-const props = withDefaults(defineProps<Props>(), { placeholder: '请选择', options: [] })
+const props = withDefaults(defineProps<Props>(), {
+  placeholder: '请选择',
+  options: [],
+  labelKey: 'label',
+  valueKey: 'value'
+})
 
 const { ns } = inject($config, $configInit)!
 
 const value = defineModel()
 
+const q = ref('')
+
 const visible = ref(false)
+
+const currentOptions = computed(() => {
+  const { options, labelKey } = props
+  if (q.value) {
+    return options.filter((item) => item[labelKey].includes(q.value))
+  }
+  return options
+})
 
 const handleClose = (val) => {
   value.value = value.value.filter((item) => item !== val)
@@ -88,6 +106,7 @@ const renderLabel = ({ label, value: val }) => {
 const handleSelect = () => {
   if (!props.multiple) {
     visible.value = false
+    q.value = ''
   }
 }
 </script>

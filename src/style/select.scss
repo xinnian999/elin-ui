@@ -26,6 +26,12 @@
     }
   }
 
+  .filter-input {
+    position: absolute;
+    left: 10px;
+    width: 100%;
+  }
+
   &-suffix {
     position: absolute;
     right: 10px;

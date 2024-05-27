@@ -3,6 +3,7 @@ import Basic from './basic.vue'
 import Multiple from './multiple.vue'
 import Clearable from './clearable.vue'
 import Disabled from './disabled.vue'
+import filterable from './filterable.vue'
 
 </script>
 
@@ -45,6 +46,16 @@ import Disabled from './disabled.vue'
 ::: details 查看代码
 
 <<< ./disabled.vue
+
+:::
+
+## 筛选
+
+<filterable />
+
+::: details 查看代码
+
+<<< ./filterable.vue
 
 :::
 
