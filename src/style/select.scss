@@ -14,22 +14,32 @@
     color: getVar('text', 'color', 'placeholder');
     user-select: none;
     flex: 1;
+    position: absolute;
+    left: 10px;
   }
 
   &-value {
     user-select: none;
     flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
     &-multiple {
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
       gap: 5px;
+    }
+    &-radio {
+      position: absolute;
+      left: 0;
     }
   }
 
   .filter-input {
-    position: absolute;
-    left: 10px;
-    width: 100%;
+    //position: absolute;
+    //left: 10px;
+    flex: 1;
+    z-index: 10;
   }
 
   &-suffix {

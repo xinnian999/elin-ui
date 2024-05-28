@@ -7,22 +7,34 @@
     :disabled
   >
     <div :class="[ns('select'), visible && 'is-focus', disabled && 'is-disabled']" v-bind="$attrs">
-      <div v-if="!value && !q" :class="ns('select-placeholder')">
+      <div
+        v-if="(multiple ? !value.length : !value) && !q && !inputIng"
+        :class="ns('select-placeholder')"
+      >
         {{ placeholder }}
       </div>
-      <div v-if="value && !q" :class="ns('select-value')">
+
+      <div :class="ns('select-value')">
         <div v-if="multiple" :class="ns('select-value-multiple')">
           <e-tag v-for="val in value" :key="val" closable @close="handleClose(val)">{{
             options.find((item) => item.value === val)?.label
           }}</e-tag>
         </div>
 
-        <template v-else>
-          {{ options.find((item) => item.value === value)?.label }}
+        <template v-if="!multiple && !q">
+          <span :class="ns('select-value-radio')">
+            {{ options.find((item) => item.value === value)?.label }}
+          </span>
         </template>
-      </div>
 
-      <input v-if="filterable" v-model="q" class="filter-input" />
+        <input
+          v-if="filterable"
+          v-model="q"
+          class="filter-input"
+          @compositionstart="handleCompositionStart"
+          @compositionend="handleCompositionEnd"
+        />
+      </div>
 
       <Clear v-if="clearable && !multiple" v-model="value" />
 
@@ -76,6 +88,8 @@ const q = ref('')
 
 const visible = ref(false)
 
+const inputIng = ref(false)
+
 const currentOptions = computed(() => {
   const { options, labelKey } = props
   if (q.value) {
@@ -108,5 +122,13 @@ const handleSelect = () => {
     visible.value = false
     q.value = ''
   }
+}
+
+const handleCompositionStart = () => {
+  inputIng.value = true
+}
+
+const handleCompositionEnd = () => {
+  inputIng.value = false
 }
 </script>
