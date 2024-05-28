@@ -36,7 +36,7 @@
         />
       </div>
 
-      <Clear v-if="clearable && !multiple" v-model="value" />
+      <Clear v-if="ifClear" v-model="value" />
 
       <div :class="ns('select-suffix')">
         <IconDropDown />
@@ -89,6 +89,17 @@ const q = ref('')
 const visible = ref(false)
 
 const inputIng = ref(false)
+
+const ifClear = computed(() => {
+  const { clearable, multiple } = props
+  if (!clearable) return false
+
+  if (multiple && value.value.length) {
+    return true
+  }
+
+  return !!(!multiple && value.value)
+})
 
 const currentOptions = computed(() => {
   const { options, labelKey } = props
