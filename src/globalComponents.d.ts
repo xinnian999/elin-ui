@@ -9,6 +9,8 @@ declare module 'vue' {
     EColorPicker: (typeof import('@/components'))['EColorPicker']
     ECheckbox: (typeof import('@/components'))['ECheckbox']
     ECheckboxGroup: (typeof import('@/components'))['ECheckboxGroup']
+    ERadio: (typeof import('@/components'))['ERadio']
+    ERadioGroup: (typeof import('@/components'))['ERadioGroup']
     ETooltip: (typeof import('@/components'))['ETooltip']
     EPopover: (typeof import('@/components'))['EPopover']
     EMenu: (typeof import('@/components'))['EMenu']

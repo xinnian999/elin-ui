@@ -1,6 +1,5 @@
 <template>
-  <p>当前值: {{ value }}</p>
-  <e-select v-model="value" style="width: 250px" multiple :options filterable clearable />
+  <e-select v-model="value" style="width: 250px" multiple :options />
 </template>
 
 <script setup lang="ts">

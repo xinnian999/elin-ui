@@ -1,12 +1,14 @@
 <template>
-  <p>当前值: {{ value }}</p>
   <e-select v-model="value" style="width: 250px" :options filterable />
+  <br />
+  <e-select v-model="value2" multiple style="width: 250px" :options filterable />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
 const value = ref('')
+const value2 = ref('')
 
 const options = [
   { label: '选项一', value: 'value1' },

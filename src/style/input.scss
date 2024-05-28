@@ -5,8 +5,9 @@
   cursor: getVar('input-cursor');
   display: flex;
   align-items: center;
+  overflow: hidden;
 
-  .clear {
+  .clear-bar {
     display: none;
   }
 
@@ -21,8 +22,8 @@
 
   &:hover {
     border-color: getVar('border', 'color', 'darker');
-    .clear {
-      margin-right: 10px;
+    .clear-bar {
+      margin: 0 10px;
       display: block;
     }
   }

@@ -1,6 +1,6 @@
 <template>
-  <div class="clear">
-    <span @click="handleClear"> <IconError class="clear-ico" /></span>
+  <div class="clear-bar">
+    <span @click="handleClear"> <IconError class="clear-bar-ico" /></span>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ watchEffect(() => {
 </script>
 
 <style scoped lang="scss">
-.clear {
+.clear-bar {
   &-ico {
     cursor: pointer;
   }

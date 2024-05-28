@@ -6,7 +6,14 @@
     :class="ns('select-drop')"
     :disabled
   >
-    <div :class="[ns('select'), visible && 'is-focus', disabled && 'is-disabled']" v-bind="$attrs">
+    <div
+      :class="{
+        [ns('select')]: true,
+        'is-focus': visible,
+        'is-disabled': disabled
+      }"
+      v-bind="$attrs"
+    >
       <div
         v-if="(multiple ? !value.length : !value) && !q && !inputIng"
         :class="ns('select-placeholder')"
@@ -33,6 +40,9 @@
           class="filter-input"
           @compositionstart="handleCompositionStart"
           @compositionend="handleCompositionEnd"
+          :style="{
+            marginTop: multiple && value.length && '5px'
+          }"
         />
       </div>
 

@@ -1,0 +1,50 @@
+@include ns(radio) {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: 500;
+  &-box {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    position: relative;
+    border: 1px solid getVar('border', 'color');
+    overflow: hidden;
+
+    &:hover {
+      border-color: getVar('primary', 'color');
+    }
+
+    &.is-checked {
+      border-color: getVar('primary', 'color');
+    }
+
+    &-inner {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      background-color: getVar('primary-color');
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -6px;
+      margin-top: -6px;
+      border-radius: 50%;
+      animation: zoomIn;
+      animation-duration: 0.1s;
+    }
+
+    input {
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+}
+
+@include ns(radio-group) {
+  display: flex;
+  gap: 20px;
+}

@@ -36,10 +36,14 @@
   }
 
   .filter-input {
-    //position: absolute;
-    //left: 10px;
     flex: 1;
     z-index: 10;
+  }
+
+  &.is-multiple {
+    .filter-input {
+      margin-top: 5px;
+    }
   }
 
   &-suffix {
@@ -66,13 +70,13 @@
     cursor: not-allowed;
   }
 
-  .clear {
+  .clear-bar {
     display: none;
   }
 
   &:hover:not(.is-disabled) {
     border-color: getVar('border', 'color', 'darker');
-    .clear {
+    .clear-bar {
       margin: 0 5px;
       display: flex;
       align-items: center;

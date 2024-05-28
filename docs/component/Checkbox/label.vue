@@ -1,5 +1,4 @@
 <template>
-  <p>当前值: {{ value }}</p>
   <e-checkbox v-model="value" label="选项一" value="value1" />
 </template>
 

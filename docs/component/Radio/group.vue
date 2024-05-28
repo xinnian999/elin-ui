@@ -1,11 +1,11 @@
 <template>
-  <e-checkbox-group v-model="value" :options />
+  <e-radio-group v-model="value" :options />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const value = ref([])
+const value = ref('')
 
 const options = [
   { label: '选项一', value: 'value1', disabled: false },
