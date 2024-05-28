@@ -16,7 +16,7 @@ interface Props {
   rules?: Rules
 }
 
-const props = withDefaults(defineProps<Props>(), { rules: {}, data: {} })
+const props = withDefaults(defineProps<Props>(), { rules: () => ({}), data: () => ({}) })
 
 const { ns } = inject($config, $configInit)
 
