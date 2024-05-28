@@ -21,7 +21,7 @@
       @blur="onBlur"
     />
 
-    <Clear v-show="clearable && type !== 'textarea'" v-model="value" />
+    <Clear v-show="clearable && type !== 'textarea' && value" v-model="value" />
 
     <div class="suffix-icon" v-if="($slots.suffix || suffixIcon) && type !== 'textarea'">
       <slot v-if="$slots.suffix" name="suffix" />

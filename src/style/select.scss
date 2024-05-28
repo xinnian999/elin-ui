@@ -73,7 +73,9 @@
   &:hover:not(.is-disabled) {
     border-color: getVar('border', 'color', 'darker');
     .clear {
-      display: block;
+      margin: 0 5px;
+      display: flex;
+      align-items: center;
     }
   }
 }

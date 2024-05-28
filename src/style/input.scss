@@ -22,6 +22,7 @@
   &:hover {
     border-color: getVar('border', 'color', 'darker');
     .clear {
+      margin-right: 10px;
       display: block;
     }
   }
@@ -40,11 +41,11 @@
     // padding: 5px 0 0 10px;
   }
 
-  .prefix-icon{
+  .prefix-icon {
     padding-left: 10px;
   }
 
-  .suffix-icon{
+  .suffix-icon {
     padding-right: 10px;
   }
 }
