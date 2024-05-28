@@ -24,7 +24,11 @@ const val = ref(false)
 
 watch(val, (newValue) => {
   if (newValue) {
-    model.value = props.value
+    return (model.value = props.value)
+  }
+
+  if (!newValue && model.value === props.value) {
+    val.value = true
   }
 })
 
