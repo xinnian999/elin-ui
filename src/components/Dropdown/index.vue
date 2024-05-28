@@ -15,6 +15,7 @@
 </template>
 
 <script setup lang="ts">
+import { EMenu, EPopover } from '@/components'
 import type { Option, Options, TooltipProps } from '@/components/common'
 
 const props = withDefaults(

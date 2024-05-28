@@ -47,6 +47,7 @@ export default defineConfig({
             { text: 'Radio 单选框', link: '/component/Radio/' },
             { text: 'Checkbox 多选框', link: '/component/Checkbox/' },
             { text: 'Select 选择框', link: '/component/Select/' },
+            { text: 'Switch 开关', link: '/component/Switch/' },
             { text: 'ColorPicker 取色器', link: '/component/ColorPicker/' }
           ]
         },

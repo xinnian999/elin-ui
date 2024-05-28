@@ -70,6 +70,7 @@
 
 <script setup lang="tsx">
 import { computed, inject, ref } from 'vue'
+import { ETooltip, EMenu } from '@/components'
 import { IconDropDown, IconChecked } from '@/assets/icons'
 import { $config, $configInit } from '@/config'
 import type { FormItemCommon, Options } from '@/components/common'

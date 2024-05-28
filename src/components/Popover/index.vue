@@ -11,6 +11,7 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 import { $config, $configInit } from '@/config'
+import { ETooltip } from '@/components'
 import type { TooltipProps } from '@/components/common'
 
 withDefaults(defineProps<TooltipProps>(), { placement: 'bottom' })

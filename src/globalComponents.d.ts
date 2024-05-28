@@ -21,6 +21,7 @@ declare module 'vue' {
     EDropdown: (typeof import('@/components'))['EDropdown']
     ETag: (typeof import('@/components'))['ETag']
     ECard: (typeof import('@/components'))['ECard']
+    ESwitch: (typeof import('@/components'))['ESwitch']
   }
 }
 

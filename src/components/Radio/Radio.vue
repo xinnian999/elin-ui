@@ -27,7 +27,7 @@ watch(val, (newValue) => {
     return (model.value = props.value)
   }
 
-  if (!newValue && model.value === props.value) {
+  if (model.value === props.value) {
     val.value = true
   }
 })
