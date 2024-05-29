@@ -45,7 +45,7 @@ import Vaildate from './validate.vue'
 
 ## FormItem API 
 
-###  defineProps
+###  Props
 
 | 属性名   | 说明     | 类型         | 默认值 |
 |-------|--------|------------|-----|
@@ -54,3 +54,9 @@ import Vaildate from './validate.vue'
 | rules | 字段校验规则 | `FormRule` | --  |
 
 
+### Expose
+
+| 属性名   | 说明     | 类型                      |
+|-------|--------|-------------------------|
+| validate | 校验整个表单 | `()=>Promise<void>`     |
+| validateField  | 校验某个字段 | `(name)=>Promise<void>` |
