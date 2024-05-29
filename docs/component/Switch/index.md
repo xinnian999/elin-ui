@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Basic from './basic.vue'
 import Text from './text.vue'
+import Disabled from './disabled.vue'
 
 </script>
 
@@ -23,6 +24,16 @@ import Text from './text.vue'
 ::: details 查看代码
 
 <<< ./text.vue
+
+:::
+
+## 禁用
+
+<Disabled />
+
+::: details 查看代码
+
+<<< ./disabled.vue
 
 :::
 

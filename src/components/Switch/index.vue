@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ [ns('switch')]: true, inlineText, 'is-on': value }">
+  <div :class="{ [ns('switch')]: true, inlineText, 'is-on': value, 'is-disabled': disabled }">
     <span v-if="offText && !inlineText" :class="{ 'off-text': true, 'is-active': !value }">{{
       offText
     }}</span>
@@ -26,6 +26,7 @@ interface Props {
   onValue?: string | number | boolean
   offValue?: string | number | boolean
   inlineText?: boolean
+  disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -48,4 +49,20 @@ watch(value, (newValue) => {
     modelValue.value = offValue
   }
 })
+
+watch(
+  modelValue,
+  (newValue) => {
+    const { onValue, offValue } = props
+
+    if (newValue === onValue) {
+      value.value = true
+    }
+
+    if (newValue === offValue) {
+      value.value = false
+    }
+  },
+  { immediate: true }
+)
 </script>
