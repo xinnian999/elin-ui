@@ -18,9 +18,14 @@ import { $config, $configInit } from '@/config'
 interface Props {
   onText?: string
   offText?: string
+  onValue?: string | number | boolean
+  offValue?: string | number | boolean
 }
 
-withDefaults(defineProps<Props>(), {})
+const props = withDefaults(defineProps<Props>(), {
+  onValue: true,
+  offValue: false
+})
 
 const { ns } = inject($config, $configInit)
 
@@ -29,6 +34,12 @@ const modelValue = defineModel()
 const value = ref(false)
 
 watch(value, (newValue) => {
-  modelValue.value = newValue
+  const { onValue, offValue } = props
+
+  if (newValue) {
+    modelValue.value = onValue
+  } else {
+    modelValue.value = offValue
+  }
 })
 </script>
