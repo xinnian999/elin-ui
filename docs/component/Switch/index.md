@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Basic from './basic.vue'
+import Text from './text.vue'
 
 </script>
 
@@ -16,5 +17,16 @@ import Basic from './basic.vue'
 ::: details 查看代码
 
 <<< ./basic.vue
+
+:::
+
+## 文字描述
+
+<Text />
+
+
+::: details 查看代码
+
+<<< ./text.vue
 
 :::

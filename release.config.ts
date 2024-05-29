@@ -17,7 +17,7 @@ export default defineConfig({
       include: ['src/**/*', 'src/**/*.vue'],
       pathsToAliases: true
     }),
-    generateGlobalTs()
+    (generateGlobalTs as any)()
   ],
   resolve: {
     alias: {

@@ -1,4 +1,7 @@
 @include ns(switch) {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
   &-inner {
     font-size: 12px;
     position: relative;
@@ -16,7 +19,7 @@
       position: absolute;
       cursor: pointer;
       inset: 0;
-      background: getVar('primary-color-3');
+      background: getVar('primary-color-5');
       border-radius: 50px;
       transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
     }
@@ -48,5 +51,16 @@
       height: 2em;
       bottom: 0;
     }
+  }
+
+  .off-text,
+  .on-text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .on-text.is-active,
+  .off-text.is-active {
+    color: getVar('primary-color');
   }
 }
