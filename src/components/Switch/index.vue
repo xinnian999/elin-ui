@@ -1,13 +1,18 @@
 <template>
-  <div :class="{ [ns('switch')]: true }">
-    <span v-if="offText" :class="{ 'off-text': true, 'is-active': !value }">{{ offText }}</span>
+  <div :class="{ [ns('switch')]: true, inlineText, 'is-on': value }">
+    <span v-if="offText && !inlineText" :class="{ 'off-text': true, 'is-active': !value }">{{
+      offText
+    }}</span>
 
     <label :class="ns('switch-inner')">
+      <span class="inline-text" v-if="inlineText">{{ value ? onText : offText }}</span>
       <input type="checkbox" v-model="value" />
       <span class="slider"></span>
     </label>
 
-    <span v-if="onText" :class="{ 'on-text': true, 'is-active': value }">{{ onText }}</span>
+    <span v-if="onText && !inlineText" :class="{ 'on-text': true, 'is-active': value }">{{
+      onText
+    }}</span>
   </div>
 </template>
 
@@ -20,6 +25,7 @@ interface Props {
   offText?: string
   onValue?: string | number | boolean
   offValue?: string | number | boolean
+  inlineText?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {

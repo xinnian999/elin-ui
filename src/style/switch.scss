@@ -2,12 +2,23 @@
   display: inline-flex;
   gap: 10px;
   align-items: center;
+  position: relative;
+
   &-inner {
     font-size: 12px;
     position: relative;
     display: inline-block;
-    width: 3.5em;
+    min-width: 3.5em;
     height: 2em;
+
+    .inline-text {
+      z-index: 10;
+      position: relative;
+      padding: 0 5px 0 25px;
+      color: #fff;
+      user-select: none;
+      cursor: pointer;
+    }
 
     input {
       opacity: 0;
@@ -50,6 +61,8 @@
       width: 2em;
       height: 2em;
       bottom: 0;
+      right: 1.2em;
+      left: auto;
     }
   }
 
@@ -62,5 +75,11 @@
   .on-text.is-active,
   .off-text.is-active {
     color: getVar('primary-color');
+  }
+
+  &.is-on {
+    .inline-text {
+      padding: 0 18px 0 10px;
+    }
   }
 }

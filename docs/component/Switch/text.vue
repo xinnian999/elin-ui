@@ -1,4 +1,7 @@
 <template>
+  <e-switch v-model="flag" on-text="打开" off-text="关闭" inline-text />
+  <br />
+  <br />
   <e-switch v-model="flag" on-text="打开" off-text="关闭" />
 </template>
 
