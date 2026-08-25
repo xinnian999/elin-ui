@@ -1,6 +1,8 @@
 # Elin UI
 
-一个清爽、轻量的 Vue 3 + TypeScript 组件库，包含 18 个常用界面组件。
+一个清爽、轻量的 Vue 3 + TypeScript 组件库，包含 25 个常用界面组件。
+
+内置 300+ 个 SVG 图标；线性图标来自 [Lucide](https://lucide.dev)，使用 ISC License。
 
 [前往在线文档](https://ui.elin521.cn/)
 
@@ -36,7 +38,6 @@ pnpm dev
 生产环境由 GitHub Actions 发布到 Cloudflare Workers。只有推送 `v*` Tag 才会触发：
 
 ```bash
-git tag v1.1.0
-git push origin v1.1.0
+git tag v1.2.0
+git push origin v1.2.0
 ```
-

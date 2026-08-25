@@ -22,6 +22,13 @@ declare module '@vue/runtime-core' {
     ETag: (typeof import('elin-ui'))['ETag']
     ECard: (typeof import('elin-ui'))['ECard']
     ESwitch: (typeof import('elin-ui'))['ESwitch']
+    EAvatar: (typeof import('elin-ui'))['EAvatar']
+    EBadge: (typeof import('elin-ui'))['EBadge']
+    EDivider: (typeof import('elin-ui'))['EDivider']
+    EAlert: (typeof import('elin-ui'))['EAlert']
+    EProgress: (typeof import('elin-ui'))['EProgress']
+    EEmpty: (typeof import('elin-ui'))['EEmpty']
+    ESkeleton: (typeof import('elin-ui'))['ESkeleton']
   }
 }
 

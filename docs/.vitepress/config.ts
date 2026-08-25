@@ -14,7 +14,7 @@ export default defineConfig({
       'meta',
       {
         property: 'og:description',
-        content: '18 个开箱即用的 Vue 3 基础、表单、数据与反馈组件。'
+        content: '25 个开箱即用的 Vue 3 基础、表单、数据与反馈组件。'
       }
     ]
   ],
@@ -48,7 +48,8 @@ export default defineConfig({
           items: [
             { text: 'Button 按钮', link: `/component/Button/` },
             { text: 'Icon 图标', link: `/component/Icon/` },
-            { text: 'Space 间距', link: '/component/Space/' }
+            { text: 'Space 间距', link: '/component/Space/' },
+            { text: 'Divider 分割线', link: '/component/Divider/' }
           ]
         },
         {
@@ -69,13 +70,19 @@ export default defineConfig({
             { text: 'Table 表格', link: '/component/Table/' },
             { text: 'List 列表', link: '/component/List/' },
             { text: 'Tag 标签', link: '/component/Tag/' },
-            { text: 'Card 卡片', link: '/component/Card/' }
+            { text: 'Card 卡片', link: '/component/Card/' },
+            { text: 'Avatar 头像', link: '/component/Avatar/' },
+            { text: 'Badge 徽标', link: '/component/Badge/' },
+            { text: 'Progress 进度条', link: '/component/Progress/' },
+            { text: 'Empty 空状态', link: '/component/Empty/' },
+            { text: 'Skeleton 骨架屏', link: '/component/Skeleton/' }
           ]
         },
         {
           text: '反馈组件',
           items: [
             { text: 'Dialog 对话框', link: '/component/Dialog/' },
+            { text: 'Alert 警告提示', link: '/component/Alert/' },
             { text: 'Message 提示消息', link: '/component/Message/' },
             { text: 'Tooltip 文字提示', link: '/component/Tooltip/' },
             { text: 'Popover 悬浮气泡', link: '/component/Popover/' }

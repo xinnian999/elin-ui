@@ -1,0 +1,31 @@
+@include ns(empty) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 20px;
+  text-align: center;
+
+  &-image {
+    max-width: 100%;
+    color: getVar('border-color-darker');
+    svg {
+      display: block;
+      width: 100%;
+      fill: getVar('fill-color-light');
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2;
+    }
+  }
+  &-description {
+    margin-top: 14px;
+    color: getVar('text-color', 'placeholder');
+    font-size: 14px;
+    line-height: 22px;
+  }
+  &-action {
+    margin-top: 18px;
+  }
+}

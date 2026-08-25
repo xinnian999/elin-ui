@@ -1,0 +1,59 @@
+@mixin badge-type($type) {
+  background-color: getVar($type, 'color');
+}
+
+@include ns(badge) {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+
+  &-content {
+    @include badge-type(danger);
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    transform: translate(50%, -50%);
+    border: 2px solid getVar('bg-color');
+    border-radius: 10px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 14px;
+    text-align: center;
+    white-space: nowrap;
+
+    &.is-dot {
+      width: 10px;
+      min-width: 10px;
+      height: 10px;
+      padding: 0;
+    }
+    &.is-standalone {
+      position: relative;
+      transform: none;
+      top: auto;
+      right: auto;
+    }
+  }
+
+  &-primary {
+    @include badge-type(primary);
+  }
+  &-success {
+    @include badge-type(success);
+  }
+  &-info {
+    @include badge-type(info);
+  }
+  &-warning {
+    @include badge-type(warning);
+  }
+  &-danger {
+    @include badge-type(danger);
+  }
+}

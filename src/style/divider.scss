@@ -1,0 +1,48 @@
+@include ns(divider) {
+  position: relative;
+  box-sizing: border-box;
+  color: getVar('text-color', 'regular');
+  font-size: getVar('font-size-base');
+
+  &-horizontal {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 24px 0;
+    border-top: 1px solid getVar('border-color');
+
+    &.is-dashed {
+      border-top-style: dashed;
+    }
+  }
+
+  &-vertical {
+    display: inline-block;
+    height: 1em;
+    margin: 0 10px;
+    border-left: 1px solid getVar('border-color');
+    vertical-align: middle;
+
+    &.is-dashed {
+      border-left-style: dashed;
+    }
+  }
+
+  &-text {
+    position: absolute;
+    padding: 0 14px;
+    background: getVar('bg-color');
+    white-space: nowrap;
+  }
+
+  &-center .#{$namespace}-divider-text {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &-left .#{$namespace}-divider-text {
+    left: 24px;
+  }
+  &-right .#{$namespace}-divider-text {
+    right: 24px;
+  }
+}

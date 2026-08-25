@@ -5,7 +5,7 @@ layout: home
 hero:
   name: 'Elin UI'
   text: '让 Vue 3 界面，轻一点。'
-  tagline: 18 个开箱即用的基础、表单、数据与反馈组件，一套清爽克制的交互语言。
+  tagline: 25 个开箱即用的基础、表单、数据与反馈组件，一套清爽克制的交互语言。
   actions:
     - theme: brand
       text: 5 分钟上手

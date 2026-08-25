@@ -22,6 +22,13 @@ declare module 'vue' {
     ETag: (typeof import('@/components'))['ETag']
     ECard: (typeof import('@/components'))['ECard']
     ESwitch: (typeof import('@/components'))['ESwitch']
+    EAvatar: (typeof import('@/components'))['EAvatar']
+    EBadge: (typeof import('@/components'))['EBadge']
+    EDivider: (typeof import('@/components'))['EDivider']
+    EAlert: (typeof import('@/components'))['EAlert']
+    EProgress: (typeof import('@/components'))['EProgress']
+    EEmpty: (typeof import('@/components'))['EEmpty']
+    ESkeleton: (typeof import('@/components'))['ESkeleton']
   }
 }
 

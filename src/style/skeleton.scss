@@ -1,0 +1,55 @@
+@include ns(skeleton) {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+
+  &-content {
+    flex: 1;
+    min-width: 0;
+  }
+  &-item,
+  &-avatar {
+    background: getVar('fill-color');
+  }
+  &-avatar {
+    flex: none;
+    width: 44px;
+    height: 44px;
+  }
+  &-avatar-circle {
+    border-radius: 50%;
+  }
+  &-avatar-square {
+    border-radius: getVar('border', 'radius');
+  }
+  &-item {
+    height: 14px;
+    border-radius: 4px;
+  }
+  &-title {
+    width: 38%;
+    height: 18px;
+    margin-bottom: 18px;
+  }
+  &-row + &-row {
+    margin-top: 12px;
+  }
+
+  &.is-animated &-item,
+  &.is-animated &-avatar {
+    background: linear-gradient(
+      90deg,
+      getVar('fill-color') 25%,
+      getVar('fill-color-light') 37%,
+      getVar('fill-color') 63%
+    );
+    background-size: 400% 100%;
+    animation: elin-skeleton-loading 1.4s ease infinite;
+  }
+}
+
+@keyframes elin-skeleton-loading {
+  to {
+    background-position: -100% 0;
+  }
+}
