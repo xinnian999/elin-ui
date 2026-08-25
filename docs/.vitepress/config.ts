@@ -6,7 +6,7 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'Elin UI',
   description: '一个清爽、轻量的 Vue 3 + TypeScript 组件库',
-  base: '/elin-ui/',
+  base: '/',
   head: [
     ['meta', { name: 'theme-color', content: '#165dff' }],
     ['meta', { property: 'og:title', content: 'Elin UI · 让 Vue 3 界面，轻一点' }],

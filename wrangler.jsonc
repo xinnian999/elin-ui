@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "elin-ui",
+  "account_id": "953d1d84384c200238a931b84ec871e3",
+  "compatibility_date": "2026-08-25",
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "ui.elin521.cn",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./docs/.vitepress/dist",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

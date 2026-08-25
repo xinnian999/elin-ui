@@ -2,7 +2,7 @@
 
 一个清爽、轻量的 Vue 3 + TypeScript 组件库，包含 18 个常用界面组件。
 
-[前往在线文档](https://xinnian999.github.io/elin-ui/)
+[前往在线文档](https://ui.elin521.cn/)
 
 ## 使用方法
 
@@ -31,4 +31,12 @@ pnpm dev
 
 运行 `pnpm check` 可依次验证类型、测试、文档构建和组件库打包。
 
+## 发布
+
+生产环境由 GitHub Actions 发布到 Cloudflare Workers。只有推送 `v*` Tag 才会触发：
+
+```bash
+git tag v1.1.0
+git push origin v1.1.0
+```
 
