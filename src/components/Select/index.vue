@@ -93,7 +93,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 const { ns } = inject($config, $configInit)!
 
-const value = defineModel()
+const value = defineModel<any>({ default: '' })
 
 const q = ref('')
 
@@ -115,16 +115,16 @@ const ifClear = computed(() => {
 const currentOptions = computed(() => {
   const { options, labelKey } = props
   if (q.value) {
-    return options.filter((item) => item[labelKey].includes(q.value))
+    return options.filter((item) => String(item[labelKey]).includes(q.value))
   }
   return options
 })
 
-const handleClose = (val) => {
-  value.value = value.value.filter((item) => item !== val)
+const handleClose = (val: string | number) => {
+  value.value = value.value.filter((item: string | number) => item !== val)
 }
 
-const renderLabel = ({ label, value: val }) => {
+const renderLabel = ({ label, value: val }: { label: string; value: string | number }) => {
   let checked = false
   if (props.multiple) {
     checked = value.value.includes(val)

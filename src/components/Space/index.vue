@@ -11,11 +11,11 @@ import type { Direction } from '@/components/common'
 
 const props = withDefaults(
   defineProps<{
-    direction: Direction
-    wrap: boolean
-    gap: number
+    direction?: Direction
+    wrap?: boolean
+    gap?: number
   }>(),
-  { direction: 'horizontal', gap: 20 }
+  { direction: 'horizontal', wrap: false, gap: 20 }
 )
 
 const { ns } = inject($config, $configInit)!

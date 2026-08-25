@@ -2,7 +2,7 @@ export type anyObject = { [key: string]: any }
 
 export type StatusType = 'primary' | 'success' | 'info' | 'warning' | 'danger'
 
-export type Option = { label: string; value: string; [key: string]: number | string }
+export type Option = { label: string; value: string | number; [key: string]: any }
 
 export type Options = Option[]
 

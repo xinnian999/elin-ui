@@ -5,12 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref } from 'vue'
 import { IconEdit, IconSearch } from 'elin-ui'
 
 const value = ref('')
 
-watchEffect(() => {
-  console.log(value.value)
-})
 </script>

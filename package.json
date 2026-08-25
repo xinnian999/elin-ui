@@ -1,11 +1,28 @@
 {
   "name": "elin-ui",
   "version": "1.0.0",
+  "packageManager": "pnpm@8.15.9",
+  "engines": {
+    "node": ">=20"
+  },
   "private": false,
   "type": "module",
-  "main": "./dist/elin-ui.js",
+  "main": "./dist/elin-ui.umd.cjs",
   "module": "./dist/elin-ui.js",
   "types": "./dist/elin-ui.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/elin-ui.d.ts",
+      "import": "./dist/elin-ui.js",
+      "require": "./dist/elin-ui.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css",
+    "./global": "./global.d.ts"
+  },
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss"
+  ],
   "files": [
     "dist",
     "global.d.ts"
@@ -14,7 +31,8 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "preview": "vitepress preview docs",
-    "type-check": "vue-tsc --build --force",
+    "type-check": "vue-tsc --noEmit --allowJs",
+    "check": "pnpm type-check && pnpm test -- --run && pnpm build && pnpm release",
     "release": "vite build --config release.config.ts",
     "test": "vitest",
     "dev-web": "vite"

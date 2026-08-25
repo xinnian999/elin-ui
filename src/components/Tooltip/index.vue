@@ -40,7 +40,7 @@ const reference = ref()
 const referenceSlot = computed(() => reference.value?.children[0])
 const floating = ref()
 
-const visible = defineModel()
+const visible = defineModel<boolean>({ default: false })
 
 const triggerName = computed(() => {
   return props.trigger === 'hover' ? 'mousemove' : 'click'
@@ -74,39 +74,36 @@ const dismiss = _.debounce((event: MouseEvent) => {
   }
 }, 50)
 
-const resizeObserver = new ResizeObserver(() => {
-  if (visible.value) {
-    updatePosition()
-  }
-})
+let resizeObserver: ResizeObserver | undefined
+
+const handleViewportChange = () => {
+  if (visible.value) updatePosition()
+}
 
 watch(visible, (newValue) => {
   if (newValue) {
     nextTick(() => {
       updatePosition()
-      // 这里注意应该还要做一下debounce的处理
-      window.onresize = function () {
-        updatePosition()
-      }
-      window.onscroll = function () {
-        updatePosition()
-      }
     })
-  } else {
-    window.onresize = null
-    window.onscroll = null
   }
 })
 
 onMounted(() => {
   window.addEventListener(triggerName.value, dismiss)
+  window.addEventListener('resize', handleViewportChange)
+  window.addEventListener('scroll', handleViewportChange, true)
 
-  resizeObserver.observe(referenceSlot.value)
+  if (typeof ResizeObserver !== 'undefined') {
+    resizeObserver = new ResizeObserver(handleViewportChange)
+    if (referenceSlot.value) resizeObserver.observe(referenceSlot.value)
+  }
 })
 
 onUnmounted(() => {
   window.removeEventListener(triggerName.value, dismiss)
+  window.removeEventListener('resize', handleViewportChange)
+  window.removeEventListener('scroll', handleViewportChange, true)
 
-  resizeObserver.disconnect()
+  resizeObserver?.disconnect()
 })
 </script>

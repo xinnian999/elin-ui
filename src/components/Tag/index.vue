@@ -19,7 +19,7 @@ const props = withDefaults(
 )
 
 const emits = defineEmits<{
-  close: [e: Event]
+  close: [e?: Event]
 }>()
 
 const { ns } = inject($config, $configInit)

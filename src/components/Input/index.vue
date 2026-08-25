@@ -53,8 +53,8 @@ const { validate } = inject($formItem, $formItemInit)
 
 const value = defineModel()
 
-const oninput = (e) => {
-  value.value = e.target.value
+const oninput = (e: Event) => {
+  value.value = (e.target as HTMLInputElement).value
 }
 
 const onFocus = () => {}

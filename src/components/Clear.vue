@@ -6,7 +6,6 @@
 
 <script setup lang="ts">
 import { IconError } from '@/assets/icons'
-import { watchEffect } from 'vue'
 import _ from 'lodash'
 
 const model = defineModel()
@@ -19,9 +18,6 @@ const handleClear = () => {
   }
 }
 
-watchEffect(() => {
-  console.log(model.value)
-})
 </script>
 
 <style scoped lang="scss">

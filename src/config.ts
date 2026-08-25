@@ -1,4 +1,5 @@
-import type { InjectionKey } from 'vue'
+import type { InjectionKey, Ref } from 'vue'
+import type { Rules, ValidateError } from 'async-validator'
 
 //全局配置
 export type $Config = {
@@ -22,3 +23,12 @@ export const $formItem = Symbol('$formItem') as InjectionKey<$FormItem>
 export const $formItemInit: $FormItem = {
   validate: () => {}
 }
+
+export type $Form = {
+  errors: Ref<ValidateError[]>
+  rules: Ref<Rules>
+  setRules: (rules: Rules) => void
+  validateField: (name: string) => Promise<string>
+}
+
+export const $form = Symbol('$form') as InjectionKey<$Form>

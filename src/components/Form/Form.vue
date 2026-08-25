@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import type { anyObject } from '@/components/common'
 import { inject, provide, ref } from 'vue'
-import { $config, $configInit } from '@/config'
-import AsyncValidator, { type Rules } from 'async-validator'
+import { $config, $configInit, $form } from '@/config'
+import AsyncValidator, { type Rules, type ValidateError } from 'async-validator'
 import _ from 'lodash'
 
 interface Props {
@@ -22,12 +22,12 @@ const { ns } = inject($config, $configInit)
 
 const currentRules = ref(props.rules)
 
-const errors = ref([])
+const errors = ref<ValidateError[]>([])
 
 const validate = () => {
   const validator = new AsyncValidator(currentRules.value)
 
-  return new Promise((resolve, reject) => {
+  return new Promise<string>((resolve, reject) => {
     validator.validate(props.data, (errs) => {
       if (errs) {
         errors.value = errs
@@ -40,10 +40,10 @@ const validate = () => {
   })
 }
 
-const validateField = (name) => {
+const validateField = (name: string) => {
   const validator = new AsyncValidator(_.pick(currentRules.value, [name]))
 
-  return new Promise((resolve, reject) => {
+  return new Promise<string>((resolve, reject) => {
     validator.validate(props.data, (errs) => {
       if (errs) {
         errors.value = [...errors.value, ...errs]
@@ -55,10 +55,10 @@ const validateField = (name) => {
   })
 }
 
-provide('$form', {
+provide($form, {
   errors,
   rules: currentRules,
-  setRules: (rules) => {
+  setRules: (rules: Rules) => {
     currentRules.value = { ...currentRules.value, ...rules }
   },
   validateField

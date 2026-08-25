@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref } from 'vue'
 
 const value = ref('')
 
@@ -13,7 +13,4 @@ const options = [
   { label: '选项三', value: 'value3', disabled: false }
 ]
 
-watchEffect(() => {
-  console.log(value.value)
-})
 </script>

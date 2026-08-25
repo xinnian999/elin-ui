@@ -17,9 +17,9 @@ app.use(ElinDesign)
 app.mount('#app')
 ```
 
-## TypeScript类型支持
+## TypeScript 类型支持
 
-组件库完整导入后，请在 tsconfig.json 中通过 compilerOptions.type 指定全局组件类型。
+组件库完整导入后，请在 `tsconfig.json` 中通过 `compilerOptions.types` 指定全局组件类型。
 
 ```json
 // tsconfig.json

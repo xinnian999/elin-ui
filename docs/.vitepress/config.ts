@@ -3,9 +3,21 @@ import { fileURLToPath, URL } from 'node:url'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 
 export default defineConfig({
-  title: 'Elin-UI',
-  description: '一个有趣的vue3组件库',
+  lang: 'zh-CN',
+  title: 'Elin UI',
+  description: '一个清爽、轻量的 Vue 3 + TypeScript 组件库',
   base: '/elin-ui/',
+  head: [
+    ['meta', { name: 'theme-color', content: '#165dff' }],
+    ['meta', { property: 'og:title', content: 'Elin UI · 让 Vue 3 界面，轻一点' }],
+    [
+      'meta',
+      {
+        property: 'og:description',
+        content: '18 个开箱即用的 Vue 3 基础、表单、数据与反馈组件。'
+      }
+    ]
+  ],
   vite: {
     resolve: {
       alias: {

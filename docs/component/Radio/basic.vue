@@ -3,11 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref } from 'vue'
 
 const value = ref(false)
 
-watchEffect(() => {
-  console.log(value.value)
-})
 </script>
